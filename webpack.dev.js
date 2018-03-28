@@ -20,7 +20,6 @@ module.exports = merge(common, {
     hotOnly: true,
     host: '0.0.0.0',
     inline: true,
-    historyApiFallback: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
