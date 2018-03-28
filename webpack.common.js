@@ -1,5 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 module.exports = {
