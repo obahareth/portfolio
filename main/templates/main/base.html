@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load render_bundle from webpack_loader %}
 
 <!DOCTYPE html>
 <html lang="en-AU">
@@ -10,6 +10,9 @@
 
     {% endblock %}
 
+    {% render_bundle "vendor" "css" %}
+    {% render_bundle "common" "css" %}
+
     {% block assets_header %}
 
     {% endblock %}
@@ -20,6 +23,9 @@
 
       {% endblock %}
     </main>
+
+    {% render_bundle "vendor" "js" %}
+    {% render_bundle "common" "js" %}
 
     {% block assets_footer %}
 

@@ -1,5 +1,15 @@
 {% extends "main/base.html" %}
 
+{% load render_bundle from webpack_loader %}
+
+{% block assets_header %}
+  {% render_bundle "homePage" "css" %}
+{% endblock %}
+
 {% block page_content %}
   Home page
+{% endblock %}
+
+{% block assets_footer %}
+  {% render_bundle "homePage" "js" %}
 {% endblock %}
