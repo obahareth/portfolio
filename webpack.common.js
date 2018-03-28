@@ -33,17 +33,22 @@ module.exports = {
     rules: [
       {
         test: /\.js?$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              plugins: ['transform-runtime'],
+              presets: ['env'],
+            },
+          },
+          'eslint-loader',
+        ],
         include: [
           path.resolve('./assets'),
         ],
         exclude: [
           path.resolve('./node_modules'),
         ],
-        query: {
-          plugins: ['transform-runtime'],
-          presets: ['env'],
-        },
       },
       {
         test: /\.scss$/,
