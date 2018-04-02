@@ -28,6 +28,7 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: 'assets/fonts', to: 'fonts' },
       { from: 'assets/img', to: 'img' },
+      { from: 'assets/svg', to: 'svg' },
     ]),
     new StyleLintPlugin(),
   ],
@@ -75,7 +76,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
             loader: 'url-loader',
