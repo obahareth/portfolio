@@ -7,7 +7,8 @@
   "scripts": {
     "dev-server": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "lint": "eslint assets/js"
+    "lint-js": "eslint assets/js",
+    "lint-scss": "stylelint assets/scss"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -25,6 +26,10 @@
     "node-sass": "^4.8.3",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
+    "stylelint": "^9.2.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-scss": "^3.0.0",
+    "stylelint-webpack-plugin": "^0.10.4",
     "url-loader": "^1.0.1",
     "webpack": "^4.3.0",
     "webpack-bundle-tracker": "^0.3.0",

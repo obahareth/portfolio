@@ -1,6 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -28,6 +29,7 @@ module.exports = {
       { from: 'assets/fonts', to: 'fonts' },
       { from: 'assets/img', to: 'img' },
     ]),
+    new StyleLintPlugin(),
   ],
   module: {
     rules: [
