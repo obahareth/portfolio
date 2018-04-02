@@ -1,0 +1,39 @@
+// Custom vars
+$font-weight-medium: 500;
+
+$section-padding-vertical: 80px;
+$section-padding-vertical-xl: 150px;
+
+$transition-styles-speed: .1s;
+$transition-styles:
+  color $transition-styles-speed ease-in-out,
+  background-color $transition-styles-speed ease-in-out,
+  border-color $transition-styles-speed ease-in-out,
+  box-shadow $transition-styles-speed ease-in-out;
+
+// Bootstrap variable overrides
+$font-family-sans-serif: 'Ubuntu', sans-serif;
+$font-size-base: 1.1rem;
+$headings-font-weight: 700;
+$line-height-base: 2.5;
+$btn-transition: $transition-styles;
+
+$btn-font-weight: $font-weight-medium;
+$btn-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .5);
+
+$grid-gutter-width: 40px;
+
+$input-btn-padding-y: 0;
+
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+// Colours
+$indigo: #7a65e3;
+$orange: #ff7e33;
+$primary: $indigo;
+$secondary: $orange;
+$light: rgba(#cbcfe6, 0.65);
+$body-color: $gray-700;
+$headings-color: $gray-900;

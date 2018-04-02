@@ -1,1 +1,53 @@
-@import 'vars.scss';
+@import 'vars';
+
+// Typography
+
+a {
+  font-weight: 500;
+  transition: color .05s ease-in-out;
+}
+
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
+.btn {
+  box-shadow: $btn-box-shadow;
+
+  &-primary,
+  &-secondary {
+    color: $white;
+  }
+
+  .fas,
+  svg {
+    margin-right: .3rem;
+  }
+}
+
+
+// Icons
+
+.material-icons {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+
+// Layout
+
+section.gray {
+  background-color: $gray-100;
+}
+
+section {
+  &.section {
+    &--padding {
+      padding: $section-padding-vertical 0;
+    }
+
+    &--padding-xl {
+      padding: $section-padding-vertical-xl 0;
+    }
+  }
+}
