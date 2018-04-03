@@ -3,7 +3,7 @@
 // Typography
 
 a {
-  font-weight: 500;
+  font-weight: $font-weight-bold;
   transition: color .05s ease-in-out;
 }
 
@@ -23,14 +23,6 @@ a {
   svg {
     margin-right: .3rem;
   }
-}
-
-
-// Icons
-
-.material-icons {
-  font-size: 1.2em;
-  vertical-align: middle;
 }
 
 

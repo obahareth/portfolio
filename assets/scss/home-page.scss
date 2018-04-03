@@ -9,6 +9,7 @@
 
   a {
     color: $white;
+    font-weight: $font-weight-medium;
     transition: $transition-styles;
 
     &:hover {
@@ -27,9 +28,15 @@
   }
 }
 
+footer {
+  background-color: $section-dark-bg;
+  color: $white;
+  padding: $section-padding-vertical-sm 0;
+}
+
 section {
   &#main {
-    background-color: #111026;
+    background-color: $section-dark-bg;
     background-image: url('../svg/lattice.svg');
     background-size: cover;
     background-position: center;
@@ -60,7 +67,7 @@ section {
         text-shadow: 0 1px 1px rgba($body-color, .3);
 
         &__avatar {
-          $colour: $primary;
+          $colour: $secondary;
 
           border: 4px solid $colour;
           box-shadow:
@@ -80,7 +87,7 @@ section {
             background-color: rgba($white, .15);
             border: 1px solid rgba($border-color, .15);
             border-radius: 100%;
-            color: $white;
+            color: $gray-400;
             display: inline-block;
             height: $size;
             width: $size;
