@@ -1,4 +1,5 @@
 @import 'vars';
+@import 'mixins';
 
 // Typography
 
@@ -28,18 +29,61 @@ a {
 
 // Layout
 
-section.gray {
-  background-color: $gray-100;
-}
-
 section {
+  @include headings-colour($gray-900);
+
+  .section__main-title {
+    &__index {
+      color: $primary;
+    }
+  }
+
   &.section {
+    &--gray {
+      color: $gray-700;
+      background-color: $gray-100;
+    }
+
+    &--bg-lattice,
+    &--bg-stars {
+      background-color: $section-dark-bg;
+      background-position: center;
+      box-shadow: inset 0px 0px 20px 2px $black;
+      color: $gray-300;
+      font-weight: $font-weight-medium;
+      text-shadow: 0px 1px 3px rgba($black, 1);
+
+      .section__main-title {
+        color: $white;
+
+        &__index {
+          color: $primary;
+        }
+      }
+
+      @include headings-colour($primary);
+    }
+
+    &--bg-lattice {
+      background-image: url('../svg/lattice.svg');
+      background-size: cover;
+    }
+
+    &--bg-stars {
+      background-image: url('../svg/stars.svg');
+      background-size: auto auto;
+    }
+
     &--padding {
       padding: $section-padding-vertical 0;
     }
 
     &--padding-xl {
       padding: $section-padding-vertical-xl 0;
+    }
+
+    &--rounded-top-padding {
+      padding-top: $section-padding-vertical - 57px;
     }
   }
 }

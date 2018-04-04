@@ -36,11 +36,6 @@ footer {
 
 section {
   &#main {
-    background-color: $section-dark-bg;
-    background-image: url('../svg/lattice.svg');
-    background-size: cover;
-    background-position: center;
-    box-shadow: inset 0px 0px 5px 2px rgba(0, 0, 0, .5);
     position: relative;
     padding-bottom: $section-padding-vertical + 58px;
     padding-top: $section-padding-vertical + 82.5px;
@@ -64,20 +59,15 @@ section {
     .container {
       .intro {
         max-width: 720px;
-        text-shadow: 0 1px 1px rgba($body-color, .3);
 
         &__avatar {
-          $colour: $secondary;
+          $colour: $primary;
 
-          border: 4px solid $colour;
+          border: 4px solid rgba($colour, 1);
           box-shadow:
             0 0 1px 11px rgba($colour, .15),
             0 0 1px 22px rgba($colour, .1);
           max-width: 170px;
-        }
-
-        &__title {
-          color: $white;
         }
 
         &__social-links {
@@ -109,24 +99,18 @@ section {
     }
   }
 
-  &#work {
-    section:first-of-type {
-      padding-top: $section-padding-vertical - 58px;
-    }
+  .trait {
+    margin-top: 2rem;
 
-    .trait {
-      margin-top: 2rem;
+    &__skills {
+      font-size: $font-size-sm;
 
-      &__skills {
-        font-size: $font-size-sm;
-
-        li {
-          code {
-            background-color: $white;
-            border: 1px solid $border-color;
-            border-radius: $border-radius;
-            padding: .3rem;
-          }
+      li {
+        code {
+          background-color: $white;
+          border: 1px solid $border-color;
+          border-radius: $border-radius;
+          padding: .3rem;
         }
       }
     }

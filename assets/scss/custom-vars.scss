@@ -1,8 +1,16 @@
 // Custom vars
 $font-weight-medium: 500;
 
-$section-dark-bg: #111026;
-$section-padding-vertical: 80px;
+$section-dark-bg: #160130;
+// #130E29
+// #140A33
+// #FF0095
+// #B30D78
+// #280E76
+// #0F0E52
+// #171522
+// #351498
+$section-padding-vertical: 85px;
 $section-padding-vertical-sm: 30px;
 $section-padding-vertical-xl: 150px;
 
@@ -38,11 +46,7 @@ $gray-800: #343a40;
 $gray-900: #212529;
 
 // Colours
+$white: #fff;
 $indigo: #7a65e3;
 $orange: #ff7e33;
 $primary: $orange;
-$secondary: $indigo;
-$light: rgba(#cbcfe6, 0.65);
-$body-color: $gray-700;
-$headings-color: $gray-900;
-// $link-color: $secondary;
