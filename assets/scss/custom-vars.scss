@@ -2,17 +2,8 @@
 $font-weight-medium: 500;
 
 $section-dark-bg: #160130;
-// #130E29
-// #140A33
-// #FF0095
-// #B30D78
-// #280E76
-// #0F0E52
-// #171522
-// #351498
-$section-padding-vertical: 85px;
-$section-padding-vertical-sm: 30px;
-$section-padding-vertical-xl: 150px;
+$section-padding-vertical: 6rem;
+$section-padding-vertical-sm: 2rem;
 
 $transition-styles-speed: .1s;
 $transition-styles:
@@ -20,6 +11,12 @@ $transition-styles:
   background-color $transition-styles-speed ease-in-out,
   border-color $transition-styles-speed ease-in-out,
   box-shadow $transition-styles-speed ease-in-out;
+
+
+// Element specs
+
+$round-edge-height: 58px;
+
 
 // Bootstrap variable overrides
 $font-family-sans-serif: 'Ubuntu', sans-serif;

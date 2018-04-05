@@ -32,9 +32,17 @@ a {
 section {
   @include headings-colour($gray-900);
 
-  .section__main-title {
-    &__index {
-      color: $primary;
+  .section__intro {
+    margin-bottom: map-get($spacers, 5);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 800px;
+
+    &__title {
+      &__index {
+        color: $primary;
+      }
     }
   }
 
@@ -44,16 +52,17 @@ section {
       background-color: $gray-100;
     }
 
-    &--bg-lattice,
     &--bg-stars {
       background-color: $section-dark-bg;
       background-position: center;
+      background-image: url('../svg/stars.svg');
+      background-size: auto auto;
       box-shadow: inset 0px 0px 20px 2px $black;
       color: $gray-300;
       font-weight: $font-weight-medium;
       text-shadow: 0px 1px 3px rgba($black, 1);
 
-      .section__main-title {
+      .section__intro__title {
         color: $white;
 
         &__index {
@@ -64,26 +73,12 @@ section {
       @include headings-colour($primary);
     }
 
-    &--bg-lattice {
-      background-image: url('../svg/lattice.svg');
-      background-size: cover;
-    }
-
-    &--bg-stars {
-      background-image: url('../svg/stars.svg');
-      background-size: auto auto;
-    }
-
     &--padding {
       padding: $section-padding-vertical 0;
-    }
 
-    &--padding-xl {
-      padding: $section-padding-vertical-xl 0;
-    }
-
-    &--rounded-top-padding {
-      padding-top: $section-padding-vertical - 57px;
+      &.section--rounded-top {
+        padding-top: calc(#{$section-padding-vertical} - #{$round-edge-height});
+      }
     }
   }
 }

@@ -1,11 +1,14 @@
 @import 'vars';
 
+$navbar-height: 82.5px;
+
 .navbar {
   background-color: rgba($black, .3);
   border-bottom: 1px solid $border-color;
   border-bottom-width: 1px;
   border-style: solid;
   border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.1) 50%, rgba(255,255,255,0) 100%) 5%;
+  height: $navbar-height;
 
   a {
     color: $white;
@@ -37,8 +40,8 @@ footer {
 section {
   &#main {
     position: relative;
-    padding-bottom: $section-padding-vertical + 58px;
-    padding-top: $section-padding-vertical + 82.5px;
+    padding-bottom: calc(#{$section-padding-vertical} + #{$round-edge-height});
+    padding-top: calc(#{$section-padding-vertical} + #{$navbar-height});
 
     &:after {
       content: '';
