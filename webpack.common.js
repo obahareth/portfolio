@@ -1,5 +1,6 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const cssnext = require('postcss-cssnext');
 const path = require('path');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
@@ -60,7 +61,16 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1,
+              importLoaders: 2,
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                cssnext(),
+              ],
               sourceMap: true,
             },
           },
