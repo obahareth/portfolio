@@ -1,19 +1,20 @@
 @import 'vars';
 
-$navbar-height: 82.5px;
+a {
+  transition: $transition-styles;
+}
 
 .navbar {
-  background-color: rgba($black, .3);
+  background-color: rgba($black, .0);
   border-bottom: 1px solid $border-color;
   border-bottom-width: 1px;
-  border-style: solid;
   border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.1) 50%, rgba(255,255,255,0) 100%) 5%;
-  height: $navbar-height;
+  width: 100%;
+  z-index: 1;
 
   a {
     color: $white;
     font-weight: $font-weight-medium;
-    transition: $transition-styles;
 
     &:hover {
       color: $link-color;
@@ -37,84 +38,19 @@ footer {
   padding: $section-padding-vertical-sm 0;
 }
 
-section {
-  &#main {
-    position: relative;
-    padding-bottom: calc(#{$section-padding-vertical} + #{$round-edge-height});
-    padding-top: calc(#{$section-padding-vertical} + #{$navbar-height});
 
-    &:after {
-      content: '';
-      display: block;
-      padding-bottom: 3%;
-      background-image: url(../svg/round-edge.svg);
-      width: 110%;
-      margin-left: -5%;
-      margin-bottom: -.625rem !important;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center top;
-      position: absolute;
-      bottom: 0;
-      z-index: 90;
-    }
+.trait {
+  margin-top: 2rem;
 
-    .container {
-      .intro {
-        max-width: 720px;
+  &__skills {
+    font-size: $font-size-sm;
 
-        &__avatar {
-          $colour: $primary;
-
-          border: 4px solid rgba($colour, 1);
-          box-shadow:
-            0 0 1px 11px rgba($colour, .15),
-            0 0 1px 22px rgba($colour, .1);
-          max-width: 170px;
-        }
-
-        &__social-links {
-          a {
-            $size: 38px;
-
-            background-color: rgba($white, .15);
-            border: 1px solid rgba($border-color, .15);
-            border-radius: 100%;
-            color: $gray-400;
-            display: inline-block;
-            height: $size;
-            width: $size;
-            line-height: $size;
-
-            &:not(:last-of-type) {
-              margin-right: 1rem;
-            }
-
-            &:hover {
-              background-color: rgba($white, .2);
-              box-shadow:
-                0 0 1px 2px rgba($indigo, .1),
-                0 0 1px 4px rgba($indigo, .05);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .trait {
-    margin-top: 2rem;
-
-    &__skills {
-      font-size: $font-size-sm;
-
-      li {
-        code {
-          background-color: $white;
-          border: 1px solid $border-color;
-          border-radius: $border-radius;
-          padding: .3rem;
-        }
+    li {
+      code {
+        background-color: $white;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
+        padding: .3rem;
       }
     }
   }

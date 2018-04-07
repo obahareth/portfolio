@@ -1,16 +1,16 @@
 // Custom vars
 $font-weight-medium: 500;
 
-$section-dark-bg: #160130;
+$section-dark-bg: #1c013b;
 $section-padding-vertical: 6rem;
 $section-padding-vertical-sm: 2rem;
 
 $transition-styles-speed: .1s;
 $transition-styles:
-  color $transition-styles-speed ease-in-out,
-  background-color $transition-styles-speed ease-in-out,
-  border-color $transition-styles-speed ease-in-out,
-  box-shadow $transition-styles-speed ease-in-out;
+  color $transition-styles-speed ease-out,
+  background-color $transition-styles-speed ease-out,
+  border-color $transition-styles-speed ease-out,
+  box-shadow $transition-styles-speed ease-out;
 
 
 // Element specs
@@ -20,7 +20,7 @@ $round-edge-height: 58px;
 
 // Bootstrap variable overrides
 $font-family-sans-serif: 'Ubuntu', sans-serif;
-$font-size-base: 1.1rem;
+$font-size-base: 1.15rem;
 $headings-font-weight: 700;
 $line-height-base: 2.5;
 $btn-transition: $transition-styles;
@@ -47,3 +47,4 @@ $white: #fff;
 $indigo: #7a65e3;
 $orange: #ff7e33;
 $primary: $orange;
+$light: rgba($white, 0.5);

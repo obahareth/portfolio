@@ -8,80 +8,89 @@
 {% endblock %}
 
 {% block main %}
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand mr-0" href="#">
-        <img
-          src="{% webpack_static 'img/logo-orange.png' %}"
-          class="d-inline-block align-top"
-          alt="Logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar-content">
-        <ul class="navbar-nav nav-fill">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Skill-set</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Values</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My Story</a>
-          </li>
-        </ul>
-        <button type="button" class="btn btn-primary">
-          <i class="fas fa-paper-plane"></i>
-          Get In Touch
+  <div class="bg-stars">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand mr-0" href="#">
+          <img
+            src="{% webpack_static 'img/logo-orange.png' %}"
+            class="d-inline-block align-top"
+            alt="Logo">
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar-content"
+          aria-controls="navbar-content"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbar-content">
+          <ul class="navbar-nav nav-fill">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Skillset</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Values</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Story</a>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i>
+            Get In Touch
+          </button>
+        </div>
       </div>
-    </div>
-  </nav>
-  <section id="main" class="section--padding section--bg-stars">
+    </nav>
+    <section class="section--padding section--rounded-bottom">
+      <div class="container">
+        <header class="section__intro mb-0">
+          <img
+            class="avatar mb-5"
+            src="{% webpack_static "img/daniel-spajic-avatar.jpg" %}"
+            alt="Daniel Spajic">
+          <h1 class="section__intro__title">Daniel Spajic</h1>
+          <h3 class="section__intro__subtitle mb-4">
+            Full-stack developer, maker, and freelancer
+          </h3>
+          <p class="section__intro__social-links mb-0">
+            <a href="https://danieljs.me" target="_blank">
+              <i class="fas fa-newspaper"></i>
+            </a>
+            <a href="https://github.com/dspacejs" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://stackoverflow.com/users/4260047/dspacejs" target="_blank">
+              <i class="fab fa-stack-overflow"></i>
+            </a>
+            <a href="https://twitter.com/dspacejs" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://medium.com/@dspacejs" target="_blank">
+              <i class="fab fa-medium"></i>
+            </a>
+          </p>
+        </header>
+      </div>
+    </section>
+  </div>
+  <section class="section--padding section--rounded-top">
     <div class="container">
-      <header class="intro mx-auto text-center">
-        <img
-          class="intro__avatar rounded-circle mb-5"
-          src="{% webpack_static "img/daniel-spajic-avatar.jpg" %}"
-          alt="Daniel Spajic">
-        <h1 class="mb-3 text-white">Daniel Spajic</h1>
-        <h3 class="mb-4 text-secondary font-weight-medium">
-          Full-stack developer, maker, and freelancer
-        </h3>
-        <p class="intro__social-links mb-0">
-          <a href="https://danieljs.me" target="_blank">
-            <i class="fas fa-newspaper"></i>
-          </a>
-          <a href="https://github.com/dspacejs" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://stackoverflow.com/users/4260047/dspacejs" target="_blank">
-            <i class="fab fa-stack-overflow"></i>
-          </a>
-          <a href="https://twitter.com/dspacejs" target="_blank">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://medium.com/@dspacejs" target="_blank">
-            <i class="fab fa-medium"></i>
-          </a>
-        </p>
-      </header>
-    </div>
-  </section>
-  <section class="section--padding text-center section--rounded-top">
-    <div class="container">
-      <div class="section__intro mb-0">
+      <header class="section__intro mb-0">
         <p>Hey there&mdash;I'm Daniel.</p>
         <p>As a full-stack developer I have a passion for all facets of
           building incredible software.</p>
-        <p>Although my skill-set is diverse, <b>I specialise in
+        <p>Although my skillset is diverse, <b>I specialise in
           <a href="#">front-end</a> and
           <a href="#">back-end</a> development.</b> I've
           worked on projects of all sizes from start-to-finish as part of a
@@ -92,19 +101,19 @@
           and you're looking for the right person for a job, continue
           reading to get to know me and see if we're a match
           <i class="em em-sunglasses ml-1"></i></p>
-      </div>
+      </header>
     </div>
   </section>
   <section class="section--gray section--padding">
     <div class="container">
-      <div class="section__intro">
+      <header class="section__intro">
         <h2 class="section__intro__title">
           <span class="section__intro__title__index">01 &mdash;</span>
-          Skill-set
+          skillset
         </h2>
         <p>As an individual with diverse interests and experience, I've
-          developed a broad, yet deep skill-set as a web developer.</p>
-      </div>
+          developed a broad, yet deep skillset as a web developer.</p>
+      </header>
       <div class="row">
         <div class="col-lg-12">
           <div class="row">
@@ -115,7 +124,7 @@
                   Developer
                 </h3>
                 <p>As someone who loves the art of software development, I
-                  have a <b>passion for writing satisfying, clean, and
+                  have a <b>passion for writing robust, clean, and
                   maintainable code.</b></p>
                 <p>This also means I strive to <b>follow best practices and use
                   industry-standard tools</b>, including <code>Git</code>,
@@ -203,16 +212,16 @@
       </div>
     </div>
   </section>
-  <section class="section--padding section--bg-stars">
+  <section class="section--padding bg-stars">
     <div class="container">
-      <div class="section__intro">
+      <header class="section__intro">
         <h2 class="section__intro__title">
           <span class="section__intro__title__index">02 &mdash;</span>
           Values
         </h2>
-        <p>Collaborating well is more important than someone's skill-set. To
+        <p>Collaborating well is more important than someone's skillset. To
           ensure we'll get along well, here's an insight into how I work.</p>
-      </div>
+      </header>
       <div class="row">
         <div class="trait col-lg-3">
           <h4>
@@ -227,7 +236,7 @@
             <i class="fas fa-cogs"></i>
             Craftsmanship
           </h4>
-          <p>I'm meticulous, take my time, and find great
+          <p>I'm creative, meticulous, take my time, and find great
             enjoyment in doing things properly. I'm not one to rush.</p>
         </div>
         <div class="trait col-lg-3">
@@ -235,19 +244,27 @@
             <i class="fas fa-smile"></i>
             Easy-going
           </h4>
-          <p>I'm friendly and have fun. Cooperation with coworkers is crucial
-            for doing great work and everyones' happiness.</p>
+          <p>Working well with others is crucial for producing great work and
+            everyones' happiness. I'm friendly and have fun.</p>
         </div>
         <div class="trait col-lg-3">
           <h4>
-            <i class="fas fa-street-view"></i>
-            Independence
+            <i class="fas fa-comments"></i>
+            Communication
           </h4>
-          <p>Although I'm able to work in a team, I'm very driven and
-            self-motivated. You can count on me to Get Shit Done&trade;</p>
+          <p>I want to make life easy for both of us. I'm candid, ask many
+            questions, don't let things slip by, and ensure we're on the same page.</p>
         </div>
       </div>
       <div class="row">
+        <div class="trait col-lg-3">
+          <h4>
+            <i class="fas fa-bullseye"></i>
+            Focus
+          </h4>
+          <p>Multitasking is my Achilles' heel. Synonymous to taking my time, I
+            work best when concentrating my effort on a single project.</p>
+        </div>
         <div class="trait col-lg-3">
           <h4>
             <i class="fas fa-graduation-cap"></i>
@@ -258,19 +275,11 @@
         </div>
         <div class="trait col-lg-3">
           <h4>
-            <i class="fas fa-comments"></i>
-            Communication
+            <i class="fas fa-street-view"></i>
+            Independence
           </h4>
-          <p>I'm candid, ask many questions, and don't let things slip by.
-            Being on the same page is a priority.</p>
-        </div>
-        <div class="trait col-lg-3">
-          <h4>
-            <i class="fas fa-bullseye"></i>
-            Focus
-          </h4>
-          <p>Multitasking is my Achilles' heel. Synonymous to taking my time, I
-            work best when concentrating my effort.</p>
+          <p>Although I'm able to work in a team, I'm very driven and
+            self-motivated. You can count on me to Get Shit Done&trade;</p>
         </div>
         <div class="trait col-lg-3">
           <h4>
@@ -285,14 +294,14 @@
   </section>
   <section class="section--padding">
     <div class="container">
-      <div class="section__intro">
+      <header class="section__intro">
         <h2 class="section__intro__title">
           <span class="section__intro__title__index">03 &mdash;</span>
           Experience
         </h2>
         <p>Since late-2014 I've dedicated myself to mastering the art of
-          web development. To this day I continue to hone my skill-set.</p>
-      </div>
+          web development. To this day I continue to hone my skillset.</p>
+      </header>
       <table class="table">
         <tbody>
           <tr>
@@ -334,7 +343,7 @@
   </section>
   <section class="section--padding">
     <div class="container">
-      <div class="section__intro">
+      <header class="section__intro">
         <h2 class="section__intro__title">
           <span class="section__intro__title__index">04 &mdash;</span>
           Projects
@@ -342,7 +351,7 @@
         <p>Here's a showcase of some of the many things I've worked on over the
           years. Be sure to check out the case studies for an in-depth insight
           into how I work.</p>
-      </div>
+      </header>
       <div class="row">
         <div class="col-lg-6">
           <img class="img-fluid rounded" src="{% webpack_static 'img/project.png' %}" alt="Vibite">
@@ -508,14 +517,14 @@
   </section>
   <section id="about-me" class="section--padding section--gray">
     <div class="container">
-      <div class="section__intro">
+      <header class="section__intro">
         <h2 class="section__intro__title">
           <span class="section__intro__title__index">05 &mdash;</span>
           My Story
         </h2>
         <p>Learn more about who I am, my story, why I love what I do, and the
           kind of person you'd be collaborating with.</p>
-      </div>
+      </header>
       <img
         class="img-fluid rounded mx-auto d-block mb-5"
         src="{% webpack_static 'img/daniel-spajic-portrait.jpg' %}"
@@ -540,7 +549,7 @@
             </a>.</p>
           <p>Coding was initially a means-to-an-end for myself, but with time my
             passion for the art of software development itself has evolved
-            signficantly. I love learning and continue to hone my skill-set to this
+            signficantly. I love learning and continue to hone my skillset to this
             day.</p>
         </div>
         <div class="col-lg-3 offset-lg-1">
