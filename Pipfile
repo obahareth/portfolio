@@ -15,6 +15,7 @@ django-webpack-loader = "*"
 
 pylint = "*"
 pylint-django = "*"
+django-livereload-server = {git = "https://github.com/dspacejs/django-livereload-server"}
 
 
 [requires]
