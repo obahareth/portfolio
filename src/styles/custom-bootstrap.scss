@@ -1,0 +1,19 @@
+/*
+** Custom Bootstrap module configuration
+*/
+
+@import 'variables'; // Override Bootstrap variables
+
+// Required BS modules
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+// Optional BS modules
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/images';
+@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/print';
+@import '~bootstrap/scss/reboot';
+@import '~bootstrap/scss/type';
+@import '~bootstrap/scss/utilities';
