@@ -14,6 +14,7 @@ module.exports = {
       options: {
         postCssPlugins: [cssnext()],
         precision: 8,
+        includePaths: ['src/scss'],
       },
     },
   ],
