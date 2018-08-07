@@ -36,8 +36,8 @@ describe("<Layout>", () => {
     expect(getComponent().find('HelmetWrapper')).toHaveLength(1);
   });
 
-  it("renders a <Header>", () => {
-    expect(getComponent().find('Header')).toHaveLength(1);
+  it("renders a <Navbar>", () => {
+    expect(getComponent().find('Navbar')).toHaveLength(1);
   });
 
   it("renders `props.children`", () => {
@@ -47,13 +47,6 @@ describe("<Layout>", () => {
   describe("rendered <Helmet>", () => {
     it("sets its `title` prop as `props.data.site.siteMetadata.title`", () => {
       expect(getComponent().find('HelmetWrapper').props().title)
-        .toBe(props.data.site.siteMetadata.title);
-    });
-  });
-
-  describe("rendered <Header>", () => {
-    it("sets its `siteTitle` prop as `props.data.site.siteMetadata.title`", () => {
-      expect(getComponent().find('Header').props().siteTitle)
         .toBe(props.data.site.siteMetadata.title);
     });
   });
