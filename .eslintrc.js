@@ -30,7 +30,7 @@ module.exports = {
       },
     },
     {
-      files: ['src/setupTests.js'],
+      files: ['src/setupTests.js', 'gatsby-config.js'],
       rules: {
         'import/no-extraneous-dependencies': [
           'error',

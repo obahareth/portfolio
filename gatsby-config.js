@@ -1,3 +1,5 @@
+const cssnext = require('postcss-cssnext');
+
 module.exports = {
   siteMetadata: {
     title: 'Daniel Spajic',
@@ -8,8 +10,9 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
     {
-      resolve: 'gatsby-plugin-sass',
+      resolve: 'gatsby-plugin-postcss-sass',
       options: {
+        postCssPlugins: [cssnext()],
         precision: 8,
       },
     },
