@@ -5,6 +5,18 @@ module.exports = {
   },
   settings: {
     'import/core-modules': ['react', 'prop-types', 'config'],
+    'import/resolver': {
+      alias: {
+        map: [
+          ['components', './src/components'],
+          ['images', './src/images'],
+          ['layouts', './src/layouts'],
+          ['pages', './src/pages'],
+          ['scss', './src/scss'],
+        ],
+        extensions: ['.js', '.jsx', '.scss', '.jpg', '.png', '.jpeg'],
+      },
+    },
   },
   env: {
     amd: true,

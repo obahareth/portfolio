@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import Navbar from '../components/Navbar';
-import '../styles/custom-bootstrap.scss';
-import '../styles/fonts.scss';
+import Navbar from 'components/Navbar';
+import 'scss/custom-bootstrap.scss';
+import 'scss/fonts.scss';
 
 const Layout = ({ children, data }) => (
   <div>

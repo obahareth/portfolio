@@ -10,6 +10,12 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
     {
+      resolve: 'gatsby-plugin-resolve-src',
+      options: {
+        addSassLoader: false,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-postcss-sass',
       options: {
         postCssPlugins: [cssnext()],

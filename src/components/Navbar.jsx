@@ -4,7 +4,7 @@ import {
   Button, Collapse, Nav, Navbar as BSNavbar, NavItem, NavLink,
 } from 'reactstrap';
 
-import logo from '../images/logo.png';
+import logo from 'images/logo.png';
 
 const Navbar = () => (
   <BSNavbar color="light" light expand="lg">
