@@ -13,6 +13,7 @@ module.exports = {
           ['layouts', './src/layouts'],
           ['pages', './src/pages'],
           ['scss', './src/scss'],
+          ['templates', './src/templates'],
         ],
         extensions: ['.js', '.jsx', '.scss', '.jpg', '.png', '.jpeg'],
       },
