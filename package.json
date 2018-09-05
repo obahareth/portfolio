@@ -6,7 +6,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "test": "jest",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "yarn run test -- --watch"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",
