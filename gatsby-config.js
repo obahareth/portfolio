@@ -2,7 +2,10 @@ const cssnext = require('postcss-cssnext');
 
 module.exports = {
   siteMetadata: {
-    title: 'Daniel Spajic',
+    title: 'Daniel Spajic | Passionate React.js engineer',
+    siteUrl: 'https://danieljs.tech',
+    description:
+      'Front-end engineer specialising in building robust web apps with React.js',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
