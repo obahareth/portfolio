@@ -13,6 +13,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-remark',
+    'gatsby-plugin-catch-links',
     {
       resolve: 'gatsby-plugin-resolve-src',
       options: {
