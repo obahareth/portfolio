@@ -13,11 +13,10 @@
     "classnames": "^2.2.6",
     "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.46",
-    "gatsby-plugin-catch-links": "^1.0.24",
     "gatsby-plugin-react-helmet": "^2.0.11",
-    "gatsby-source-filesystem": "^1.5.39",
-    "gatsby-transformer-remark": "^1.7.44",
+    "html-loader": "^0.5.5",
     "lodash": "^4.17.10",
+    "markdown-loader": "^4.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
@@ -56,7 +55,7 @@
       "jsx"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|md)$": "<rootDir>/src/__mocks__/fileMock.js",
       "\\.(scss)$": "identity-obj-proxy"
     },
     "setupFiles": [

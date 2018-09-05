@@ -11,9 +11,9 @@ module.exports = {
           ['components', './src/components'],
           ['images', './src/images'],
           ['layouts', './src/layouts'],
+          ['page-content', './src/page-content'],
           ['pages', './src/pages'],
           ['scss', './src/scss'],
-          ['templates', './src/templates'],
         ],
         extensions: ['.js', '.jsx', '.scss', '.jpg', '.png', '.jpeg'],
       },
@@ -55,5 +55,12 @@ module.exports = {
         ],
       },
     },
+    {
+      files: ['src/components/HTML.jsx'],
+      rules: {
+        // Ignore warnings for `dangerouslySetInnerHTML`
+        'react/no-danger': 0,
+      },
+    }
   ],
 };
