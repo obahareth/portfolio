@@ -1,3 +1,4 @@
+import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
@@ -9,12 +10,14 @@ import 'scss/fonts.scss';
 const Layout = ({ children, data }) => (
   <div>
     <Helmet
-      title={data.site.siteMetadata.title}
+      title={get(data, 'site.siteMetadata.title')}
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
-    />
+    >
+      <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
+    </Helmet>
     <Navbar />
     <div>
       {children()}

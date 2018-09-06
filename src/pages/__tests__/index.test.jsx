@@ -13,7 +13,11 @@ describe("<IndexPage>", () => {
     mountedComponent = undefined;
   });
 
-  it("renders a <section> as the root element", () => {
-    expect(getComponent().is('section')).toBeTruthy();
+  it("renders a <main> as the root element", () => {
+    expect(getComponent().is('main')).toBeTruthy();
+  });
+
+  it("renders a <MainHeader>", () => {
+    expect(getComponent().find('MainHeader')).toHaveLength(1);
   });
 });

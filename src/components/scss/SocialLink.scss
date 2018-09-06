@@ -1,0 +1,25 @@
+@import 'helpers';
+
+.SocialLink {
+  $size: 1rem;
+
+  background-color: rgba($white, .05);
+  border: 1px solid rgba($border-color, .05);
+  border-radius: 100%;
+  color: $gray-400;
+  display: inline-block;
+  height: $size;
+  width: $size;
+  line-height: $size;
+
+  &:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    background-color: rgba($white, .2);
+    box-shadow:
+      0 0 1px 2px rgba($indigo, .1),
+      0 0 1px 4px rgba($indigo, .05);
+  }
+}

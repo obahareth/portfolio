@@ -25,22 +25,17 @@ const Navbar = () => (
         </NavItem>
         <NavItem>
           <NavLink href="#">
-            Experience
+            Showcase
           </NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="#">
-            Projects
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="#">
-            My Story
+            My story
           </NavLink>
         </NavItem>
       </Nav>
       <Button color="primary">
-        Get In Touch
+        Get in touch
       </Button>
     </Collapse>
   </BSNavbar>

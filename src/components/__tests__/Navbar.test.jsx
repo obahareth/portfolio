@@ -22,11 +22,11 @@ describe("<Navbar>", () => {
   });
 
   it("renders a <NavItem> for each main page section", () => {
-    expect(getComponent().find('NavItem')).toHaveLength(5);
+    expect(getComponent().find('NavItem')).toHaveLength(4);
   });
 
   it("renders a <Button> for the contact section", () => {
-    expect(getComponent().find("Button[children='Get In Touch']")).toHaveLength(1);
+    expect(getComponent().find("Button[children='Get in touch']")).toHaveLength(1);
   });
 
   it("renders a <NavLink> for each <NavItem>", () => {

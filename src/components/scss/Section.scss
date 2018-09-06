@@ -1,0 +1,28 @@
+@import 'helpers';
+
+.Section {
+  &--gray {
+    background-color: $gray-100;
+    color: $gray-700;
+  }
+
+  &--rounded-bottom {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      padding-bottom: 3%;
+      background-image: url('../../images/round-edge.svg');
+      width: 110%;
+      margin-left: -5%;
+      margin-bottom: -.625rem !important;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      position: absolute;
+      bottom: 0;
+      z-index: 90;
+    }
+  }
+}
