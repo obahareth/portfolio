@@ -27,6 +27,9 @@ module.exports = {
     jest: true,
     serviceworker: true,
   },
+  rules: {
+    'no-constant-condition': 0,
+  },
   overrides: [
     {
       files: ['*.test.js', '*.test.jsx'],
