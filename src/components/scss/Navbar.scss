@@ -1,0 +1,40 @@
+@import 'helpers';
+
+.Navbar {
+  background-color: rgba($black, .0);
+  border-bottom: 1px solid $border-color;
+  border-bottom-width: 1px;
+  border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.1) 50%, rgba(255,255,255,0) 100%) 5%;
+  width: 100%;
+  z-index: 1;
+
+  .nav-link {
+    color: $white;
+    font-weight: $font-weight-medium;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  .navbar-brand {
+    img {
+      max-height: 50px;
+    }
+  }
+
+  .navbar-nav {
+    width: 100%;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .nav-item,
+  .btn {
+    font-size: $font-size-lg;
+  }
+}

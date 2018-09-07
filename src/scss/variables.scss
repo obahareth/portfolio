@@ -1,3 +1,26 @@
 /*
 ** Project-specific variables and Bootstrap variable overrides
 */
+
+// Spacing
+
+$spacer: 1rem;
+
+// Fonts
+
+$font-weight-medium: 500;
+
+// Colours
+
+$orange: #ff7e33;
+
+$primary: $orange;
+
+// Navbar
+
+$navbar-padding-y: ($spacer / 1.5);
+
+// Buttons
+
+$btn-font-weight: $font-weight-medium;
+$btn-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .5);

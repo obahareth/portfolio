@@ -22,8 +22,8 @@ describe("<Icon>", () => {
   });
 
   describe("rendered <i>", () => {
-    it("includes `props.name` in its `className` prop", () => {
-      expect(getComponent().props().className).toBe(`fas fa-${props.name}`);
+    it("sets its `className` prop as `props.name`", () => {
+      expect(getComponent().props().className).toBe(props.name);
     });
   });
 });

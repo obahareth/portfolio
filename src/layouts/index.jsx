@@ -6,6 +6,7 @@ import Helmet from 'react-helmet';
 import Navbar from 'components/Navbar';
 import 'scss/custom-bootstrap.scss';
 import 'scss/fonts.scss';
+import 'scss/global-styles.scss';
 
 const Layout = ({ children, data }) => (
   <div>

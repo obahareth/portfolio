@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL } from 'constants';
 import Navbar from '../Navbar';
 
 describe("<Navbar>", () => {
@@ -25,8 +26,8 @@ describe("<Navbar>", () => {
     expect(getComponent().find('NavItem')).toHaveLength(4);
   });
 
-  it("renders a <Button> for the contact section", () => {
-    expect(getComponent().find("Button[children='Get in touch']")).toHaveLength(1);
+  it("renders a contact <Button>", () => {
+    expect(getComponent().find(`Button[href='mailto:${CONTACT_EMAIL}']`)).toHaveLength(1);
   });
 
   it("renders a <NavLink> for each <NavItem>", () => {

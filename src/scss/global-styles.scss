@@ -1,0 +1,15 @@
+@import 'helpers';
+
+/*
+** Global styles
+*/
+
+// Buttons
+
+.btn {
+  text-transform: capitalize;
+
+  &-primary {
+    color: $white;
+  }
+}
