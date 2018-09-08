@@ -7,6 +7,7 @@ import Navbar from 'components/Navbar';
 import 'scss/custom-bootstrap.scss';
 import 'scss/fonts.scss';
 import 'scss/global-styles.scss';
+import 'scss/icons.scss';
 
 const Layout = ({ children, data }) => (
   <div>
