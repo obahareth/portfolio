@@ -15,7 +15,7 @@
   transition: $transition-base;
 
   &:not(:last-of-type) {
-    margin-right: 1rem;
+    margin-right: map-get($spacers, 3);
   }
 
   &:hover {

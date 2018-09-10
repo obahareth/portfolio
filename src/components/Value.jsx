@@ -2,13 +2,16 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Icon from 'components/Icon';
+import './scss/Value.scss';
 
 const Value = ({
   children, icon, title,
 }) => (
-  <div>
+  <div className="Value">
     <h4>
-      <Icon name={icon} />
+      <span className="Value__icon">
+        <Icon name={icon} />
+      </span>
       {title}
     </h4>
     <p>

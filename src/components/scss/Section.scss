@@ -55,21 +55,9 @@ $rounded-edge-height: 40px;
     background-position: center;
     background-image: url('../../images/stars.svg');
     background-size: auto auto;
-    color: $gray-300;
+    color: $light;
     text-shadow: 0px 1px 3px rgba($black, 1);
 
-    .section__intro {
-      &__title {
-        color: $white;
-
-        &__index {
-          color: $primary;
-        }
-      }
-
-      &__subtitle {
-        color: $light;
-      }
-    }
+    @include headings-colour($white);
   }
 }

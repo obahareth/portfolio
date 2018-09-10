@@ -3,7 +3,7 @@ Hey there—I'm Daniel.
 As a full-stack developer I have a passion for all facets of building incredible
 software.
 
-Although my skill-set is diverse, **I specialise in front-end development**. I've
+Although my skillset is diverse, **I specialise in front-end development**. I've
 worked on projects of different scale from start-to-finish both solo and part of
 a team.
 

@@ -11,7 +11,7 @@ const Skill = ({
 
   return (
     <div className="Skill">
-      <TitleTag className="Skill__heading">
+      <TitleTag>
         <span className="Skill__icon">
           <Icon name={icon} />
         </span>

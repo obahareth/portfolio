@@ -4,13 +4,13 @@ import React from 'react';
 const SectionHeader = ({ description, index, title }) => (
   <header className="SectionHeader text-center pb-5">
     <div className="w-50 mx-auto">
-      <h2 className="font-weight-bold">
+      <h2>
         <span className="text-primary">
           {`0${index} —`}
         </span>
         {` ${title}`}
       </h2>
-      <p className="text-secondary">
+      <p>
         {description}
       </p>
     </div>

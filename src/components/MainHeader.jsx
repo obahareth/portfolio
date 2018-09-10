@@ -15,7 +15,7 @@ const MainHeader = ({
     <h1 className="MainHeader__title">
       {title}
     </h1>
-    <h3 className="mb-4 text-light">
+    <h3 className="MainHeader__subtitle">
       {subtitle}
     </h3>
     {children}

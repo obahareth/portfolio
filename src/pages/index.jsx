@@ -26,7 +26,7 @@ const IndexPage = () => (
           <MainHeader
             avatar={avatar}
             title="Daniel Spajic"
-            subtitle="Front-end engineer with a full-stack skill-set"
+            subtitle="Front-end engineer with a full-stack skillset"
           >
             <SocialLink icon="blog" to="https://danieljs.me" />
             <SocialLink icon="github" to="https://github.com/dspacejs" />
@@ -109,18 +109,18 @@ const IndexPage = () => (
         </Row>
       </Container>
     </Section>
-    <Section>
+    <Section bgStars padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader
           index={2}
           title="Values"
-          description="Collaborating well is more important than someone's skill-set.
+          description="Collaborating well is more important than someone's skillset.
            Here's an insight into how I work to ensure we'll get along well."
         />
         <Row>
           <Col lg="3">
             <Value title="Passion" icon="passion">
-              I love what I do and put genuine effort into my work. I enjoy
+              I love what I do and therefore put genuine effort into my work. I enjoy
               working with people who share the same passion.
             </Value>
           </Col>
@@ -131,7 +131,7 @@ const IndexPage = () => (
             </Value>
           </Col>
           <Col lg="3">
-            <Value title="Easy-going" icon="happy">
+            <Value title="Easy-going" icon="easy-going">
               Working well with others is crucial for producing great work and
               everyones&apos; happiness. I&apos;m friendly and have fun.
             </Value>
@@ -160,11 +160,11 @@ const IndexPage = () => (
           <Col lg="3">
             <Value title="Independence" icon="independence">
               Although I&apos;m able to work in a team, I&apos;m very driven and
-              self-motivated. You can count on me to Get Shit Done&trade;
+              self-motivated. You can count on me to get things done.
             </Value>
           </Col>
           <Col lg="3">
-            <Value title="Open-minded" icon="open-minded">
+            <Value title="Open-minded" icon="open-mindedness">
               I&apos;m objective and question everything. I don&apos;t hesitate to
               discard my convictions when provided with a good reason.
             </Value>
