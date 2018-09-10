@@ -22,8 +22,8 @@ describe("<Icon>", () => {
   });
 
   describe("rendered <i>", () => {
-    it("sets its `className` prop as `icon-$[props.name]`", () => {
-      expect(getComponent().props().className).toBe(`icon-${props.name}`);
+    it("adds `icon-$[props.name]` to its `className` prop", () => {
+      expect(getComponent().props().className).toContain(`icon-${props.name}`);
     });
   });
 });

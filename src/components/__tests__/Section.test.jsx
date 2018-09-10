@@ -36,7 +36,7 @@ describe("<Section>", () => {
         props.roundedBottom = true;
       });
 
-      it("sets adds 'Section--rounded-bottom' to its `className` prop", () => {
+      it("adds 'Section--rounded-bottom' to its `className` prop", () => {
         expect(getComponent().props().className).toContain('Section--rounded-bottom');
       });
     });
@@ -46,8 +46,38 @@ describe("<Section>", () => {
         props.gray = true;
       });
 
-      it("sets adds 'Section--gray' to its `className` prop", () => {
+      it("adds 'Section--gray' to its `className` prop", () => {
         expect(getComponent().props().className).toContain('Section--gray');
+      });
+    });
+
+    describe("when `props.bgStars` is `true`", () => {
+      beforeEach(() => {
+        props.bgStars = true;
+      });
+
+      it("adds 'Section--bg-stars' to its `className` prop", () => {
+        expect(getComponent().props().className).toContain('Section--bg-stars');
+      });
+    });
+
+    describe("when `props.padding` is set as `large`", () => {
+      beforeEach(() => {
+        props.padding = 'large';
+      });
+
+      it("adds 'Section--padding-large' to its `className` prop", () => {
+        expect(getComponent().props().className).toContain('Section--padding-large');
+      });
+    });
+
+    describe("when `props.padding` is set as `small`", () => {
+      beforeEach(() => {
+        props.padding = 'small';
+      });
+
+      it("adds 'Section--padding-small' to its `className` prop", () => {
+        expect(getComponent().props().className).toContain('Section--padding-small');
       });
     });
   });

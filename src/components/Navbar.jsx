@@ -1,10 +1,10 @@
 import Link from 'gatsby-link';
 import React from 'react';
 import {
-  Button, Collapse, Container, Nav, Navbar as BSNavbar, NavItem, NavLink,
+  Collapse, Container, Nav, Navbar as BSNavbar, NavItem, NavLink,
 } from 'reactstrap';
 
-import Icon from 'components/Icon';
+import Button from 'components/Button';
 import { CONTACT_EMAIL } from 'constants';
 import logo from 'images/logo.png';
 import './scss/Navbar.scss';
@@ -38,12 +38,10 @@ const Navbar = () => (
             </NavLink>
           </NavItem>
         </Nav>
-        <Button color="primary" tag="a" href={`mailto:${CONTACT_EMAIL}`}>
-          <Icon name="contact" />
+        <Button color="primary" icon="contact" tag="a" href={`mailto:${CONTACT_EMAIL}`}>
           Get in touch
         </Button>
       </Collapse>
-
     </Container>
   </BSNavbar>
 );

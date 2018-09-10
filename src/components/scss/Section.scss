@@ -6,6 +6,14 @@
     color: $gray-700;
   }
 
+  &--padding-large {
+    padding: 12rem 0;
+  }
+
+  &--padding-small {
+    padding: 6rem 0;
+  }
+
   &--rounded-bottom {
     position: relative;
 
@@ -23,6 +31,29 @@
       position: absolute;
       bottom: 0;
       z-index: 90;
+    }
+  }
+
+  &--bg-stars {
+    background-color: #1c013b;
+    background-position: center;
+    background-image: url('../../images/stars.svg');
+    background-size: auto auto;
+    color: $gray-300;
+    text-shadow: 0px 1px 3px rgba($black, 1);
+
+    .section__intro {
+      &__title {
+        color: $white;
+
+        &__index {
+          color: $primary;
+        }
+      }
+
+      &__subtitle {
+        color: $light;
+      }
     }
   }
 }

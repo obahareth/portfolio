@@ -12,10 +12,10 @@ const MainHeader = ({
       src={avatar}
       alt="Daniel Spajic"
     />
-    <h1>
+    <h1 className="font-weight-bold">
       {title}
     </h1>
-    <h3 className="mb-4">
+    <h3 className="mb-4 text-light">
       {subtitle}
     </h3>
     {children}

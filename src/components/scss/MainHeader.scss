@@ -1,10 +1,12 @@
 @import 'helpers';
 
 .MainHeader {
+  text-align: center;
+
   &__avatar {
     $colour: $primary;
 
-    max-width: 9rem;
+    max-width: 10rem;
     box-shadow:
       0 0 1px 11px rgba($colour, .15),
       0 0 1px 22px rgba($colour, .1);

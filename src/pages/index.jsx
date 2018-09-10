@@ -20,22 +20,28 @@ import designSkillsetMarkdown from 'page-content/home/skillset-design.md';
 
 const IndexPage = () => (
   <main>
-    <Section>
-      <Container>
-        <MainHeader
-          avatar={avatar}
-          title="Daniel Spajic"
-          subtitle="Passionate front-end engineer with a full-stack skill-set"
-        >
-          <SocialLink icon="newspaper" to="https://danieljs.me" />
-          <SocialLink icon="github" to="https://github.com/dspacejs" />
-          <SocialLink
-            icon="stack-overflow"
-            to="https://stackoverflow.com/users/4260047/dspacejs"
-          />
-          <SocialLink icon="twitter" to="https://twitter.com/dspacejs" />
-        </MainHeader>
-      </Container>
+    <Section bgStars>
+      <Section roundedBottom padding={Section.PADDING_LARGE}>
+        <Container>
+          <MainHeader
+            avatar={avatar}
+            title="Daniel Spajic"
+            subtitle="Front-end engineer with a full-stack skill-set"
+          >
+            <SocialLink icon="blog" to="https://danieljs.me" />
+            <SocialLink icon="github" to="https://github.com/dspacejs" />
+            <SocialLink
+              icon="stack-overflow"
+              to="https://stackoverflow.com/users/4260047/dspacejs"
+            />
+            <SocialLink icon="twitter" to="https://twitter.com/dspacejs" />
+            <SocialLink
+              icon="linkedin"
+              to="https://www.linkedin.com/in/daniel-spajic-445197158/"
+            />
+          </MainHeader>
+        </Container>
+      </Section>
     </Section>
     <Section>
       <Container>
