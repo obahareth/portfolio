@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Button, Col, Container, Row,
-} from 'reactstrap';
+import { Col, Container, Row } from 'reactstrap';
 
 import MainHeader from 'components/MainHeader';
 import HTML from 'components/HTML';
@@ -223,21 +221,6 @@ const IndexPage = () => (
             Thirty4
           </li>
         </ul>
-      </Container>
-    </Section>
-    <Section>
-      <Container>
-        <p>
-          If you vibe with me and want to get in touch, fill out the form below
-          and I&apos;ll get back to you soon
-          {' '}
-          <span role="img" aria-label="smile">
-            🙂
-          </span>
-        </p>
-        <Button color="primary">
-          Get in touch
-        </Button>
       </Container>
     </Section>
   </main>

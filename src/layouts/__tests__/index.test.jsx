@@ -40,6 +40,10 @@ describe("<Layout>", () => {
     expect(getComponent().find('Navbar')).toHaveLength(1);
   });
 
+  it("renders a <Footer>", () => {
+    expect(getComponent().find('Footer')).toHaveLength(1);
+  });
+
   it("renders `props.children`", () => {
     expect(getComponent().contains(props.children())).toBeTruthy();
   });

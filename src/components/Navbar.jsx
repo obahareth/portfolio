@@ -4,8 +4,7 @@ import {
   Collapse, Container, Nav, Navbar as BSNavbar, NavItem, NavLink,
 } from 'reactstrap';
 
-import Button from 'components/Button';
-import { CONTACT_EMAIL } from 'constants';
+import ContactButton from 'components/ContactButton';
 import logo from 'images/logo.png';
 import './scss/Navbar.scss';
 
@@ -38,9 +37,7 @@ const Navbar = () => (
             </NavLink>
           </NavItem>
         </Nav>
-        <Button color="primary" icon="contact" tag="a" href={`mailto:${CONTACT_EMAIL}`}>
-          Get in touch
-        </Button>
+        <ContactButton />
       </Collapse>
     </Container>
   </BSNavbar>
