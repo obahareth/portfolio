@@ -1,0 +1,13 @@
+@import 'helpers';
+
+.Skill {
+  margin-bottom: map-get($spacers, 4);
+
+  &__heading {
+    font-weight: $font-weight-bold;
+  }
+
+  &__icon {
+    margin-right: 0.75rem;
+  }
+}

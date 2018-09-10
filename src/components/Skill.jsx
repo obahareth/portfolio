@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Icon from 'components/Icon';
+import './scss/Skill.scss';
 
 const Skill = ({
   children, icon, small, title,
@@ -9,9 +10,11 @@ const Skill = ({
   const TitleTag = small ? 'h5' : 'h3';
 
   return (
-    <div>
-      <TitleTag>
-        <Icon name={icon} />
+    <div className="Skill">
+      <TitleTag className="Skill__heading">
+        <span className="Skill__icon">
+          <Icon name={icon} />
+        </span>
         {title}
       </TitleTag>
       {children}

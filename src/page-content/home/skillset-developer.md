@@ -6,5 +6,5 @@ tools**, including Git, TDD, linting, package management (Yarn/NPM and Pipenv),
 and Babel.
 
 Although I've a wide range of experience, the tools I prefer and am most familiar
-with include `Python`, `Django`, `Docker`, `PostgreSQL`, `ReactJS`, `Sass`, and
+with include `Python`, `Django`, `PostgreSQL`, `ReactJS`, `Sass`, and
 `Bootstrap 4`.

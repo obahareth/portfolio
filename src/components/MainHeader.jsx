@@ -12,7 +12,7 @@ const MainHeader = ({
       src={avatar}
       alt="Daniel Spajic"
     />
-    <h1 className="font-weight-bold">
+    <h1 className="MainHeader__title">
       {title}
     </h1>
     <h3 className="mb-4 text-light">

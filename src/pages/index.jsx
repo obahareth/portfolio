@@ -54,7 +54,7 @@ const IndexPage = () => (
         </Row>
       </Container>
     </Section>
-    <Section gray>
+    <Section gray padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader
           index={1}
@@ -64,14 +64,14 @@ const IndexPage = () => (
         />
         <Row>
           <Col lg="6">
-            <Skill icon="code" title="Developer">
+            <Skill icon="developer" title="Developer">
               <HTML>
                 {developerSkillsetMarkdown}
               </HTML>
             </Skill>
           </Col>
           <Col lg="6">
-            <Skill small icon="js-square" title="Front-end development">
+            <Skill small icon="javascript" title="Front-end development">
               <SkillList
                 skills={['ReactJS', 'Twitter Bootstrap', 'Sass', 'Redux',
                   'Webpack', 'Babel', 'NPM', 'HTML', 'CSS', 'JavaScript']}
@@ -83,7 +83,7 @@ const IndexPage = () => (
                   'PHP']}
               />
             </Skill>
-            <Skill small icon="server" title="System administration">
+            <Skill small icon="linux" title="System administration">
               <SkillList
                 skills={['Linux (Ubuntu)', 'Docker', 'Nginx', 'uWSGI',
                   'DigitalOcean']}
@@ -93,14 +93,14 @@ const IndexPage = () => (
         </Row>
         <Row>
           <Col lg="6">
-            <Skill icon="paint-brush" title="Design sense">
+            <Skill icon="design" title="Design sense">
               <HTML>
                 {designSkillsetMarkdown}
               </HTML>
             </Skill>
           </Col>
           <Col lg="6">
-            <Skill icon="briefcase" title="Business insight">
+            <Skill icon="business" title="Business insight">
               <HTML>
                 {businessSkillsetMarkdown}
               </HTML>
