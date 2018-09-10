@@ -9,6 +9,7 @@ $spacer: 1rem;
 // Fonts
 
 $font-size-base: 1rem;
+$line-height-base: 2;
 
 $font-weight-medium: 500;
 
@@ -29,7 +30,7 @@ $navbar-padding-y: ($spacer / 1.5);
 // Buttons + forms
 
 $input-btn-padding-x: .75rem;
-$input-btn-padding-y: .5rem;
+$input-btn-padding-y: .25rem;
 
 $btn-font-weight: $font-weight-medium;
 $btn-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, .5);

@@ -43,11 +43,15 @@ const IndexPage = () => (
         </Container>
       </Section>
     </Section>
-    <Section>
+    <Section padding={Section.PADDING_SMALL}>
       <Container>
-        <HTML>
-          {introMarkdown}
-        </HTML>
+        <Row>
+          <Col className="text-center" lg={{ size: 8, offset: 2 }}>
+            <HTML>
+              {introMarkdown}
+            </HTML>
+          </Col>
+        </Row>
       </Container>
     </Section>
     <Section gray>
