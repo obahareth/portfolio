@@ -31,16 +31,6 @@ describe("<Section>", () => {
       expect(getComponent().props().className).toBe('Section');
     });
 
-    describe("when `props.roundedBottom` is `true`", () => {
-      beforeEach(() => {
-        props.roundedBottom = true;
-      });
-
-      it("adds 'Section--rounded-bottom' to its `className` prop", () => {
-        expect(getComponent().props().className).toContain('Section--rounded-bottom');
-      });
-    });
-
     describe("when `props.gray` is `true`", () => {
       beforeEach(() => {
         props.gray = true;
@@ -78,6 +68,26 @@ describe("<Section>", () => {
 
       it("adds 'Section--padding-small' to its `className` prop", () => {
         expect(getComponent().props().className).toContain('Section--padding-small');
+      });
+    });
+
+    describe("when `props.roundedBottom` is `true`", () => {
+      beforeEach(() => {
+        props.roundedBottom = true;
+      });
+
+      it("adds 'Section--rounded-bottom' to its `className` prop", () => {
+        expect(getComponent().props().className).toContain('Section--rounded-bottom');
+      });
+    });
+
+    describe("when `props.roundedTop` is `true`", () => {
+      beforeEach(() => {
+        props.roundedTop = true;
+      });
+
+      it("adds 'Section--rounded-top' to its `className` prop", () => {
+        expect(getComponent().props().className).toContain('Section--rounded-top');
       });
     });
   });

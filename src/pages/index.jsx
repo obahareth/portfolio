@@ -43,7 +43,7 @@ const IndexPage = () => (
         </Container>
       </Section>
     </Section>
-    <Section padding={Section.PADDING_SMALL}>
+    <Section roundedTop padding={Section.PADDING_SMALL}>
       <Container>
         <Row>
           <Col className="text-center" lg={{ size: 8, offset: 2 }}>
