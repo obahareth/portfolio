@@ -30,8 +30,12 @@ describe("<Layout>", () => {
     mountedComponent = undefined;
   });
 
-  it("renders an <App> as the root element", () => {
-    expect(getComponent().is('App')).toBeTruthy();
+  it("renders an <ErrorBoundary> as the root element", () => {
+    expect(getComponent().is('ErrorBoundary')).toBeTruthy();
+  });
+
+  it("renders an <App>", () => {
+    expect(getComponent().find('App')).toHaveLength(1);
   });
 
   it("renders a <Helmet>", () => {
