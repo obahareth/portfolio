@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import App from 'components/App';
 import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
 import 'scss/custom-bootstrap.scss';
@@ -11,22 +12,25 @@ import 'scss/global-styles.scss';
 import 'scss/icons.scss';
 
 const Layout = ({ children, data }) => (
-  <div>
-    <Helmet
-      title={get(data, 'site.siteMetadata.title')}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    >
-      <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
-    </Helmet>
-    <Navbar />
-    <div>
-      {children()}
-    </div>
-    <Footer />
-  </div>
+  <App render={state => (
+    <React.Fragment>
+      <Helmet
+        title={get(data, 'site.siteMetadata.title')}
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      >
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
+      </Helmet>
+      <Navbar solid={state.scrollTop > 0} />
+      <div>
+        {children()}
+      </div>
+      <Footer />
+    </React.Fragment>
+  )}
+  />
 );
 
 Layout.propTypes = {

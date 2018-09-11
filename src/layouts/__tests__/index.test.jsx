@@ -3,12 +3,14 @@ import Layout from '../index';
 describe("<Layout>", () => {
   let mountedComponent;
   let props;
+
   const getComponent = () => {
     if (!mountedComponent) {
       mountedComponent = shallow(<Layout {...props} />);
     }
     return mountedComponent;
   };
+  const getRenderedApp = () => getComponent().find('App').dive();
 
   beforeEach(() => {
     props = {
@@ -28,30 +30,32 @@ describe("<Layout>", () => {
     mountedComponent = undefined;
   });
 
-  it("renders a <div> as the root element", () => {
-    expect(getComponent().is('div')).toBeTruthy();
+  it("renders an <App> as the root element", () => {
+    expect(getComponent().is('App')).toBeTruthy();
   });
 
   it("renders a <Helmet>", () => {
-    expect(getComponent().find('HelmetWrapper')).toHaveLength(1);
+    expect(getRenderedApp().find('HelmetWrapper')).toHaveLength(1);
   });
 
   it("renders a <Navbar>", () => {
-    expect(getComponent().find('Navbar')).toHaveLength(1);
+    expect(getRenderedApp().find('Navbar')).toHaveLength(1);
   });
 
   it("renders a <Footer>", () => {
-    expect(getComponent().find('Footer')).toHaveLength(1);
+    expect(getRenderedApp().find('Footer')).toHaveLength(1);
   });
 
   it("renders `props.children`", () => {
-    expect(getComponent().contains(props.children())).toBeTruthy();
+    expect(getRenderedApp().contains(props.children())).toBeTruthy();
   });
 
   describe("rendered <Helmet>", () => {
     it("sets its `title` prop as `props.data.site.siteMetadata.title`", () => {
-      expect(getComponent().find('HelmetWrapper').props().title)
+      expect(getRenderedApp().find('HelmetWrapper').props().title)
         .toBe(props.data.site.siteMetadata.title);
     });
   });
+
+  // TODO: test navbar `solid` prop
 });
