@@ -2,7 +2,7 @@ const cssnext = require('postcss-cssnext');
 
 module.exports = {
   siteMetadata: {
-    title: 'Daniel Spajic | Passionate React.js engineer',
+    title: 'Daniel Spajic | Front-end engineer with a full-stack skillset',
     siteUrl: 'https://danieljs.tech',
     description:
       'Front-end engineer specialising in building robust web apps with React.js',
@@ -10,6 +10,18 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-eslint',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Daniel Spajic',
+        short_name: 'Daniel Spajic',
+        start_url: '/',
+        background_color: '#f8f9fa',
+        theme_color: '#ff7e33',
+        display: 'minimal-ui',
+        icon: `${__dirname}/src/images/icon.png`,
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',

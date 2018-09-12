@@ -7,6 +7,7 @@ import App from 'components/App';
 import ErrorBoundary from 'components/ErrorBoundary';
 import Footer from 'components/Footer';
 import Navbar from 'components/Navbar';
+import favicon from 'images/icon.png';
 import 'scss/custom-bootstrap.scss';
 import 'scss/fonts.scss';
 import 'scss/global-styles.scss';
@@ -23,6 +24,7 @@ const Layout = ({ children, data }) => (
             { name: 'keywords', content: 'sample, something' },
           ]}
         >
+          <link rel="shortcut icon" type="image/png" href={favicon} />
           <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
         </Helmet>
         <Navbar solid={state.scrollTop > 0} />
