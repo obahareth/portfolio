@@ -10,14 +10,14 @@ describe("<MainHeader>", () => {
     return mountedComponent;
   };
 
-  const getAvatar = () => getComponent().find("img[className*='rounded-circle']");
+  const getAvatar = () => getComponent().find('Image');
   const getTitle = () => getComponent().find('h1');
   const getSubtitle = () => getComponent().find('h3');
 
   beforeEach(() => {
     mountedComponent = undefined;
     props = {
-      avatar: 'dummy-image.jpg',
+      avatarResolutions: {},
       children: (
         <div>
           some HTML
@@ -53,8 +53,8 @@ describe("<MainHeader>", () => {
   });
 
   describe("rendered avatar", () => {
-    it("sets `props.avatar` as its `src` prop", () => {
-      expect(getAvatar().props().src).toBe(props.avatar);
+    it("sets `props.avatarResolutions` as its `resolutions` prop", () => {
+      expect(getAvatar().props().resolutions).toBe(props.avatarResolutions);
     });
   });
 

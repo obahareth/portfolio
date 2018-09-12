@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
@@ -16,15 +17,14 @@ import aboutMeMarkdown from 'content/about-me.md';
 import businessSkillsetMarkdown from 'content/skillset-business.md';
 import developerSkillsetMarkdown from 'content/skillset-developer.md';
 import designSkillsetMarkdown from 'content/skillset-design.md';
-import avatar from 'images/daniel-spajic-avatar.jpg';
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <main>
     <Section bgStars>
       <Section roundedBottom padding={Section.PADDING_LARGE}>
         <Container>
           <MainHeader
-            avatar={avatar}
+            avatarResolutions={data.avatar.childImageSharp.resolutions}
             title="Daniel Spajic"
             subtitle="Front-end engineer with a full-stack skillset"
           >
@@ -257,5 +257,26 @@ const IndexPage = () => (
     </Section>
   </main>
 );
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    avatar: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        resolutions: PropTypes.object.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
+
+export const query = graphql`
+  query IndexQuery {
+    ...AvatarFragment
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;
 
 export default IndexPage;

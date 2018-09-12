@@ -29,6 +29,9 @@ module.exports = {
   },
   rules: {
     'no-constant-condition': 0,
+    'react/forbid-prop-types': [1, {
+      forbid: ['any', 'array'],
+    }],
   },
   overrides: [
     {

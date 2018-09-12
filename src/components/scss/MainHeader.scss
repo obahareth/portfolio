@@ -6,7 +6,9 @@
   &__avatar {
     $colour: $primary;
 
-    max-width: 10rem;
+    background-color: $white;
+    max-width: 160px;
+    max-height: 160px;
     box-shadow:
       0 0 1px 11px rgba($colour, .15),
       0 0 1px 22px rgba($colour, .1);
