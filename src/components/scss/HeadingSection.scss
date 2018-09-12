@@ -1,9 +1,5 @@
 @import 'helpers';
 
-.Skill {
+.HeadingSection {
   margin-bottom: map-get($spacers, 4);
-
-  &__icon {
-    margin-right: $icon-spacing;
-  }
 }

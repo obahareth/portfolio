@@ -1,16 +1,18 @@
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
+import HeadingSection from 'components/HeadingSection';
 import MainHeader from 'components/MainHeader';
 import HTML from 'components/HTML';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
-import Skill from 'components/Skill';
 import SkillList from 'components/SkillList';
 import SocialLink from 'components/SocialLink';
-import Value from 'components/Value';
 import avatar from 'images/daniel-spajic-avatar.jpg';
 import introMarkdown from 'page-content/home/intro.md';
+import aboutMeDeveloperJourneyMarkdown from 'page-content/home/about-me-developer.md';
+import aboutMeExtraMarkdown from 'page-content/home/about-me-extra.md';
+import aboutMeFavouriteQuotesMarkdown from 'page-content/home/about-me-quotes.md';
 import aboutMeMarkdown from 'page-content/home/about-me.md';
 import businessSkillsetMarkdown from 'page-content/home/skillset-business.md';
 import developerSkillsetMarkdown from 'page-content/home/skillset-developer.md';
@@ -62,47 +64,47 @@ const IndexPage = () => (
         />
         <Row>
           <Col lg="6">
-            <Skill icon="developer" title="Developer">
+            <HeadingSection icon="developer" title="Developer" size={3}>
               <HTML>
                 {developerSkillsetMarkdown}
               </HTML>
-            </Skill>
+            </HeadingSection>
           </Col>
           <Col lg="6">
-            <Skill small icon="javascript" title="Front-end development">
+            <HeadingSection small icon="react" title="Front-end development" size={5}>
               <SkillList
                 skills={['ReactJS', 'Twitter Bootstrap', 'Sass', 'Redux',
-                  'Webpack', 'Babel', 'NPM', 'HTML', 'CSS', 'JavaScript']}
+                  'Webpack', 'Babel', 'NPM', 'HTML', 'CSS', 'jQuery', 'JavaScript']}
               />
-            </Skill>
-            <Skill small icon="python" title="Back-end development">
+            </HeadingSection>
+            <HeadingSection small icon="python" title="Back-end development" size={5}>
               <SkillList
                 skills={['Django', 'Python', 'PostgreSQL', 'GraphQL', 'REST',
                   'PHP']}
               />
-            </Skill>
-            <Skill small icon="linux" title="System administration">
+            </HeadingSection>
+            <HeadingSection small icon="linux" title="System administration" size={5}>
               <SkillList
                 skills={['Linux (Ubuntu)', 'Docker', 'Nginx', 'uWSGI',
                   'DigitalOcean']}
               />
-            </Skill>
+            </HeadingSection>
           </Col>
         </Row>
         <Row>
           <Col lg="6">
-            <Skill icon="design" title="Design sense">
+            <HeadingSection icon="design" title="Design sense" size={3}>
               <HTML>
                 {designSkillsetMarkdown}
               </HTML>
-            </Skill>
+            </HeadingSection>
           </Col>
           <Col lg="6">
-            <Skill icon="business" title="Business insight">
+            <HeadingSection icon="business" title="Business insight" size={3}>
               <HTML>
                 {businessSkillsetMarkdown}
               </HTML>
-            </Skill>
+            </HeadingSection>
           </Col>
         </Row>
       </Container>
@@ -117,60 +119,60 @@ const IndexPage = () => (
         />
         <Row>
           <Col lg="3">
-            <Value title="Passion" icon="passion">
+            <HeadingSection title="Passion" icon="passion" size={4}>
               I love what I do and therefore put genuine effort into my work. I enjoy
               working with people who share the same passion.
-            </Value>
+            </HeadingSection>
           </Col>
           <Col lg="3">
-            <Value title="Craftsmanship" icon="craftsmanship">
+            <HeadingSection title="Craftsmanship" icon="craftsmanship" size={4}>
               I&apos;m creative, meticulous, take my time, and find great
               enjoyment in doing things properly. I&apos;m not one to rush.
-            </Value>
+            </HeadingSection>
           </Col>
           <Col lg="3">
-            <Value title="Easy-going" icon="easy-going">
+            <HeadingSection title="Easy-going" icon="easy-going" size={4}>
               Working well with others is crucial for producing great work and
               everyones&apos; happiness. I&apos;m friendly and have fun.
-            </Value>
+            </HeadingSection>
           </Col>
           <Col lg="3">
-            <Value title="Communication" icon="communication">
+            <HeadingSection title="Communication" icon="communication" size={4}>
               I want to make life easy for both of us. I&apos;m candid, ask many
               questions, don&apos;t let things slip by, and ensure we&apos;re on
               the same page.
-            </Value>
+            </HeadingSection>
           </Col>
         </Row>
         <Row>
           <Col lg="3">
-            <Value title="Focus" icon="focus">
+            <HeadingSection title="Focus" icon="focus" size={4}>
               Multitasking is my Achilles&apos; heel. Synonymous to taking my
               time, I work best when concentrating my effort on a single project.
-            </Value>
+            </HeadingSection>
           </Col>
           <Col lg="3">
-            <Value title="Curiosity" icon="curiosity">
+            <HeadingSection title="Curiosity" icon="curiosity" size={4}>
               I love learning and dedicate myself to it. You can count on me to
               pick up anything I don&apos;t know.
-            </Value>
+            </HeadingSection>
           </Col>
           <Col lg="3">
-            <Value title="Independence" icon="independence">
+            <HeadingSection title="Independence" icon="independence" size={4}>
               Although I&apos;m able to work in a team, I&apos;m very driven and
               self-motivated. You can count on me to get things done.
-            </Value>
+            </HeadingSection>
           </Col>
           <Col lg="3">
-            <Value title="Open-minded" icon="open-mindedness">
+            <HeadingSection title="Open-minded" icon="open-mindedness" size={4}>
               I&apos;m objective and question everything. I don&apos;t hesitate to
               discard my convictions when provided with a good reason.
-            </Value>
+            </HeadingSection>
           </Col>
         </Row>
       </Container>
     </Section>
-    <Section>
+    <Section padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader
           index={3}
@@ -200,25 +202,54 @@ const IndexPage = () => (
         </ul>
       </Container>
     </Section>
-    <Section>
+    <Section gray padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader
           index={4}
           title="My story"
           description="Learn more about who I am and why I love what I do."
         />
-        <HTML>
-          {aboutMeMarkdown}
-        </HTML>
-        <h3>
+        <Row>
+          <Col lg="7">
+            <div className="mb-4">
+              <HeadingSection size={4} icon="git-branch" title="My journey as a developer">
+                <HTML>
+                  {aboutMeDeveloperJourneyMarkdown}
+                </HTML>
+              </HeadingSection>
+            </div>
+            <HeadingSection size={4} icon="about-me" title="More about me">
+              <HTML>
+                {aboutMeMarkdown}
+              </HTML>
+            </HeadingSection>
+          </Col>
+          <Col lg="5">
+            <HeadingSection size={4} icon="about-me-extra" title="Random facts about me">
+              <HTML>
+                {aboutMeExtraMarkdown}
+              </HTML>
+            </HeadingSection>
+            <HeadingSection size={4} icon="quote" title="Favourite quotes">
+              <HTML>
+                {aboutMeFavouriteQuotesMarkdown}
+              </HTML>
+            </HeadingSection>
+          </Col>
+        </Row>
+      </Container>
+    </Section>
+    <Section padding={Section.PADDING_SMALL}>
+      <Container>
+        <h4>
           Testimonials
-        </h3>
+        </h4>
         <ul>
           <li>
             Antun Debak
           </li>
           <li>
-            Thirty4
+            Jake Press
           </li>
         </ul>
       </Container>

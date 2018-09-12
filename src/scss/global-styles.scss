@@ -4,6 +4,10 @@
 ** Global styles
 */
 
+html, body {
+  overflow-x: hidden;
+}
+
 // Buttons
 
 .btn {
@@ -18,4 +22,14 @@
 
 a {
   font-weight: $font-weight-bold;
+}
+
+// Lists
+
+ul:not(.list-inline) {
+  padding-left: 1rem;
+
+  li {
+    padding-left: .5rem;
+  }
 }

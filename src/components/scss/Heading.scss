@@ -1,8 +1,6 @@
 @import 'helpers';
 
-.Value {
-  margin-bottom: map-get($spacers, 4);
-
+.Heading {
   &__icon {
     margin-right: $icon-spacing;
   }

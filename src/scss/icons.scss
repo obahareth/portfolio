@@ -30,6 +30,9 @@
 .icon-stack-overflow:before {
   content: "\e901";
 }
+.icon-react:before {
+  content: "\e914";
+}
 .icon-python:before {
   content: "\e902";
 }
@@ -39,17 +42,20 @@
 .icon-linkedin:before {
   content: "\e904";
 }
-.icon-javascript:before {
-  content: "\e905";
-}
 .icon-github:before {
   content: "\e906";
+}
+.icon-about-me:before {
+  content: "\e905";
 }
 .icon-independence:before {
   content: "\e907";
 }
 .icon-easy-going:before {
   content: "\e908";
+}
+.icon-quote:before {
+  content: "\e916";
 }
 .icon-contact:before {
   content: "\e909";
@@ -78,9 +84,15 @@
 .icon-developer:before {
   content: "\e911";
 }
+.icon-git-branch:before {
+  content: "\e918";
+}
 .icon-focus:before {
   content: "\e912";
 }
 .icon-business:before {
   content: "\e913";
+}
+.icon-about-me-extra:before {
+  content: "\e915";
 }
