@@ -8,15 +8,15 @@ import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
 import SkillList from 'components/SkillList';
 import SocialLink from 'components/SocialLink';
+import introMarkdown from 'content/intro.md';
+import aboutMeDeveloperJourneyMarkdown from 'content/about-me-developer.md';
+import aboutMeExtraMarkdown from 'content/about-me-extra.md';
+import aboutMeFavouriteQuotesMarkdown from 'content/about-me-quotes.md';
+import aboutMeMarkdown from 'content/about-me.md';
+import businessSkillsetMarkdown from 'content/skillset-business.md';
+import developerSkillsetMarkdown from 'content/skillset-developer.md';
+import designSkillsetMarkdown from 'content/skillset-design.md';
 import avatar from 'images/daniel-spajic-avatar.jpg';
-import introMarkdown from 'page-content/home/intro.md';
-import aboutMeDeveloperJourneyMarkdown from 'page-content/home/about-me-developer.md';
-import aboutMeExtraMarkdown from 'page-content/home/about-me-extra.md';
-import aboutMeFavouriteQuotesMarkdown from 'page-content/home/about-me-quotes.md';
-import aboutMeMarkdown from 'page-content/home/about-me.md';
-import businessSkillsetMarkdown from 'page-content/home/skillset-business.md';
-import developerSkillsetMarkdown from 'page-content/home/skillset-developer.md';
-import designSkillsetMarkdown from 'page-content/home/skillset-design.md';
 
 const IndexPage = () => (
   <main>
@@ -74,7 +74,8 @@ const IndexPage = () => (
             <HeadingSection small icon="react" title="Front-end development" size={5}>
               <SkillList
                 skills={['ReactJS', 'Twitter Bootstrap', 'Sass', 'Redux',
-                  'Webpack', 'Babel', 'NPM', 'HTML', 'CSS', 'jQuery', 'JavaScript']}
+                  'Webpack', 'Gatsby', 'Babel', 'NPM', 'HTML', 'gulp', 'jQuery',
+                  'JavaScript']}
               />
             </HeadingSection>
             <HeadingSection small icon="python" title="Back-end development" size={5}>

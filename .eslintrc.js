@@ -9,9 +9,9 @@ module.exports = {
       alias: {
         map: [
           ['components', './src/components'],
+          ['content', './src/content'],
           ['images', './src/images'],
           ['layouts', './src/layouts'],
-          ['page-content', './src/page-content'],
           ['pages', './src/pages'],
           ['scss', './src/scss'],
         ],
