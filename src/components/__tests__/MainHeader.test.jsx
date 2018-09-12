@@ -28,8 +28,12 @@ describe("<MainHeader>", () => {
     };
   });
 
-  it("renders a <header> as the root element", () => {
-    expect(getComponent().is('header')).toBeTruthy();
+  it("renders a <Parallax> as the root element", () => {
+    expect(getComponent().is('Parallax')).toBeTruthy();
+  });
+
+  it("renders a <header>", () => {
+    expect(getComponent().find('header')).toHaveLength(1);
   });
 
   it("renders an avatar", () => {
