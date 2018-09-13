@@ -22,6 +22,7 @@ const Layout = ({ children, data }) => (
           meta={[
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
+            { name: 'pinterest', content: 'nopin' },
           ]}
         >
           <link rel="shortcut icon" type="image/png" href={favicon} />
