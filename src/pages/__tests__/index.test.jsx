@@ -10,11 +10,13 @@ describe("<IndexPage>", () => {
     }
     return mountedComponent;
   };
+  const getNavbar = () => getComponent().find('Navbar');
   const getPortfolioItems = () => getComponent().find('PortfolioItem');
 
   beforeEach(() => {
     mountedComponent = undefined;
     props = {
+      scrollTop: 0,
       data: {
         avatar: {
           childImageSharp: {
@@ -74,8 +76,20 @@ describe("<IndexPage>", () => {
     };
   });
 
-  it("renders a <main> as the root element", () => {
-    expect(getComponent().is('main')).toBeTruthy();
+  it("renders a <div> as the root element", () => {
+    expect(getComponent().is('div')).toBeTruthy();
+  });
+
+  it("renders a <main>", () => {
+    expect(getComponent().find('main')).toHaveLength(1);
+  });
+
+  it("renders a <Navbar>", () => {
+    expect(getNavbar()).toHaveLength(1);
+  });
+
+  it("renders a <Footer>", () => {
+    expect(getComponent().find('Footer')).toHaveLength(1);
   });
 
   it("renders a <MainHeader>", () => {
@@ -84,6 +98,18 @@ describe("<IndexPage>", () => {
 
   it("renders a <PortfolioItem> for each item in `props.data.portfolioItems`", () => {
     expect(getPortfolioItems()).toHaveLength(props.data.portfolioItems.edges.length);
+  });
+
+  describe("rendered <Navbar>", () => {
+    it("sets its `solid` prop to `false` when `props.scrollTop` is `0`", () => {
+      props.scrollTop = 0;
+      expect(getNavbar().props().solid).not.toBeTruthy();
+    });
+
+    it("sets its `solid` prop to `true` when `props.scrollTop` is > than `0`", () => {
+      props.scrollTop = 1;
+      expect(getNavbar().props().solid).toBeTruthy();
+    });
   });
 
   describe("each <PortfolioItem>", () => {

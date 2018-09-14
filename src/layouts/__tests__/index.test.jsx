@@ -42,14 +42,6 @@ describe("<Layout>", () => {
     expect(getRenderedApp().find('HelmetWrapper')).toHaveLength(1);
   });
 
-  it("renders a <Navbar>", () => {
-    expect(getRenderedApp().find('Navbar')).toHaveLength(1);
-  });
-
-  it("renders a <Footer>", () => {
-    expect(getRenderedApp().find('Footer')).toHaveLength(1);
-  });
-
   it("renders `props.children`", () => {
     expect(getRenderedApp().contains(props.children())).toBeTruthy();
   });
@@ -61,5 +53,5 @@ describe("<Layout>", () => {
     });
   });
 
-  // TODO: test navbar `solid` prop
+  // TODO: test `scrollTop` and `otherProps` is passed to `children`
 });
