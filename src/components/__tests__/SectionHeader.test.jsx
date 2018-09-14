@@ -10,7 +10,7 @@ describe("<SectionHeader>", () => {
     }
     return mountedComponent;
   };
-  const getTitle = () => getComponent().find('h2');
+  const getHeading = () => getComponent().find('Heading');
 
   beforeEach(() => {
     mountedComponent = undefined;
@@ -25,21 +25,21 @@ describe("<SectionHeader>", () => {
     expect(getComponent().is('header')).toBeTruthy();
   });
 
-  it("renders a title", () => {
-    expect(getTitle()).toHaveLength(1);
+  it("renders a <Heading>", () => {
+    expect(getHeading()).toHaveLength(1);
   });
 
   it("renders `props.description` in a paragraph", () => {
     expect(getComponent().find(`p[children='${props.description}']`)).toHaveLength(1);
   });
 
-  describe("rendered title", () => {
+  describe("rendered <Heading>", () => {
     it("renders `props.index` inside a <span>", () => {
-      expect(getTitle().find(`span[children='0${props.index} —']`)).toHaveLength(1);
+      expect(getHeading().find(`span[children='0${props.index} —']`)).toHaveLength(1);
     });
 
     it("renders `props.title`", () => {
-      expect(getComponent().contains(` ${props.title}`)).toBeTruthy();
+      expect(getHeading().contains(` ${props.title}`)).toBeTruthy();
     });
   });
 });

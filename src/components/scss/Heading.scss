@@ -1,6 +1,14 @@
 @import 'helpers';
 
 .Heading {
+  &--extra-bold {
+    font-weight: $font-weight-black;
+  }
+
+  &--light {
+    font-weight: $font-weight-medium;
+  }
+
   &__icon {
     margin-right: $icon-spacing;
   }

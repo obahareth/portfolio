@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Heading from 'components/Heading';
+
 const SectionHeader = ({ description, index, title }) => (
-  <header className="SectionHeader text-center pb-5">
+  <header className="text-center pb-5">
     <div className="w-50 mx-auto">
-      <h2>
+      <Heading size={2} extraBold>
         <span className="text-primary">
           {`0${index} —`}
         </span>
         {` ${title}`}
-      </h2>
+      </Heading>
       <p>
         {description}
       </p>

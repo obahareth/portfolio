@@ -2,6 +2,7 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import Heading from 'components/Heading';
 import Parallax from 'components/Parallax';
 import './scss/MainHeader.scss';
 
@@ -15,12 +16,12 @@ const MainHeader = ({
         className="MainHeader__avatar img-fluid rounded-circle mb-5"
         resolutions={avatarResolutions}
       />
-      <h1 className="MainHeader__title">
+      <Heading size={1} extraBold>
         {title}
-      </h1>
-      <h3 className="MainHeader__subtitle">
+      </Heading>
+      <Heading size={3} light className="text-light mb-4">
         {subtitle}
-      </h3>
+      </Heading>
       {children}
     </header>
   </Parallax>

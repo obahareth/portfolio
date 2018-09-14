@@ -35,4 +35,34 @@ describe("<Heading>", () => {
       expect(getComponent().find(`Icon[name='${props.icon}']`)).toHaveLength(1);
     });
   });
+
+  describe("when `props.extraBold` is `true`", () => {
+    beforeEach(() => {
+      props.extraBold = true;
+    });
+
+    it("adds 'Heading--extra-bold' to its `className` prop", () => {
+      expect(getComponent().props().className).toContain('Heading--extra-bold');
+    });
+  });
+
+  describe("when `props.light` is `true`", () => {
+    beforeEach(() => {
+      props.light = true;
+    });
+
+    it("adds 'Heading--light' to its `className` prop", () => {
+      expect(getComponent().props().className).toContain('Heading--light');
+    });
+  });
+
+  describe("when `props.className` is defined", () => {
+    beforeEach(() => {
+      props.className = 'some-class';
+    });
+
+    it("adds `props.className` to its `className` prop", () => {
+      expect(getComponent().props().className).toContain(props.className);
+    });
+  });
 });
