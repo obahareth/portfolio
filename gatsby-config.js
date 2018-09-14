@@ -26,6 +26,7 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-plugin-resolve-src',
       options: {
@@ -38,6 +39,13 @@ module.exports = {
         postCssPlugins: [cssnext()],
         precision: 8,
         includePaths: ['src/scss'],
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: `${__dirname}/src/content`,
       },
     },
     {

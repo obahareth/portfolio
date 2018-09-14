@@ -1,0 +1,98 @@
+- item:
+  name: My portfolio
+  description:
+    "An ideal home for my life's work was needed, so I designed one. Since
+    learning and falling in love with React, I decided to use Gatsby: a static
+    site generator using React and optimised for the modern web."
+  image: portfolio.png
+  year: 2018
+  siteLink: https://danieljs.tech
+  skillsUsed:
+    - React.js
+    - GraphQL
+    - Gatsby
+    - Sass
+    - Twitter Bootstrap
+    - Netlify
+- item:
+  name: Trausing
+  caseStudy: https://danieljs.me/my-first-taste-of-success/
+  image: trausing.png
+  description:
+    Whilst solo-travelling across Canada, in Whistler I witnessed the extreme
+    demand for housing with little supply. I developed an elegant solution with
+    great success; the project was featured in the media and had exceptional feedback.
+  siteLink: http://trausing.danieljs.tech
+  year: 2016
+  skillsUsed:
+    - Django
+    - Python
+    - PostgreSQL
+    - Twitter Bootstrap
+    - jQuery
+- item:
+  name: Antun Debak's Portfolio
+  description:
+    After a failed attempt working with another developer, Antun approached me
+    looking for someone capable of building his portfolio he designed. Using the
+    provided design files I successfully achieved his vision.
+  image: antun-debak-portfolio.png
+  siteLink: http://debak.danieljs.tech
+  year: 2017
+  skillsUsed:
+    - Sass
+    - HTML
+    - Twitter Bootstrap
+    - jQuery
+- item:
+  name: Trizma
+  description:
+    After our past experience working together, Antun approached me to build a
+    website for a client. The code needed to be modular for use with WPBakery.
+    Using the design files provided I successfully built the site.
+  image: trizma.png
+  siteLink: http://trizma.danieljs.tech
+  year: 2018
+  skillsUsed:
+    - Gulp
+    - Nunjucks
+    - Sass
+    - Twitter Bootstrap
+    - JavaScript (ES6)
+    - jQuery
+- item:
+  name: B4UBUY Home Inspections
+  description:
+    Peter needed an attractive site for his new business to stand out from the
+    competition. Working alongside a SEO specialist he hired, I designed and
+    developed an elegant solution suitable for the provided site's copy and
+    brand.
+  image: b4ubuy.png
+  caseStudy: https://danieljs.me/upgrading-b4ubuy-website/
+  siteLink: https://b4ubuyhomeinspectionsadelaide.com.au/
+  year: 2018
+  skillsUsed:
+    - Django
+    - Python
+    - HTML
+    - CSS
+    - Twitter Bootstrap
+    - jQuery
+    - Mailgun API
+- item:
+  name: Devarity Game Store
+  description:
+    Alongside being my first business venture, Devarity was also the project I used
+    to teach myself to code. Working alongside a front-end and back-end developer
+    I hired, I assembled the pieces together, made customisations, and deployed
+    the site.
+  image: devarity.png
+  year: 2015
+  skillsUsed:
+    - PHP
+    - MySQL
+    - HTML
+    - CSS
+    - Twitter Bootstrap
+    - jQuery
+    - Stripe API

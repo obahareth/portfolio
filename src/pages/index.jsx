@@ -1,9 +1,11 @@
+import filter from 'lodash/filter';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 import HeadingSection from 'components/HeadingSection';
 import MainHeader from 'components/MainHeader';
+import PortfolioItem from 'components/PortfolioItem';
 import HTML from 'components/HTML';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
@@ -17,6 +19,14 @@ import aboutMeMarkdown from 'content/about-me.md';
 import businessSkillsetMarkdown from 'content/skillset-business.md';
 import developerSkillsetMarkdown from 'content/skillset-developer.md';
 import designSkillsetMarkdown from 'content/skillset-design.md';
+
+const getPortfolioItemImageSizes = (portfolioImages, portfolioItem) => {
+  const imageSizes = filter(portfolioImages, (item) => {
+    const imageName = item.node.childImageSharp.sizes.originalName;
+    return imageName === portfolioItem.image;
+  });
+  return imageSizes[0].node.childImageSharp.sizes;
+};
 
 const IndexPage = ({ data }) => (
   <main>
@@ -74,8 +84,8 @@ const IndexPage = ({ data }) => (
             <HeadingSection small icon="react" title="Front-end development" size={5}>
               <SkillList
                 skills={['ReactJS', 'Twitter Bootstrap', 'Sass', 'Redux',
-                  'Webpack', 'Gatsby', 'Babel', 'NPM', 'HTML', 'gulp', 'jQuery',
-                  'JavaScript']}
+                  'Webpack', 'Gatsby', 'Babel', 'NPM/Yarn', 'Nunjucks', 'HTML',
+                  'gulp', 'jQuery', 'JavaScript']}
               />
             </HeadingSection>
             <HeadingSection small icon="python" title="Back-end development" size={5}>
@@ -87,7 +97,7 @@ const IndexPage = ({ data }) => (
             <HeadingSection small icon="linux" title="System administration" size={5}>
               <SkillList
                 skills={['Linux (Ubuntu)', 'Docker', 'Nginx', 'uWSGI',
-                  'DigitalOcean']}
+                  'VPS']}
               />
             </HeadingSection>
           </Col>
@@ -140,8 +150,7 @@ const IndexPage = ({ data }) => (
           <Col lg="3">
             <HeadingSection title="Communication" icon="communication" size={4}>
               I want to make life easy for both of us. I&apos;m candid, ask many
-              questions, don&apos;t let things slip by, and ensure we&apos;re on
-              the same page.
+              questions, and don&apos;t let things slip by.
             </HeadingSection>
           </Col>
         </Row>
@@ -178,29 +187,22 @@ const IndexPage = ({ data }) => (
         <SectionHeader
           index={3}
           title="Showcase"
-          description="Here's some of the many things I've worked on over the
+          description="Here's a few of the many things I've worked on over the
             years."
         />
-        <ul>
-          <li>
-            Trausing
-          </li>
-          <li>
-            Antun Debak&apos;s portfolio
-          </li>
-          <li>
-            Trizma
-          </li>
-          <li>
-            This portfolio
-          </li>
-          <li>
-            B4UBUY Home Inspections website
-          </li>
-          <li>
-            Devarity Game Store
-          </li>
-        </ul>
+        {data.portfolioItems.edges.map(({ node }, index) => (
+          <PortfolioItem
+            key={node.name}
+            alt={index % 2 > 0}
+            name={node.name}
+            description={node.description}
+            year={node.year}
+            siteLink={node.siteLink}
+            skillsUsed={node.skillsUsed}
+            caseStudy={node.caseStudy}
+            imageSizes={getPortfolioItemImageSizes(data.portfolioItemImages.edges, node)}
+          />
+        ))}
       </Container>
     </Section>
     <Section gray padding={Section.PADDING_SMALL}>
@@ -259,23 +261,13 @@ const IndexPage = ({ data }) => (
 );
 
 IndexPage.propTypes = {
-  data: PropTypes.shape({
-    avatar: PropTypes.shape({
-      childImageSharp: PropTypes.shape({
-        resolutions: PropTypes.object.isRequired,
-      }).isRequired,
-    }).isRequired,
-  }).isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export const query = graphql`
   query IndexQuery {
     ...AvatarFragment
-    site {
-      siteMetadata {
-        title
-      }
-    }
+    ...PortfolioItems
   }
 `;
 

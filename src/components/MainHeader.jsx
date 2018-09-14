@@ -39,7 +39,7 @@ export const query = graphql`
     avatar: file(relativePath: { eq: "daniel-spajic-avatar.png" }) {
       childImageSharp {
         resolutions(width: 160, height: 160) {
-          ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+          ...GatsbyImageSharpResolutions_withWebp
         }
       }
     }
