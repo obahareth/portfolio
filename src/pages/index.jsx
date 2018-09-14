@@ -30,40 +30,42 @@ const getPortfolioItemImageSizes = (portfolioImages, portfolioItem) => {
 
 const IndexPage = ({ data }) => (
   <main>
-    <Section id="welcome" bgStars>
-      <Section roundedBottom padding={Section.PADDING_LARGE}>
+    <div id="intro">
+      <Section bgStars>
+        <Section roundedBottom padding={Section.PADDING_LARGE}>
+          <Container>
+            <MainHeader
+              avatarResolutions={data.avatar.childImageSharp.resolutions}
+              title="Daniel Spajic"
+              subtitle="Front-end engineer with a full-stack skillset"
+            >
+              <SocialLink icon="blog" to="https://danieljs.me" />
+              <SocialLink icon="github" to="https://github.com/dspacejs" />
+              <SocialLink
+                icon="stack-overflow"
+                to="https://stackoverflow.com/users/4260047/dspacejs"
+              />
+              <SocialLink icon="twitter" to="https://twitter.com/dspacejs" />
+              <SocialLink
+                icon="linkedin"
+                to="https://www.linkedin.com/in/daniel-spajic-445197158/"
+              />
+            </MainHeader>
+          </Container>
+        </Section>
+      </Section>
+      <Section roundedTop padding={Section.PADDING_SMALL}>
         <Container>
-          <MainHeader
-            avatarResolutions={data.avatar.childImageSharp.resolutions}
-            title="Daniel Spajic"
-            subtitle="Front-end engineer with a full-stack skillset"
-          >
-            <SocialLink icon="blog" to="https://danieljs.me" />
-            <SocialLink icon="github" to="https://github.com/dspacejs" />
-            <SocialLink
-              icon="stack-overflow"
-              to="https://stackoverflow.com/users/4260047/dspacejs"
-            />
-            <SocialLink icon="twitter" to="https://twitter.com/dspacejs" />
-            <SocialLink
-              icon="linkedin"
-              to="https://www.linkedin.com/in/daniel-spajic-445197158/"
-            />
-          </MainHeader>
+          <Row>
+            <Col className="text-center" lg={{ size: 8, offset: 2 }}>
+              <HTML>
+                {introMarkdown}
+              </HTML>
+            </Col>
+          </Row>
         </Container>
       </Section>
-    </Section>
-    <Section roundedTop padding={Section.PADDING_SMALL}>
-      <Container>
-        <Row>
-          <Col className="text-center" lg={{ size: 8, offset: 2 }}>
-            <HTML>
-              {introMarkdown}
-            </HTML>
-          </Col>
-        </Row>
-      </Container>
-    </Section>
+    </div>
     <Section id="skillset" gray padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader

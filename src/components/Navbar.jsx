@@ -2,8 +2,9 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
-  Collapse, Container, Nav, Navbar as BSNavbar, NavItem,
+  Collapse, Container, Navbar as BSNavbar, NavItem,
 } from 'reactstrap';
+import Scrollspy from 'react-scrollspy';
 
 import ContactButton from 'components/ContactButton';
 import AnchorLink from 'components/AnchorLink';
@@ -18,11 +19,21 @@ const Navbar = ({ solid }) => {
   return (
     <BSNavbar className={className} expand="lg" fixed="top">
       <Container>
-        <AnchorLink href="#welcome" className="navbar-brand mr-0">
+        <AnchorLink href="#intro" className="navbar-brand mr-0">
           <img src={logo} alt="Logo" height="55" />
         </AnchorLink>
         <Collapse isOpen navbar>
-          <Nav className="ml-auto" navbar>
+          <Scrollspy
+            className="navbar-nav ml-auto"
+            currentClassName="active"
+            items={['intro', 'skillset', 'values', 'showcase', 'my-story']}
+            offset={-100}
+          >
+            <NavItem className="d-none">
+              <AnchorLink className="nav-link" href="#intro">
+                Intro
+              </AnchorLink>
+            </NavItem>
             <NavItem>
               <AnchorLink className="nav-link" href="#skillset">
                 Skillset
@@ -43,7 +54,7 @@ const Navbar = ({ solid }) => {
                 My story
               </AnchorLink>
             </NavItem>
-          </Nav>
+          </Scrollspy>
           <ContactButton />
         </Collapse>
       </Container>

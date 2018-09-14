@@ -18,6 +18,19 @@
     }
   }
 
+  &--solid {
+    background-color: $gray-200;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,.15);
+
+    .nav-link {
+      color: $body-color;
+    }
+
+    .nav-item.active .nav-link {
+      color: $primary;
+    }
+  }
+
   .navbar-brand {
     img {
       max-height: 50px;
@@ -37,14 +50,5 @@
   .nav-item,
   .btn {
     font-size: $font-size-lg;
-  }
-
-  &--solid {
-    background-color: $gray-200;
-    box-shadow: 0 2px 10px 0 rgba(0,0,0,.15);
-
-    .nav-link {
-      color: inherit;
-    }
   }
 }

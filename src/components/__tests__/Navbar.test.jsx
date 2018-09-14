@@ -10,7 +10,11 @@ describe("<Navbar>", () => {
     }
     return mountedComponent;
   };
-  const getNavbarBrand = () => getComponent().find("AnchorLink[className*='navbar-brand']");
+  const getNavbarBrand = () => getComponent()
+    .find("AnchorLink[className*='navbar-brand']");
+  const getScrollspy = () => getComponent().find('Scrollspy');
+  const getNavItems = () => getScrollspy().find('NavItem');
+  const getNavLinks = () => getNavItems().find("AnchorLink[className*='nav-link']");
 
   beforeEach(() => {
     mountedComponent = undefined;
@@ -25,8 +29,12 @@ describe("<Navbar>", () => {
     expect(getNavbarBrand()).toHaveLength(1);
   });
 
+  it("renders a <Scrollspy>", () => {
+    expect(getScrollspy()).toHaveLength(1);
+  });
+
   it("renders a <NavItem> for each main page section", () => {
-    expect(getComponent().find('NavItem')).toHaveLength(4);
+    expect(getNavItems()).toHaveLength(5);
   });
 
   it("renders a <ContactButton>", () => {
@@ -35,8 +43,7 @@ describe("<Navbar>", () => {
 
   it("renders a <AnchorLink> with a `nav-link` class for each <NavItem>", () => {
     const navItems = getComponent().find("NavItem");
-    expect(getComponent().find("AnchorLink[className*='nav-link']"))
-      .toHaveLength(navItems.length);
+    expect(getNavLinks()).toHaveLength(navItems.length);
   });
 
   describe("rendered `.navbar-brand`", () => {
