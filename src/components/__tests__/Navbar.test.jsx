@@ -3,12 +3,14 @@ import Navbar from '../Navbar';
 describe("<Navbar>", () => {
   let mountedComponent;
   let props;
+
   const getComponent = () => {
     if (!mountedComponent) {
       mountedComponent = shallow(<Navbar {...props} />);
     }
     return mountedComponent;
   };
+  const getNavbarBrand = () => getComponent().find("AnchorLink[className*='navbar-brand']");
 
   beforeEach(() => {
     mountedComponent = undefined;
@@ -20,7 +22,7 @@ describe("<Navbar>", () => {
   });
 
   it("renders a `.navbar-brand`", () => {
-    expect(getComponent().find("GatsbyLink[className*='navbar-brand']")).toHaveLength(1);
+    expect(getNavbarBrand()).toHaveLength(1);
   });
 
   it("renders a <NavItem> for each main page section", () => {
@@ -31,15 +33,15 @@ describe("<Navbar>", () => {
     expect(getComponent().find('ContactButton')).toHaveLength(1);
   });
 
-  it("renders a <NavLink> for each <NavItem>", () => {
+  it("renders a <AnchorLink> with a `nav-link` class for each <NavItem>", () => {
     const navItems = getComponent().find("NavItem");
-    expect(getComponent().find('NavLink')).toHaveLength(navItems.length);
+    expect(getComponent().find("AnchorLink[className*='nav-link']"))
+      .toHaveLength(navItems.length);
   });
 
   describe("rendered `.navbar-brand`", () => {
     it("renders a logo", () => {
-      expect(getComponent().find("GatsbyLink[className*='navbar-brand']")
-        .find("img[alt='Logo']")).toHaveLength(1);
+      expect(getNavbarBrand().find("img[alt='Logo']")).toHaveLength(1);
     });
   });
 

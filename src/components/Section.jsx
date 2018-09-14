@@ -8,7 +8,7 @@ const PADDING_LARGE = 'large';
 const PADDING_SMALL = 'small';
 
 const Section = ({
-  children, bgStars, gray, padding, roundedBottom, roundedTop,
+  children, bgStars, gray, id, padding, roundedBottom, roundedTop,
 }) => {
   const className = classNames('Section', {
     'Section--bg-stars': bgStars,
@@ -20,7 +20,7 @@ const Section = ({
   });
 
   return (
-    <section className={className}>
+    <section className={className} id={id}>
       {children}
     </section>
   );
@@ -33,6 +33,7 @@ Section.propTypes = {
   children: PropTypes.node.isRequired,
   bgStars: PropTypes.bool,
   gray: PropTypes.bool,
+  id: PropTypes.string,
   padding: PropTypes.oneOf([PADDING_LARGE, PADDING_SMALL]),
   roundedBottom: PropTypes.bool,
   roundedTop: PropTypes.bool,
@@ -41,6 +42,7 @@ Section.propTypes = {
 Section.defaultProps = {
   bgStars: false,
   gray: false,
+  id: undefined,
   padding: undefined,
   roundedBottom: false,
   roundedTop: false,

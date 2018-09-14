@@ -51,6 +51,16 @@ describe("<Section>", () => {
       });
     });
 
+    describe("when `props.id` is defined", () => {
+      beforeEach(() => {
+        props.id = 'some-id';
+      });
+
+      it("sets its `id` prop as `props.id`", () => {
+        expect(getComponent().props().id).toBe(props.id);
+      });
+    });
+
     describe("when `props.padding` is set as `large`", () => {
       beforeEach(() => {
         props.padding = 'large';

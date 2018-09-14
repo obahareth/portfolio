@@ -30,7 +30,7 @@ const getPortfolioItemImageSizes = (portfolioImages, portfolioItem) => {
 
 const IndexPage = ({ data }) => (
   <main>
-    <Section bgStars>
+    <Section id="welcome" bgStars>
       <Section roundedBottom padding={Section.PADDING_LARGE}>
         <Container>
           <MainHeader
@@ -64,7 +64,7 @@ const IndexPage = ({ data }) => (
         </Row>
       </Container>
     </Section>
-    <Section gray padding={Section.PADDING_SMALL}>
+    <Section id="skillset" gray padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader
           index={1}
@@ -120,7 +120,7 @@ const IndexPage = ({ data }) => (
         </Row>
       </Container>
     </Section>
-    <Section bgStars padding={Section.PADDING_SMALL}>
+    <Section id="values" bgStars padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader
           index={2}
@@ -182,7 +182,7 @@ const IndexPage = ({ data }) => (
         </Row>
       </Container>
     </Section>
-    <Section padding={Section.PADDING_SMALL}>
+    <Section id="showcase" padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader
           index={3}
@@ -205,7 +205,7 @@ const IndexPage = ({ data }) => (
         ))}
       </Container>
     </Section>
-    <Section gray padding={Section.PADDING_SMALL}>
+    <Section id="my-story" gray padding={Section.PADDING_SMALL}>
       <Container>
         <SectionHeader
           index={4}
