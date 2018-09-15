@@ -29,4 +29,14 @@ describe("<AnchorLink>", () => {
   it("sets its `href` prop as `props.href`", () => {
     expect(getComponent().props().href).toBe(props.href);
   });
+
+  describe("when `props.className` is defined", () => {
+    beforeEach(() => {
+      props.className = 'nav-link';
+    });
+
+    it("sets its `className` prop to `props.className`", () => {
+      expect(getComponent().props().className).toBe(props.className);
+    });
+  });
 });
