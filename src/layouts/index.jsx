@@ -6,6 +6,7 @@ import Helmet from 'react-helmet';
 import App from 'components/App';
 import ErrorBoundary from 'components/ErrorBoundary';
 import favicon from 'images/icon.png';
+import ogImage from 'images/og:image.png';
 import 'scss/custom-bootstrap.scss';
 import 'scss/fonts.scss';
 import 'scss/global-styles.scss';
@@ -18,9 +19,14 @@ const Layout = ({ children, data, ...otherProps }) => (
         <Helmet
           title={get(data, 'site.siteMetadata.title')}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: get(data, 'site.siteMetadata.description') },
             { name: 'pinterest', content: 'nopin' },
+            { name: 'og:title', content: 'Daniel Spajic' },
+            { name: 'og:description', content: get(data, 'site.siteMetadata.description') },
+            { name: 'og:type', content: 'website' },
+            { name: 'og:url', content: get(data, 'site.siteMetadata.siteUrl') },
+            { name: 'og:image', content: ogImage },
+            { name: 'og:locale', content: 'en_AU' },
           ]}
         >
           <link rel="shortcut icon" type="image/png" href={favicon} />
@@ -40,6 +46,8 @@ Layout.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
+        description: PropTypes.string.isRequired,
+        siteUrl: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
       }),
     }),
@@ -52,6 +60,8 @@ export const query = graphql`
   query SiteTitleQuery {
     site {
       siteMetadata {
+        description
+        siteUrl
         title
       }
     }
