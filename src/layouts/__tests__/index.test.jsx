@@ -23,6 +23,8 @@ describe("<Layout>", () => {
         site: {
           siteMetadata: {
             title: 'site',
+            description: 'some description',
+            siteUrl: 'https://danieljs.tech',
           },
         },
       },
