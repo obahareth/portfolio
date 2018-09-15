@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
+import Heading from 'components/Heading';
 import Icon from 'components/Icon';
 import SkillList from 'components/SkillList';
 
@@ -18,12 +19,12 @@ const PortfolioItem = ({
       />
     </Col>
     <Col lg="6">
-      <h3>
+      <Heading size={3}>
         {name}
-      </h3>
-      <h4 className="text-primary">
-        {year}
-      </h4>
+        <small className="text-primary">
+          {` — ${year}`}
+        </small>
+      </Heading>
       <SkillList skills={skillsUsed} />
       <p>
         {description}
@@ -73,20 +74,14 @@ export const query = graphql`
           name
           caseStudy
           description
-          image
           siteLink
           year
           skillsUsed
-        }
-      }
-    }
-    portfolioItemImages: allFile(filter: { relativeDirectory: { eq: "portfolio" } }) {
-      edges {
-        node {
-          childImageSharp {
-            sizes(maxWidth: 700) {
-              originalName
-              ...GatsbyImageSharpSizes
+          image {
+            childImageSharp {
+              sizes(maxWidth: 700) {
+                ...GatsbyImageSharpSizes
+              }
             }
           }
         }

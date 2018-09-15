@@ -1,3 +1,5 @@
+import get from 'lodash/get';
+
 import IndexPage from '../index';
 
 describe("<IndexPage>", () => {
@@ -33,7 +35,13 @@ describe("<IndexPage>", () => {
                 siteLink: 'https://trausing.danieljs.tech',
                 skillsUsed: ['Django', 'Python', 'PostgreSQL', 'jQuery'],
                 caseStudy: 'https://danieljs.me/my-first-taste-of-success/',
-                image: 'trausing.png',
+                image: {
+                  childImageSharp: {
+                    sizes: {
+                      someProperty: 'someValue',
+                    },
+                  },
+                },
               },
             },
             {
@@ -43,29 +51,11 @@ describe("<IndexPage>", () => {
                 year: 2018,
                 siteLink: 'https://trizma.danieljs.tech',
                 skillsUsed: ['Nunjucks', 'Sass', 'Gulp', 'jQuery'],
-                image: 'trizma.png',
-              },
-            },
-          ],
-        },
-        portfolioItemImages: {
-          edges: [
-            {
-              node: {
-                childImageSharp: {
-                  sizes: {
-                    originalName: 'trausing.png',
-                    someProperty: 'test',
-                  },
-                },
-              },
-            },
-            {
-              node: {
-                childImageSharp: {
-                  sizes: {
-                    originalName: 'trizma.png',
-                    someProperty: 'test',
+                image: {
+                  childImageSharp: {
+                    sizes: {
+                      someProperty: 'someValue',
+                    },
                   },
                 },
               },
@@ -117,7 +107,7 @@ describe("<IndexPage>", () => {
     const comparePropToPortfolioData = (propKey, dataKey) => getPortfolioItems()
       .forEach((node, index) => {
         const propValue = node.prop(propKey);
-        const dataValue = portfolioData[index][dataKey];
+        const dataValue = get(portfolioData[index], dataKey);
         expect(propValue).toBe(dataValue);
       });
 
@@ -125,7 +115,7 @@ describe("<IndexPage>", () => {
       portfolioData = props.data.portfolioItems.edges.map(edge => edge.node);
     });
 
-    it("sets its `key` prop as its `name` from `data.portfolioItems`", () => {
+    it("sets its `key` prop as its `name` from `props.data.portfolioItems`", () => {
       getPortfolioItems().forEach((node, index) => {
         expect(node.key()).toBe(portfolioData[index].name);
       });
@@ -141,43 +131,32 @@ describe("<IndexPage>", () => {
       expect(secondPortfolioItem.props().alt).toBeTruthy();
     });
 
-    it("sets its `name` prop as its `name` from `props.data.portfolioItems`", () => {
+    it("sets its `name` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('name', 'name');
     });
 
-    it("sets its `description` prop as its `description` from `props.data.portfolioItems`", () => {
+    it("sets its `description` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('description', 'description');
     });
 
-    it("sets its `year` prop as its `year` from `props.data.portfolioItems`", () => {
+    it("sets its `year` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('year', 'year');
     });
 
-    it("sets its `siteLink` prop as its `siteLink` from `props.data.portfolioItems`", () => {
+    it("sets its `siteLink` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('siteLink', 'siteLink');
     });
 
-    it("sets its `skillsUsed` prop as its `skillsUsed` from `props.data.portfolioItems`", () => {
+    it("sets its `skillsUsed` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('skillsUsed', 'skillsUsed');
     });
 
-    it("sets its `caseStudy` prop as its `caseStudy` from `props.data.portfolioItems`", () => {
+    it("sets its `caseStudy` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('caseStudy', 'caseStudy');
     });
 
-    it("sets its `imageSizes` prop using its corresponding `props.data.portfolioItemImages` item", () => {
-      getPortfolioItems().forEach((node, index) => {
-        const expectedImageName = props.data.portfolioItems.edges[index].node.image;
-
-        const getImageSizes = item => item.node.childImageSharp.sizes;
-        const allImageSizes = props.data.portfolioItemImages.edges
-          .map(getImageSizes);
-
-        const matchImageOriginalName = image => image.originalName === expectedImageName;
-        const expectedImageSizes = allImageSizes.find(matchImageOriginalName);
-
-        expect(node.props().imageSizes).toBe(expectedImageSizes);
-      });
+    it("sets its `imageSizes` prop using its data `props.data.portfolioItems`", () => {
+      comparePropToPortfolioData('imageSizes', 'image.childImageSharp.sizes');
     });
   });
 });

@@ -4,7 +4,7 @@
     "An ideal home for my life's work was needed, so I designed one. Since
     learning and falling in love with React, I decided to use Gatsby: a static
     site generator using React and optimised for the modern web."
-  image: portfolio.png
+  image: ./portfolio-images/portfolio.png
   year: 2018
   siteLink: https://danieljs.tech
   skillsUsed:
@@ -17,7 +17,7 @@
 - item:
   name: Trausing
   caseStudy: https://danieljs.me/my-first-taste-of-success/
-  image: trausing.png
+  image: ./portfolio-images/trausing.png
   description:
     Whilst solo-travelling across Canada, in Whistler I witnessed the extreme
     demand for housing with little supply. I developed an elegant solution with
@@ -36,7 +36,7 @@
     After a failed attempt working with another developer, Antun approached me
     looking for someone capable of building his portfolio he designed. Using the
     provided design files I successfully achieved his vision.
-  image: antun-debak-portfolio.png
+  image: ./portfolio-images/antun-debak-portfolio.png
   siteLink: http://debak.danieljs.tech
   year: 2017
   skillsUsed:
@@ -50,7 +50,7 @@
     After our past experience working together, Antun approached me to build a
     website for a client. The code needed to be modular for use with WPBakery.
     Using the design files provided I successfully built the site.
-  image: trizma.png
+  image: ./portfolio-images/trizma.png
   siteLink: http://trizma.danieljs.tech
   year: 2018
   skillsUsed:
@@ -67,7 +67,7 @@
     competition. Working alongside a SEO specialist he hired, I designed and
     developed an elegant solution suitable for the provided site's copy and
     brand.
-  image: b4ubuy.png
+  image: ./portfolio-images/b4ubuy.png
   caseStudy: https://danieljs.me/upgrading-b4ubuy-website/
   siteLink: https://b4ubuyhomeinspectionsadelaide.com.au/
   year: 2018
@@ -86,7 +86,7 @@
     to teach myself to code. Working alongside a front-end and back-end developer
     I hired, I assembled the pieces together, made customisations, and deployed
     the site.
-  image: devarity.png
+  image: ./portfolio-images/devarity.png
   year: 2015
   skillsUsed:
     - PHP

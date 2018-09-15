@@ -1,4 +1,3 @@
-import filter from 'lodash/filter';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
@@ -21,14 +20,6 @@ import aboutMeMarkdown from 'content/about-me.md';
 import businessSkillsetMarkdown from 'content/skillset-business.md';
 import developerSkillsetMarkdown from 'content/skillset-developer.md';
 import designSkillsetMarkdown from 'content/skillset-design.md';
-
-const getPortfolioItemImageSizes = (portfolioImages, portfolioItem) => {
-  const imageSizes = filter(portfolioImages, (item) => {
-    const imageName = item.node.childImageSharp.sizes.originalName;
-    return imageName === portfolioItem.image;
-  });
-  return imageSizes[0].node.childImageSharp.sizes;
-};
 
 const IndexPage = ({ data, scrollTop }) => (
   <div>
@@ -206,7 +197,7 @@ const IndexPage = ({ data, scrollTop }) => (
               siteLink={node.siteLink}
               skillsUsed={node.skillsUsed}
               caseStudy={node.caseStudy}
-              imageSizes={getPortfolioItemImageSizes(data.portfolioItemImages.edges, node)}
+              imageSizes={node.image.childImageSharp.sizes}
             />
           ))}
         </Container>

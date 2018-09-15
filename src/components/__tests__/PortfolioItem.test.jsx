@@ -11,8 +11,8 @@ describe("<PortfolioItem>", () => {
     return mountedComponent;
   };
   const getImg = () => getComponent().find('Image');
-  const getTitle = () => getComponent().find('h3');
-  const getYear = () => getComponent().find('h4');
+  const getTitle = () => getComponent().find('Heading[size=3]');
+  const getYear = () => getTitle().find('small');
   const getSkillList = () => getComponent().find('SkillList');
   const getDescription = () => getComponent().find('p');
   const getCols = () => getComponent().find('Col');
@@ -83,13 +83,13 @@ describe("<PortfolioItem>", () => {
 
   describe("rendered title", () => {
     it("sets its `children` prop as `props.name`", () => {
-      expect(getTitle().props().children).toBe(props.name);
+      expect(getTitle().contains(props.name)).toBeTruthy();
     });
   });
 
   describe("rendered year", () => {
     it("sets its `children` prop as `props.year`", () => {
-      expect(getYear().props().children).toBe(props.year);
+      expect(getYear().props().children).toContain(props.year);
     });
   });
 
