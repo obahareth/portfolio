@@ -8,6 +8,7 @@ import MainHeader from 'components/MainHeader';
 import Navbar from 'components/Navbar';
 import PortfolioItem from 'components/PortfolioItem';
 import HTML from 'components/HTML';
+import Reference from 'components/Reference';
 import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
 import SkillList from 'components/SkillList';
@@ -239,19 +240,26 @@ const IndexPage = ({ data, scrollTop }) => (
           </Row>
         </Container>
       </Section>
-      <Section padding={Section.PADDING_SMALL}>
+      <Section bgStars padding={Section.PADDING_SMALL}>
         <Container>
-          <h4>
-            Testimonials
-          </h4>
-          <ul>
-            <li>
-              Antun Debak
-            </li>
-            <li>
-              Jake Press
-            </li>
-          </ul>
+          <SectionHeader
+            index={5}
+            title="References"
+            description="Here's what people I've worked with have to say about me."
+          />
+          <Row>
+            {data.references.edges.map(({ node }) => (
+              <Col lg="6" key={node.authorName}>
+                <Reference
+                  authorName={node.authorName}
+                  authorPosition={node.authorPosition}
+                  authorAvatar={node.authorAvatar.childImageSharp.resolutions}
+                >
+                  {node.message}
+                </Reference>
+              </Col>
+            ))}
+          </Row>
         </Container>
       </Section>
     </main>
@@ -268,6 +276,7 @@ export const query = graphql`
   query IndexQuery {
     ...AvatarFragment
     ...PortfolioItems
+    ...References
   }
 `;
 

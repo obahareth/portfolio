@@ -33,7 +33,7 @@ Heading.propTypes = {
   extraBold: PropTypes.bool,
   icon: PropTypes.string,
   light: PropTypes.bool,
-  size: PropTypes.oneOf(range(1, 6)).isRequired,
+  size: PropTypes.oneOf(range(1, 7)).isRequired,
 };
 
 Heading.defaultProps = {

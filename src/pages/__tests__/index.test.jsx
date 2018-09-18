@@ -14,6 +14,7 @@ describe("<IndexPage>", () => {
   };
   const getNavbar = () => getComponent().find('Navbar');
   const getPortfolioItems = () => getComponent().find('PortfolioItem');
+  const getReferences = () => getComponent().find('Reference');
 
   beforeEach(() => {
     mountedComponent = undefined;
@@ -62,6 +63,24 @@ describe("<IndexPage>", () => {
             },
           ],
         },
+        references: {
+          edges: [
+            {
+              node: {
+                authorName: 'Elon Musk',
+                authorPosition: 'CEO @ SpaceX & Tesla',
+                message: 'Hire Daniel',
+                authorAvatar: {
+                  childImageSharp: {
+                    resolutions: {
+                      someKey: 'somevalue',
+                    },
+                  },
+                },
+              },
+            },
+          ],
+        },
       },
     };
   });
@@ -88,6 +107,10 @@ describe("<IndexPage>", () => {
 
   it("renders a <PortfolioItem> for each item in `props.data.portfolioItems`", () => {
     expect(getPortfolioItems()).toHaveLength(props.data.portfolioItems.edges.length);
+  });
+
+  it("renders a <Reference> for each item in `props.data.references`", () => {
+    expect(getReferences()).toHaveLength(props.data.references.edges.length);
   });
 
   describe("rendered <Navbar>", () => {

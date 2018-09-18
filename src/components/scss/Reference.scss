@@ -1,0 +1,23 @@
+@import 'helpers';
+
+.Reference {
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,.25);
+  border: 0;
+  text-shadow: none;
+
+  &__author-avatar {
+    $size: 4rem;
+
+    box-shadow: 0 0 3px 0 rgba(0,0,0,.25);
+    max-height: $size;
+    max-width: $size;
+  }
+
+  .card-header {
+    background-color: $gray-900;
+  }
+
+  .card-body {
+    font-style: italic;
+  }
+}

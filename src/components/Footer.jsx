@@ -5,7 +5,7 @@ import Section from 'components/Section';
 
 const Footer = () => (
   <footer className="text-center">
-    <Section gray padding={Section.PADDING_SMALL}>
+    <Section padding={Section.PADDING_SMALL}>
       <div className="w-50 mx-auto">
         <h2>
           Send me something
