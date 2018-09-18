@@ -32,7 +32,6 @@ const Layout = ({ children, data, ...otherProps }) => (
           ]}
         >
           <link rel="shortcut icon" type="image/png" href={favicon} />
-          <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
         </Helmet>
         <div id={PAGE_CONTENT_CONTAINER_ID}>
           <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
