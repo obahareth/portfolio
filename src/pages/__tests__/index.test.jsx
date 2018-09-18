@@ -20,6 +20,7 @@ describe("<IndexPage>", () => {
     mountedComponent = undefined;
     props = {
       scrollTop: 0,
+      toggleSidebar: jest.fn(),
       data: {
         avatar: {
           childImageSharp: {
@@ -122,6 +123,10 @@ describe("<IndexPage>", () => {
     it("sets its `solid` prop to `true` when `props.scrollTop` is > than `0`", () => {
       props.scrollTop = 1;
       expect(getNavbar().props().solid).toBeTruthy();
+    });
+
+    it("sets its `toggleSidebar` prop to `props.toggleSidebar`", () => {
+      expect(getNavbar().props().toggleSidebar).toBe(props.toggleSidebar);
     });
   });
 

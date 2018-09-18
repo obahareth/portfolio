@@ -31,15 +31,22 @@ describe("<App>", () => {
     expect(getComponent().contains(renderProp)).toBeTruthy();
   });
 
-  it("sets its `state.scrollTop` property as `0`", () => {
+  it("defaults its `state.scrollTop` property as `0`", () => {
     expect(getComponent().instance().state.scrollTop).toBe(0);
   });
 
-  it("calls `props.render` with its state as an argument", () => {
+  it("defaults its `state.isSidebarOpen` property as `false`", () => {
+    expect(getComponent().instance().state.isSidebarOpen).toBe(false);
+  });
+
+  it("calls `props.render` with its `state` and `toggleSidebar` properties as args", () => {
     props.render = jest.fn();
     const component = getComponent();
     const { state } = component.instance();
-    expect(props.render).toBeCalledWith(state);
+    expect(props.render).toBeCalledWith({
+      ...state,
+      toggleSidebar: component.instance().toggleSidebar,
+    });
   });
 
   it("adds a 'scroll' event listener for `handleScroll` during mounting", () => {
@@ -58,17 +65,32 @@ describe("<App>", () => {
 
   describe(`handleScroll`, () => {
     it("calls `setState` with its `event.pageY` arg", () => {
+      const componentInstance = getComponent().instance();
       const mock = jest.fn();
-      getComponent().instance().setState = mock;
+      componentInstance.setState = mock;
 
       const pageY = 8;
       const mockEvent = {
         pageY,
       };
-      getComponent().instance().handleScroll(mockEvent);
+      componentInstance.handleScroll(mockEvent);
 
       expect(mock).toBeCalledWith({
         scrollTop: pageY,
+      });
+    });
+  });
+
+  describe(`toggleSidebar`, () => {
+    it("toggles `state.isSidebarOpen`", () => {
+      const componentInstance = getComponent().instance();
+      const mock = jest.fn();
+      const initialValue = componentInstance.state.isSidebarOpen;
+
+      componentInstance.setState = mock;
+      componentInstance.toggleSidebar();
+      expect(mock).toBeCalledWith({
+        isSidebarOpen: !initialValue,
       });
     });
   });

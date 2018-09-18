@@ -5,9 +5,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isSidebarOpen: false,
       scrollTop: 0,
     };
     this.handleScroll = this.handleScroll.bind(this);
+    this.toggleSidebar = this.toggleSidebar.bind(this);
   }
 
   componentDidMount() {
@@ -24,11 +26,18 @@ class App extends React.Component {
     });
   }
 
+  toggleSidebar() {
+    const { isSidebarOpen } = this.state;
+    this.setState({
+      isSidebarOpen: !isSidebarOpen,
+    });
+  }
+
   render() {
     const { render } = this.props;
     return (
       <div>
-        {render(this.state)}
+        {render({ toggleSidebar: this.toggleSidebar, ...this.state })}
       </div>
     );
   }

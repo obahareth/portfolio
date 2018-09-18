@@ -1,3 +1,4 @@
+import { NAV_LINKS } from 'constants';
 import Navbar from '../Navbar';
 
 describe("<Navbar>", () => {
@@ -15,10 +16,13 @@ describe("<Navbar>", () => {
   const getScrollspy = () => getComponent().find('Scrollspy');
   const getNavItems = () => getScrollspy().find('NavItem');
   const getNavLinks = () => getNavItems().find("AnchorLink[className*='nav-link']");
+  const getNavbarToggler = () => getComponent().find('.navbar-toggler');
 
   beforeEach(() => {
     mountedComponent = undefined;
-    props = {};
+    props = {
+      toggleSidebar: jest.fn(),
+    };
   });
 
   it("renders a <Navbar> as the root element", () => {
@@ -27,6 +31,10 @@ describe("<Navbar>", () => {
 
   it("renders a `.navbar-brand`", () => {
     expect(getNavbarBrand()).toHaveLength(1);
+  });
+
+  it("renders a `.navbar-toggler`", () => {
+    expect(getNavbarToggler()).toHaveLength(1);
   });
 
   it("renders a <Scrollspy>", () => {
@@ -38,7 +46,7 @@ describe("<Navbar>", () => {
   });
 
   it("renders a <NavLink> for each section", () => {
-    const sectionHrefs = ['intro', 'skillset', 'values', 'showcase', 'my-story'];
+    const sectionHrefs = NAV_LINKS.map(link => link.href);
     sectionHrefs.forEach((href) => {
       const navLink = getNavLinks().filter(`[href*='${href}']`);
       expect(navLink).toHaveLength(1);
@@ -62,6 +70,16 @@ describe("<Navbar>", () => {
   describe("rendered `.navbar-brand`", () => {
     it("renders a logo", () => {
       expect(getNavbarBrand().find("img[alt='Logo']")).toHaveLength(1);
+    });
+  });
+
+  describe("rendered `.navbar-toggler`", () => {
+    it("sets its `onClick` prop as `props.toggleSidebar`", () => {
+      expect(getNavbarToggler().props().onClick).toBe(props.toggleSidebar);
+    });
+
+    it("renders a menu <Icon>", () => {
+      expect(getNavbarToggler().find("Icon[name='menu']")).toHaveLength(1);
     });
   });
 

@@ -22,9 +22,9 @@ import businessSkillsetMarkdown from 'content/skillset-business.md';
 import developerSkillsetMarkdown from 'content/skillset-developer.md';
 import designSkillsetMarkdown from 'content/skillset-design.md';
 
-const IndexPage = ({ data, scrollTop }) => (
+const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
   <div>
-    <Navbar solid={scrollTop > 0} />
+    <Navbar solid={scrollTop > 0} toggleSidebar={toggleSidebar} />
     <main>
       <div id="intro">
         <Section bgStars>
@@ -270,6 +270,7 @@ const IndexPage = ({ data, scrollTop }) => (
 IndexPage.propTypes = {
   data: PropTypes.object.isRequired,
   scrollTop: PropTypes.number.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
 };
 
 export const query = graphql`

@@ -1,0 +1,29 @@
+@import 'helpers';
+
+.Sidebar {
+  background-color: rgba($black, .9);
+  font-size: $font-size-base * 1.5;
+  padding: map-get($spacers, 4);
+
+  .bm-cross {
+    background-color: $white;
+  }
+
+  .bm-cross-button {
+    $size: 1rem;
+
+    height: $size;
+    width: $size;
+  }
+
+  a {
+    font-weight: $font-weight-medium;
+    color: $white;
+    margin-bottom: map-get($spacers, 3);
+  }
+}
+
+.bm-overlay,
+.bm-menu-wrap {
+  transition-duration: .3s !important;
+}

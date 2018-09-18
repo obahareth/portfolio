@@ -1,13 +1,23 @@
 @import 'helpers';
 
 .Navbar {
+  $transition: all .5s ease-in-out;
+
   background-color: rgba($black, .0);
   border-bottom: 1px solid $border-color;
   border-bottom-width: 1px;
   border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.1) 50%, rgba(255,255,255,0) 100%) 5%;
   width: 100%;
   z-index: 1;
-  transition: all .5s ease-in-out;
+  transition: $transition;
+
+  .navbar-toggler {
+    border: 1px solid $gray-500;
+    color: $white;
+    padding: .4rem .7rem;
+    font-size: 1.6rem;
+    transition: $transition;
+  }
 
   .nav-link {
     color: $white;
@@ -22,12 +32,16 @@
     background-color: rgba($gray-300, .95);
     box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
 
-    .nav-link {
-      color: $body-color;
-    }
-
     .nav-item.active .nav-link {
       color: $primary;
+    }
+
+    .navbar-toggler {
+      color: $gray-700;
+    }
+
+    .nav-link {
+      color: $body-color;
     }
   }
 

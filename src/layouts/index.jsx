@@ -5,6 +5,8 @@ import Helmet from 'react-helmet';
 
 import App from 'components/App';
 import ErrorBoundary from 'components/ErrorBoundary';
+import Sidebar from 'components/Sidebar';
+import { PAGE_CONTENT_ID, PAGE_CONTENT_CONTAINER_ID } from 'constants';
 import favicon from 'images/icon.png';
 import ogImage from 'images/og:image.png';
 import 'scss/custom-bootstrap.scss';
@@ -14,7 +16,7 @@ import 'scss/icons.scss';
 
 const Layout = ({ children, data, ...otherProps }) => (
   <ErrorBoundary>
-    <App render={({ scrollTop }) => (
+    <App render={({ isSidebarOpen, scrollTop, toggleSidebar }) => (
       <React.Fragment>
         <Helmet
           title={get(data, 'site.siteMetadata.title')}
@@ -32,8 +34,11 @@ const Layout = ({ children, data, ...otherProps }) => (
           <link rel="shortcut icon" type="image/png" href={favicon} />
           <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet" />
         </Helmet>
-        <div>
-          {children({ scrollTop, ...otherProps })}
+        <div id={PAGE_CONTENT_CONTAINER_ID}>
+          <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
+          <div id={PAGE_CONTENT_ID}>
+            {children({ scrollTop, toggleSidebar, ...otherProps })}
+          </div>
         </div>
       </React.Fragment>
     )}

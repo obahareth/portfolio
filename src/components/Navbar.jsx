@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
@@ -7,20 +6,17 @@ import {
 } from 'reactstrap';
 import Scrollspy from 'react-scrollspy';
 
-import ContactButton from 'components/ContactButton';
 import AnchorLink from 'components/AnchorLink';
+import ContactButton from 'components/ContactButton';
+import Icon from 'components/Icon';
+import { NAV_LINKS } from 'constants';
 import logo from 'images/logo.png';
 import './scss/Navbar.scss';
 
-const Navbar = ({ solid }) => {
+const Navbar = ({ solid, toggleSidebar }) => {
   const className = classNames('Navbar', {
     'Navbar--solid': solid,
   });
-  const linkNames = ['Intro', 'Skillset', 'Values', 'Showcase', 'My Story'];
-  const links = linkNames.map(name => ({
-    name,
-    url: kebabCase(name),
-  }));
 
   return (
     <BSNavbar className={className} expand="lg" fixed="top">
@@ -28,16 +24,21 @@ const Navbar = ({ solid }) => {
         <AnchorLink href="#intro" className="navbar-brand mr-0">
           <img src={logo} alt="Logo" height="55" />
         </AnchorLink>
-        <Collapse isOpen navbar>
+        <button className="navbar-toggler" type="button" onClick={toggleSidebar}>
+          <div className="d-flex align-items-center">
+            <Icon name="menu" />
+          </div>
+        </button>
+        <Collapse navbar>
           <Scrollspy
             className="navbar-nav ml-auto"
             currentClassName="active"
-            items={links.map(link => link.url)}
+            items={NAV_LINKS.map(link => link.href)}
             offset={-100}
           >
-            {links.map(({ name, url }) => (
+            {NAV_LINKS.map(({ name, href }) => (
               <NavItem className={name === 'Intro' ? 'd-none' : ''} key={name}>
-                <AnchorLink className="nav-link" href={`#${url}`}>
+                <AnchorLink className="nav-link" href={`#${href}`}>
                   {name}
                 </AnchorLink>
               </NavItem>
@@ -52,6 +53,7 @@ const Navbar = ({ solid }) => {
 
 Navbar.propTypes = {
   solid: PropTypes.bool,
+  toggleSidebar: PropTypes.func.isRequired,
 };
 
 Navbar.defaultProps = {

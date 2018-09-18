@@ -39,4 +39,14 @@ describe("<AnchorLink>", () => {
       expect(getComponent().props().className).toBe(props.className);
     });
   });
+
+  describe("when `props.onClick` is defined", () => {
+    beforeEach(() => {
+      props.onClick = jest.fn();
+    });
+
+    it("sets its `onClick` prop to `props.onClick`", () => {
+      expect(getComponent().props().onClick).toBe(props.onClick);
+    });
+  });
 });

@@ -11,6 +11,8 @@ describe("<Layout>", () => {
     return mountedComponent;
   };
   const getRenderedApp = () => getComponent().find('App').dive();
+  const getHelmet = () => getRenderedApp().find('HelmetWrapper');
+  const getSidebar = () => getRenderedApp().find('Sidebar');
 
   beforeEach(() => {
     props = {
@@ -41,7 +43,11 @@ describe("<Layout>", () => {
   });
 
   it("renders a <Helmet>", () => {
-    expect(getRenderedApp().find('HelmetWrapper')).toHaveLength(1);
+    expect(getHelmet()).toHaveLength(1);
+  });
+
+  it("renders a <Sidebar>", () => {
+    expect(getSidebar()).toHaveLength(1);
   });
 
   it("renders `props.children`", () => {
@@ -50,10 +56,10 @@ describe("<Layout>", () => {
 
   describe("rendered <Helmet>", () => {
     it("sets its `title` prop as `props.data.site.siteMetadata.title`", () => {
-      expect(getRenderedApp().find('HelmetWrapper').props().title)
-        .toBe(props.data.site.siteMetadata.title);
+      expect(getHelmet().props().title).toBe(props.data.site.siteMetadata.title);
     });
   });
 
   // TODO: test `scrollTop` and `otherProps` is passed to `children`
+  // TODO: test Sidebar props
 });
