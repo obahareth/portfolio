@@ -6,7 +6,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "test": "jest",
-    "test:watch": "yarn run test -- --watch"
+    "test:watch": "yarn run test -- --watch",
+    "lint": "eslint src"
   },
   "jest": {
     "moduleFileExtensions": [
