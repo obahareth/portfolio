@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-// eslint-disable-next-line
 import { default as OriginalAnchorLink } from 'react-anchor-link-smooth-scroll';
 
 const AnchorLink = ({ children, className, href }) => (

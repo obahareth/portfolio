@@ -28,6 +28,7 @@ module.exports = {
     serviceworker: true,
   },
   rules: {
+    'import/no-named-default': 0,
     'no-constant-condition': 0,
     'react/forbid-prop-types': [1, {
       forbid: ['any', 'array'],
