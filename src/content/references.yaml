@@ -1,7 +1,7 @@
 - reference:
   authorName: Antun Debak
   authorPosition: CPO & Designer @ MVP Workshop
-  authorAvatar: ./images/references/antun-debak.png
+  authorAvatar: ../images/references/antun-debak.png
   message:
     <p>
       “It was a pleasure working with Daniel on numerous website development
@@ -21,7 +21,7 @@
 - reference:
   authorName: Jake Press
   authorPosition: Managing Director @ THIRTY4
-  authorAvatar: ./images/references/jake-press.png
+  authorAvatar: ../images/references/jake-press.png
   message:
     "<p>
       “I am pleased to offer a formal recommendation for Daniel Spajic. In
