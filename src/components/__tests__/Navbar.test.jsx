@@ -33,8 +33,21 @@ describe("<Navbar>", () => {
     expect(getScrollspy()).toHaveLength(1);
   });
 
-  it("renders a <NavItem> for each main page section", () => {
+  it("renders a <NavItem> for each section", () => {
     expect(getNavItems()).toHaveLength(5);
+  });
+
+  it("renders a <NavLink> for each section", () => {
+    const sectionHrefs = ['intro', 'skillset', 'values', 'showcase', 'my-story'];
+    sectionHrefs.forEach((href) => {
+      const navLink = getNavLinks().filter(`[href*='${href}']`);
+      expect(navLink).toHaveLength(1);
+    });
+  });
+
+  it("hides the <NavItem> for the 'Intro' section", () => {
+    const navItem = getNavLinks().filter("[href*='intro']").parents('NavItem');
+    expect(navItem.props().className).toContain('d-none');
   });
 
   it("renders a <ContactButton>", () => {
@@ -49,6 +62,13 @@ describe("<Navbar>", () => {
   describe("rendered `.navbar-brand`", () => {
     it("renders a logo", () => {
       expect(getNavbarBrand().find("img[alt='Logo']")).toHaveLength(1);
+    });
+  });
+
+  describe("rendered <Scrollspy>", () => {
+    it("sets its `items` prop to an array of each .nav-link's URL", () => {
+      const navLinkUrls = getNavLinks().map(link => link.props().href.substring(1));
+      expect(getScrollspy().props().items).toEqual(navLinkUrls);
     });
   });
 

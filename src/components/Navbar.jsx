@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import kebabCase from 'lodash/kebabCase';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
@@ -15,6 +16,11 @@ const Navbar = ({ solid }) => {
   const className = classNames('Navbar', {
     'Navbar--solid': solid,
   });
+  const linkNames = ['Intro', 'Skillset', 'Values', 'Showcase', 'My Story'];
+  const links = linkNames.map(name => ({
+    name,
+    url: kebabCase(name),
+  }));
 
   return (
     <BSNavbar className={className} expand="lg" fixed="top">
@@ -26,34 +32,16 @@ const Navbar = ({ solid }) => {
           <Scrollspy
             className="navbar-nav ml-auto"
             currentClassName="active"
-            items={['intro', 'skillset', 'values', 'showcase', 'my-story']}
+            items={links.map(link => link.url)}
             offset={-100}
           >
-            <NavItem className="d-none">
-              <AnchorLink className="nav-link" href="#intro">
-                Intro
-              </AnchorLink>
-            </NavItem>
-            <NavItem>
-              <AnchorLink className="nav-link" href="#skillset">
-                Skillset
-              </AnchorLink>
-            </NavItem>
-            <NavItem>
-              <AnchorLink className="nav-link" href="#values">
-                Values
-              </AnchorLink>
-            </NavItem>
-            <NavItem>
-              <AnchorLink className="nav-link" href="#showcase">
-                Showcase
-              </AnchorLink>
-            </NavItem>
-            <NavItem>
-              <AnchorLink className="nav-link" href="#my-story">
-                My story
-              </AnchorLink>
-            </NavItem>
+            {links.map(({ name, url }) => (
+              <NavItem className={name === 'Intro' ? 'd-none' : ''} key={name}>
+                <AnchorLink className="nav-link" href={`#${url}`}>
+                  {name}
+                </AnchorLink>
+              </NavItem>
+            ))}
           </Scrollspy>
           <ContactButton />
         </Collapse>
