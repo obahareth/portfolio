@@ -14,6 +14,7 @@ describe("<Sidebar>", () => {
     return mountedComponent;
   };
   const getLinks = () => getComponent().find('AnchorLink');
+  const getNavScrollspy = () => getComponent().find('NavScrollspy');
   const getContactLink = () => getComponent().find(`a[href='mailto:${CONTACT_EMAIL}']`);
 
   beforeEach(() => {
@@ -27,8 +28,8 @@ describe("<Sidebar>", () => {
     expect(getComponent().is('Menu')).toBeTruthy();
   });
 
-  it("renders an <AnchorLink> for each link in `NAV_LINKS`", () => {
-    expect(getLinks()).toHaveLength(NAV_LINKS.length);
+  it("renders a <NavScrollspy>", () => {
+    expect(getNavScrollspy()).toHaveLength(1);
   });
 
   it("renders a contact link", () => {
@@ -71,28 +72,42 @@ describe("<Sidebar>", () => {
     });
   });
 
-  describe("each rendered <AnchorLink>", () => {
-    it("sets its `href` prop to its `href` in `NAV_LINKS`", () => {
-      getLinks().forEach((link, index) => {
-        expect(link.props().href).toBe(`#${NAV_LINKS[index].href}`);
-      });
-    });
+  describe("rendered <NavScrollspy>", () => {
+    describe('`mapItems` prop', () => {
+      const args = { name: 'Intro', href: 'intro' };
+      let renderedAnchorLink;
 
-    it("sets its `key` prop to its `name` in `NAV_LINKS`", () => {
-      getLinks().forEach((link, index) => {
-        expect(link.key()).toBe(NAV_LINKS[index].name);
+      beforeEach(() => {
+        renderedAnchorLink = shallow(getNavScrollspy().props().mapItems(args))
+          .find('AnchorLink');
       });
-    });
 
-    it("sets its `children` prop to its `name` in `NAV_LINKS`", () => {
-      getLinks().forEach((link, index) => {
-        expect(link.props().children).toBe(NAV_LINKS[index].name);
+      it('is a function', () => {
+        expect(typeof getNavScrollspy().props().mapItems).toBe('function');
       });
-    });
 
-    it("sets its `onClick` prop to `props.toggle`", () => {
-      getLinks().forEach((link) => {
-        expect(link.props().onClick).toBe(props.toggle);
+      it('renders an <AnchorLink>', () => {
+        expect(renderedAnchorLink.is('AnchorLink')).toBeTruthy();
+      });
+
+      describe('rendered <AnchorLink>', () => {
+        it("sets its `href` prop to `mapItems`'s `href` arg", () => {
+          expect(renderedAnchorLink.props().href).toBe(`#${args.href}`);
+        });
+
+        it("sets its `children` prop to `mapItems`'s `name` arg", () => {
+          expect(renderedAnchorLink.props().children).toBe(args.name);
+        });
+
+        it("sets its `key` prop to `mapItems`'s `name` arg", () => {
+          getLinks().forEach((node, index) => expect(
+            node.key(),
+          ).toBe(NAV_LINKS[index].name));
+        });
+
+        it("sets its `onClick` prop to `props.toggle`", () => {
+          expect(renderedAnchorLink.props().onClick).toBe(props.toggle);
+        });
       });
     });
   });

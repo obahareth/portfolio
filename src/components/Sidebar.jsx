@@ -3,8 +3,9 @@ import React from 'react';
 import { slide as Menu } from 'react-burger-menu';
 
 import AnchorLink from 'components/AnchorLink';
+import NavScrollspy from 'components/NavScrollspy';
 import {
-  CONTACT_EMAIL, NAV_LINKS, PAGE_CONTENT_ID, PAGE_CONTENT_CONTAINER_ID,
+  CONTACT_EMAIL, PAGE_CONTENT_ID, PAGE_CONTENT_CONTAINER_ID,
 } from 'constants';
 import './scss/Sidebar.scss';
 
@@ -23,17 +24,18 @@ const Sidebar = ({ isOpen, toggle }) => (
     onStateChange={onStateChange(isOpen, toggle)}
     customBurgerIcon={false}
   >
-    {NAV_LINKS.map(link => (
+    <NavScrollspy mapItems={({ name, href }) => (
       <AnchorLink
-        className="d-block"
-        href={`#${link.href}`}
-        key={link.name}
+        className="Sidebar__link d-block"
+        href={`#${href}`}
+        key={name}
         onClick={toggle}
       >
-        {link.name}
+        {name}
       </AnchorLink>
-    ))}
-    <a href={`mailto:${CONTACT_EMAIL}`}>
+    )}
+    />
+    <a className="Sidebar__link" href={`mailto:${CONTACT_EMAIL}`}>
       Get In Touch
     </a>
   </Menu>

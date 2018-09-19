@@ -1,3 +1,5 @@
+import isFunction from 'lodash/isFunction';
+
 import { NAV_LINKS } from 'constants';
 import Navbar from '../Navbar';
 
@@ -13,8 +15,8 @@ describe("<Navbar>", () => {
   };
   const getNavbarBrand = () => getComponent()
     .find("AnchorLink[className*='navbar-brand']");
-  const getScrollspy = () => getComponent().find('Scrollspy');
-  const getNavItems = () => getScrollspy().find('NavItem');
+  const getNavScrollspy = () => getComponent().find('NavScrollspy');
+  const getNavItems = () => getNavScrollspy().find('NavItem');
   const getNavLinks = () => getNavItems().find("AnchorLink[className*='nav-link']");
   const getNavbarToggler = () => getComponent().find('.navbar-toggler');
 
@@ -37,34 +39,12 @@ describe("<Navbar>", () => {
     expect(getNavbarToggler()).toHaveLength(1);
   });
 
-  it("renders a <Scrollspy>", () => {
-    expect(getScrollspy()).toHaveLength(1);
-  });
-
-  it("renders a <NavItem> for each section", () => {
-    expect(getNavItems()).toHaveLength(5);
-  });
-
-  it("renders a <NavLink> for each section", () => {
-    const sectionHrefs = NAV_LINKS.map(link => link.href);
-    sectionHrefs.forEach((href) => {
-      const navLink = getNavLinks().filter(`[href*='${href}']`);
-      expect(navLink).toHaveLength(1);
-    });
-  });
-
-  it("hides the <NavItem> for the 'Intro' section", () => {
-    const navItem = getNavLinks().filter("[href*='intro']").parents('NavItem');
-    expect(navItem.props().className).toContain('d-none');
+  it("renders a <NavScrollspy>", () => {
+    expect(getNavScrollspy()).toHaveLength(1);
   });
 
   it("renders a <ContactButton>", () => {
     expect(getComponent().find('ContactButton')).toHaveLength(1);
-  });
-
-  it("renders a <AnchorLink> with a `nav-link` class for each <NavItem>", () => {
-    const navItems = getComponent().find("NavItem");
-    expect(getNavLinks()).toHaveLength(navItems.length);
   });
 
   describe("rendered `.navbar-brand`", () => {
@@ -83,10 +63,65 @@ describe("<Navbar>", () => {
     });
   });
 
-  describe("rendered <Scrollspy>", () => {
-    it("sets its `items` prop to an array of each .nav-link's URL", () => {
-      const navLinkUrls = getNavLinks().map(link => link.props().href.substring(1));
-      expect(getScrollspy().props().items).toEqual(navLinkUrls);
+  describe("rendered <NavScrollspy>", () => {
+    describe('`mapItems` prop', () => {
+      let renderedNavScrollspy;
+
+      beforeEach(() => {
+        renderedNavScrollspy = getNavScrollspy().dive();
+      });
+
+      it("is a function", () => {
+        expect(isFunction(getNavScrollspy().props().mapItems)).toBeTruthy();
+      });
+
+      it("renders <NavItem>s", () => {
+        expect(renderedNavScrollspy.find('NavItem').length).toBeGreaterThan(1);
+      });
+
+      it("renders <AnchorLink>s", () => {
+        expect(renderedNavScrollspy.find('AnchorLink').length).toBeGreaterThan(1);
+      });
+
+      describe('each rendered <NavItem>', () => {
+        let renderedNavItems;
+
+        beforeEach(() => {
+          renderedNavItems = renderedNavScrollspy.find('NavItem');
+        });
+
+        it("sets its `key` prop to its item's `name`", () => {
+          renderedNavItems.forEach((node, index) => expect(
+            node.key(),
+          ).toBe(NAV_LINKS[index].name));
+        });
+
+        it("sets its `className` prop to 'd-none' if its item's name is 'Intro'", () => {
+          renderedNavItems.forEach((node, index) => expect(
+            node.props().className,
+          ).toBe(NAV_LINKS[index].name === 'Intro' ? 'd-none' : ''));
+        });
+      });
+
+      describe('each rendered <AnchorLink>', () => {
+        let renderedAnchorLinks;
+
+        beforeEach(() => {
+          renderedAnchorLinks = renderedNavScrollspy.find('AnchorLink');
+        });
+
+        it("sets its `href` prop to its item's `href` prepended with a #", () => {
+          renderedAnchorLinks.forEach((node, index) => expect(
+            node.props().href,
+          ).toBe(`#${NAV_LINKS[index].href}`));
+        });
+
+        it("sets its `children` prop to its item's `name`", () => {
+          renderedAnchorLinks.forEach((node, index) => expect(
+            node.props().children,
+          ).toBe(NAV_LINKS[index].name));
+        });
+      });
     });
   });
 
