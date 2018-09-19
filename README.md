@@ -1,7 +1,7 @@
 # Daniel Spajic's portfolio
 
-The source code for [my portfolio](https://danieljs.tech), built using [Gatsby]
-(https://www.gatsbyjs.org/).
+The source code for [my portfolio](https://danieljs.tech), built using
+[Gatsby](https://www.gatsbyjs.org/).
 
 ## 🚀 Installation
 
