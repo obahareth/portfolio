@@ -8,6 +8,12 @@ html, body {
   overflow-x: hidden;
 }
 
+// Fonts
+
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+
 // Buttons
 
 .btn {
@@ -28,7 +34,7 @@ a {
 // Lists
 
 ul:not(.list-inline) {
-  padding-left: 1rem;
+  padding-left: 2rem;
 
   li {
     padding-left: .5rem;

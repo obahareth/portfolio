@@ -25,8 +25,8 @@ describe("<Reference>", () => {
     };
   });
 
-  it("renders a <Card> as the root element", () => {
-    expect(getComponent().is('Card')).toBeTruthy();
+  it("renders a <div> as the root element", () => {
+    expect(getComponent().is('div')).toBeTruthy();
   });
 
   it("renders the author's avatar", () => {

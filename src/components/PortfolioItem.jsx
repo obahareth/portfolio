@@ -21,9 +21,9 @@ const PortfolioItem = ({
     <Col lg="6">
       <Heading size={3}>
         {name}
-        <small className="text-primary">
+        <span className="text-primary font-weight-medium">
           {` — ${year}`}
-        </small>
+        </span>
       </Heading>
       <SkillList skills={skillsUsed} />
       <p>
@@ -32,8 +32,8 @@ const PortfolioItem = ({
       {(caseStudy || siteLink) && (
         <ul className="list-inline">
           {[
-            { link: caseStudy, name: 'Case study', icon: 'case-study' },
             { link: siteLink, name: 'View site', icon: 'view-site' },
+            { link: caseStudy, name: 'Case study', icon: 'case-study' },
           ].map(item => item.link && (
             <li className="list-inline-item mr-3" key={item.name}>
               <a href={item.link} target="_blank" rel="noopener noreferrer">

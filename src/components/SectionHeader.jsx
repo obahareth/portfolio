@@ -7,7 +7,7 @@ const SectionHeader = ({ description, index, title }) => (
   <header className="text-center pb-5">
     <div className="w-50 mx-auto">
       <Heading size={2} extraBold>
-        <span className="text-primary">
+        <span className="text-primary font-weight-bold">
           {`0${index} —`}
         </span>
         {` ${title}`}

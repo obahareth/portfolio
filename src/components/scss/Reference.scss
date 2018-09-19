@@ -1,9 +1,10 @@
 @import 'helpers';
 
 .Reference {
-  box-shadow: 0 5px 15px 0 rgba(0,0,0,.25);
-  border: 0;
   text-shadow: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &__author-avatar {
     $size: 4rem;
@@ -13,11 +14,20 @@
     max-width: $size;
   }
 
-  .card-header {
-    background-color: $gray-900;
+  &__header,
+  &__body {
+    padding: map-get($spacers, 4);
   }
 
-  .card-body {
+  &__header {
+    padding-top: 0;
+  }
+
+  &__body {
+    background-color: rgba($dark, .6);
+    border-radius: $border-radius;
+    color: $white;
     font-style: italic;
+    flex: 1 1 auto;
   }
 }

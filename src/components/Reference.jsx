@@ -1,7 +1,6 @@
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Card, CardBody, CardHeader } from 'reactstrap';
 
 import Heading from 'components/Heading';
 import HTML from 'components/HTML';
@@ -10,8 +9,8 @@ import './scss/Reference.scss';
 const Reference = ({
   authorName, authorPosition, authorAvatar, children,
 }) => (
-  <Card className="Reference" inverse color="dark">
-    <CardHeader>
+  <div className="Reference">
+    <div className="Reference__header">
       <div className="d-flex align-items-center">
         <Img
           alt={authorName}
@@ -27,13 +26,13 @@ const Reference = ({
           </Heading>
         </div>
       </div>
-    </CardHeader>
-    <CardBody>
+    </div>
+    <div className="Reference__body">
       <HTML>
         {children}
       </HTML>
-    </CardBody>
-  </Card>
+    </div>
+  </div>
 );
 
 Reference.propTypes = {

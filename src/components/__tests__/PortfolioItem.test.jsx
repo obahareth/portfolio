@@ -12,7 +12,7 @@ describe("<PortfolioItem>", () => {
   };
   const getImg = () => getComponent().find('Image');
   const getTitle = () => getComponent().find('Heading[size=3]');
-  const getYear = () => getTitle().find('small');
+  const getYear = () => getTitle().find('span');
   const getSkillList = () => getComponent().find('SkillList');
   const getDescription = () => getComponent().find('p');
   const getCols = () => getComponent().find('Col');
