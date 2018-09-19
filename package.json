@@ -25,7 +25,8 @@
     ],
     "testEnvironment": "jsdom",
     "testPathIgnorePatterns": [
-      ".cache"
+      ".cache",
+      "node_modules"
     ],
     "testURL": "http://localhost/"
   },
