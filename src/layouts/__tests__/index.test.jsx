@@ -10,7 +10,8 @@ describe("<Layout>", () => {
     }
     return mountedComponent;
   };
-  const getRenderedApp = () => getComponent().find('App').dive();
+  const getApp = () => getComponent().find('App');
+  const getRenderedApp = () => getApp().dive();
   const getHelmet = () => getRenderedApp().find('HelmetWrapper');
   const getSidebar = () => getRenderedApp().find('Sidebar');
 
@@ -60,6 +61,23 @@ describe("<Layout>", () => {
     });
   });
 
+  describe("rendered <App>", () => {
+    const args = { isSidebarOpen: false, scrollTop: 0, toggleSidebar: jest.fn() };
+    let getAppWrapper;
+
+    beforeEach(() => {
+      const AppWrapper = getApp().props().render;
+      getAppWrapper = () => shallow(<AppWrapper {...args} />);
+    });
+
+    it("sets <Sidebar>'s `isOpen` prop to its `isSidebarOpen` arg", () => {
+      expect(getAppWrapper().find('Sidebar').props().isOpen).toBe(args.isSidebarOpen);
+    });
+
+    it("sets <Sidebar>'s `toggle` prop to its `toggleSidebar` arg", () => {
+      expect(getAppWrapper().find('Sidebar').props().toggle).toBe(args.toggleSidebar);
+    });
+  });
+
   // TODO: test `scrollTop` and `otherProps` is passed to `children`
-  // TODO: test Sidebar props
 });
