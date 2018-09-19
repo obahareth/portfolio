@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Heading from 'components/Heading';
-import './scss/HeadingSection.scss';
 
 const HeadingSection = ({
   children, size, icon, title,
 }) => (
-  <div className="HeadingSection">
+  <div className="mb-5 mb-lg-4">
     <Heading icon={icon} size={size}>
       {title}
     </Heading>

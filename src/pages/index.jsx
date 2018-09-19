@@ -101,14 +101,14 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             </Col>
           </Row>
           <Row>
-            <Col lg="6">
+            <Col md="6">
               <HeadingSection icon="design" title="Design sense" size={3}>
                 <HTML>
                   {designSkillsetMarkdown}
                 </HTML>
               </HeadingSection>
             </Col>
-            <Col lg="6">
+            <Col md="6">
               <HeadingSection icon="business" title="Business insight" size={3}>
                 <HTML>
                   {businessSkillsetMarkdown}
@@ -127,51 +127,49 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
              Here's an insight into how I work to ensure we'll get along well."
           />
           <Row>
-            <Col lg="3">
+            <Col lg="3" sm="6">
               <HeadingSection title="Passion" icon="passion" size={4}>
                 I love what I do and therefore put genuine effort into my work. I enjoy
                 working with people who share the same passion.
               </HeadingSection>
             </Col>
-            <Col lg="3">
+            <Col lg="3" sm="6">
               <HeadingSection title="Craftsmanship" icon="craftsmanship" size={4}>
                 I&apos;m creative, meticulous, take my time, and find great
                 enjoyment in doing things properly. I&apos;m not one to rush.
               </HeadingSection>
             </Col>
-            <Col lg="3">
+            <Col lg="3" sm="6">
               <HeadingSection title="Easy-going" icon="easy-going" size={4}>
                 Working well with others is crucial for producing great work and
                 everyones&apos; happiness. I&apos;m friendly and have fun.
               </HeadingSection>
             </Col>
-            <Col lg="3">
+            <Col lg="3" sm="6">
               <HeadingSection title="Communication" icon="communication" size={4}>
                 I want to make life easy for both of us. I&apos;m candid, ask many
                 questions, and don&apos;t let things slip by.
               </HeadingSection>
             </Col>
-          </Row>
-          <Row>
-            <Col lg="3">
+            <Col lg="3" sm="6">
               <HeadingSection title="Focus" icon="focus" size={4}>
                 Multitasking is my Achilles&apos; heel. Synonymous to taking my
                 time, I work best when concentrating my effort on a single project.
               </HeadingSection>
             </Col>
-            <Col lg="3">
+            <Col lg="3" sm="6">
               <HeadingSection title="Curiosity" icon="curiosity" size={4}>
                 I love learning and dedicate myself to it. You can count on me to
                 pick up anything I don&apos;t know.
               </HeadingSection>
             </Col>
-            <Col lg="3">
+            <Col lg="3" sm="6">
               <HeadingSection title="Independence" icon="independence" size={4}>
                 Although I&apos;m able to work in a team, I&apos;m very driven and
                 self-motivated. You can count on me to get things done.
               </HeadingSection>
             </Col>
-            <Col lg="3">
+            <Col lg="3" sm="6">
               <HeadingSection title="Open-minded" icon="open-mindedness" size={4}>
                 I&apos;m objective and question everything. I don&apos;t hesitate to
                 discard my convictions when provided with a good reason.

@@ -13,7 +13,7 @@ const PortfolioItem = ({
   <Row className="mb-5">
     <Col lg={{ size: 6, order: alt ? 2 : undefined }}>
       <Img
-        className="img-fluid img-thumbnail"
+        className="img-fluid img-thumbnail mb-4 mb-lg-0"
         alt={`${name} screenshot`}
         sizes={imageSizes}
       />
@@ -21,7 +21,7 @@ const PortfolioItem = ({
     <Col lg="6">
       <Heading size={3}>
         {name}
-        <span className="text-primary font-weight-medium">
+        <span className="text-primary font-weight-medium d-none d-sm-inline">
           {` — ${year}`}
         </span>
       </Heading>

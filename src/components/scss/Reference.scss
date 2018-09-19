@@ -2,9 +2,6 @@
 
 .Reference {
   text-shadow: none;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 
   &__author-avatar {
     $size: 4rem;
@@ -28,6 +25,5 @@
     border-radius: $border-radius;
     color: $white;
     font-style: italic;
-    flex: 1 1 auto;
   }
 }

@@ -9,28 +9,30 @@ import './scss/Reference.scss';
 const Reference = ({
   authorName, authorPosition, authorAvatar, children,
 }) => (
-  <div className="Reference">
-    <div className="Reference__header">
-      <div className="d-flex align-items-center">
-        <Img
-          alt={authorName}
-          className="Reference__author-avatar rounded-circle mr-3"
-          resolutions={authorAvatar}
-        />
-        <div>
-          <Heading size={4}>
-            {authorName}
-          </Heading>
-          <Heading size={6} light className="text-secondary">
-            {authorPosition}
-          </Heading>
+  <div className="mb-5">
+    <div className="Reference">
+      <div className="Reference__header">
+        <div className="d-flex align-items-center">
+          <Img
+            alt={authorName}
+            className="Reference__author-avatar rounded-circle mr-3"
+            resolutions={authorAvatar}
+          />
+          <div>
+            <Heading size={4}>
+              {authorName}
+            </Heading>
+            <Heading size={6} light className="text-secondary">
+              {authorPosition}
+            </Heading>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="Reference__body">
-      <HTML>
-        {children}
-      </HTML>
+      <div className="Reference__body">
+        <HTML>
+          {children}
+        </HTML>
+      </div>
     </div>
   </div>
 );

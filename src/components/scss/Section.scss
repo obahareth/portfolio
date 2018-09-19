@@ -5,6 +5,10 @@ $rounded-edge-height: 40px;
 @mixin rounded-top-padding($padding) {
   &.Section--rounded-top {
     padding: calc(#{$padding} - #{$rounded-edge-height}) 0;
+
+    @include media-breakpoint-down(xs) {
+      padding: $padding 0;
+    }
   }
 }
 
@@ -20,6 +24,10 @@ $rounded-edge-height: 40px;
     padding: $padding 0;
 
     @include rounded-top-padding($padding);
+
+    @include media-breakpoint-down(sm) {
+      padding: ($padding * .75) 0;
+    }
   }
 
   &--padding-small {
@@ -35,11 +43,8 @@ $rounded-edge-height: 40px;
 
     &:after {
       content: '';
-      display: block;
       padding-bottom: 3%;
       background-image: url('../../images/round-edge.svg');
-      width: 110%;
-      margin-left: -5%;
       margin-bottom: -.625rem !important;
       background-size: cover;
       background-repeat: no-repeat;
@@ -47,6 +52,21 @@ $rounded-edge-height: 40px;
       position: absolute;
       bottom: 0;
       z-index: 0;
+
+      @include media-breakpoint-up(xs) {
+        display: none;
+      }
+
+      @include media-breakpoint-up(sm) {
+        display: block;
+        width: 170%;
+        margin-left: -35%;
+      }
+
+      @include media-breakpoint-up(lg) {
+        width: 110%;
+        margin-left: -5%;
+      }
     }
   }
 
