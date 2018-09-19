@@ -1,9 +1,9 @@
 @import 'helpers';
 
 .Navbar {
-  $transition: all .5s ease-in-out;
+  $transition: all .2s ease-in-out;
 
-  background-color: rgba($black, .0);
+  background-color: transparent;
   border-bottom: 1px solid $border-color;
   border-bottom-width: 1px;
   border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.1) 50%, rgba(255,255,255,0) 100%) 5%;
@@ -29,8 +29,10 @@
   }
 
   &--solid {
-    background-color: rgba($gray-300, .95);
+    background-color: $dark;
     box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+    border-bottom: 0;
+    border-image: none;
 
     .nav-item.active .nav-link {
       color: $primary;
@@ -38,10 +40,6 @@
 
     .navbar-toggler {
       color: $gray-700;
-    }
-
-    .nav-link {
-      color: $body-color;
     }
   }
 

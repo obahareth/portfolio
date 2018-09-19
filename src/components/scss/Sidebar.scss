@@ -1,7 +1,7 @@
 @import 'helpers';
 
 .Sidebar {
-  background-color: rgba($black, .9);
+  background-color: $dark;
   font-size: $font-size-base * 1.5;
   padding: map-get($spacers, 4);
 
@@ -16,10 +16,19 @@
     width: $size;
   }
 
-  a {
+  .bm-item {
+    padding-left: 0;
+  }
+
+  &__link {
+    display: block;
     font-weight: $font-weight-medium;
     color: $white;
     margin-bottom: map-get($spacers, 3);
+
+    &.active {
+      color: $primary;
+    }
   }
 }
 

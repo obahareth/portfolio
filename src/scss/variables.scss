@@ -24,12 +24,14 @@ $spacers: map-merge(
 // Colours
 
 $gray-800: #343a40;
+$gray-900: #131518;
 
 $orange: #ff7e33;
 $white: #fff;
 
 $primary: $orange;
-$light: rgba($white, 0.5);
+$light: rgba($white, .5);
+$dark: rgba(#0b0017, .95);
 
 // Fonts
 
