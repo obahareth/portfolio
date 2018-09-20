@@ -6,7 +6,7 @@ import Heading from 'components/Heading';
 const HeadingSection = ({
   children, size, icon, title,
 }) => (
-  <div className="mb-5 mb-lg-4">
+  <div className={`mb-${size > 4 ? 4 : 5}`}>
     <Heading icon={icon} size={size}>
       {title}
     </Heading>

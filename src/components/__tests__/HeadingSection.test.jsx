@@ -47,4 +47,34 @@ describe("<HeadingSection>", () => {
       expect(getHeading().props().size).toBe(props.size);
     });
   });
+
+  describe("when `props.size` is > 4", () => {
+    beforeEach(() => {
+      props.size = 5;
+    });
+
+    it("sets its `className` prop to 'mb-4'", () => {
+      expect(getComponent().props().className).toBe('mb-4');
+    });
+  });
+
+  describe("when `props.size` is equal to 4", () => {
+    beforeEach(() => {
+      props.size = 4;
+    });
+
+    it("sets its `className` prop to 'mb-5'", () => {
+      expect(getComponent().props().className).toBe('mb-5');
+    });
+  });
+
+  describe("when `props.size` is < 4", () => {
+    beforeEach(() => {
+      props.size = 3;
+    });
+
+    it("sets its `className` prop to 'mb-5'", () => {
+      expect(getComponent().props().className).toBe('mb-5');
+    });
+  });
 });
