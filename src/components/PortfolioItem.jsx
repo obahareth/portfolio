@@ -8,7 +8,8 @@ import Icon from 'components/Icon';
 import SkillList from 'components/SkillList';
 
 const PortfolioItem = ({
-  alt, caseStudy, description, imageSizes, name, siteLink, skillsUsed, year,
+  alt, caseStudy, description, imageSizes, name, siteLink, skillsUsed, sourceCode,
+  year,
 }) => (
   <Row className="mb-5">
     <Col lg={{ size: 6, order: alt ? 2 : undefined }}>
@@ -29,11 +30,12 @@ const PortfolioItem = ({
       <p>
         {description}
       </p>
-      {(caseStudy || siteLink) && (
+      {(caseStudy || siteLink || sourceCode) && (
         <ul className="list-inline">
           {[
             { link: siteLink, name: 'View site', icon: 'view-site' },
             { link: caseStudy, name: 'Case study', icon: 'case-study' },
+            { link: sourceCode, name: 'Source code', icon: 'developer' },
           ].map(item => item.link && (
             <li className="list-inline-item mr-4" key={item.name}>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
@@ -57,6 +59,7 @@ PortfolioItem.propTypes = {
   name: PropTypes.string.isRequired,
   siteLink: PropTypes.string,
   skillsUsed: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sourceCode: PropTypes.string,
   year: PropTypes.number.isRequired,
 };
 
@@ -64,6 +67,7 @@ PortfolioItem.defaultProps = {
   alt: false,
   caseStudy: undefined,
   siteLink: undefined,
+  sourceCode: undefined,
 };
 
 export const query = graphql`
@@ -72,9 +76,10 @@ export const query = graphql`
       edges {
         node {
           name
-          caseStudy
           description
+          caseStudy
           siteLink
+          sourceCode
           year
           skillsUsed
           image {

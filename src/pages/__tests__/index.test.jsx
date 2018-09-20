@@ -35,6 +35,7 @@ describe("<IndexPage>", () => {
                 description: 'Housing platform',
                 year: 2016,
                 siteLink: 'https://trausing.danieljs.tech',
+                sourceCode: undefined,
                 skillsUsed: ['Django', 'Python', 'PostgreSQL', 'jQuery'],
                 caseStudy: 'https://danieljs.me/my-first-taste-of-success/',
                 image: {
@@ -52,6 +53,7 @@ describe("<IndexPage>", () => {
                 description: 'Website',
                 year: 2018,
                 siteLink: 'https://trizma.danieljs.tech',
+                sourceCode: 'https://github.com/dspacejs/someproject',
                 skillsUsed: ['Nunjucks', 'Sass', 'Gulp', 'jQuery'],
                 image: {
                   childImageSharp: {
@@ -173,6 +175,10 @@ describe("<IndexPage>", () => {
 
     it("sets its `siteLink` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('siteLink', 'siteLink');
+    });
+
+    it("sets its `sourceCode` prop using its data `props.data.portfolioItems`", () => {
+      comparePropToPortfolioData('sourceCode', 'sourceCode');
     });
 
     it("sets its `skillsUsed` prop using its data `props.data.portfolioItems`", () => {

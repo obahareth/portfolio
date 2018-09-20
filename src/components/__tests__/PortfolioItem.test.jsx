@@ -182,4 +182,43 @@ describe("<PortfolioItem>", () => {
       });
     });
   });
+
+  describe("when `props.sourceCode` is defined", () => {
+    beforeEach(() => {
+      props.sourceCode = 'https://github.com/dspacejs/portfolio';
+    });
+
+    it("renders an inline list", () => {
+      expect(getList()).toHaveLength(1);
+    });
+
+    it("renders a list item for the case study inside the list", () => {
+      expect(getList().find('li')).toHaveLength(1);
+    });
+
+    describe("rendered list item", () => {
+      it("sets its `key` prop as 'Source code'", () => {
+        expect(getList().find('li').key()).toBe('Source code');
+      });
+
+      it("renders an <a>", () => {
+        expect(getList().find('li').find('a')).toHaveLength(1);
+      });
+
+      describe("rendered <a>", () => {
+        it("sets its `href` prop as `props.sourceCode`", () => {
+          expect(getList().find('a').props().href).toBe(props.sourceCode);
+        });
+
+        it("sets its `children` prop as 'Source code'", () => {
+          expect(getList().find('a').contains('Source code')).toBeTruthy();
+        });
+
+        it("renders an <Icon> with its `name` prop set to 'developer'", () => {
+          expect(getList().find('li').find('a').find("Icon[name='developer']"))
+            .toHaveLength(1);
+        });
+      });
+    });
+  });
 });

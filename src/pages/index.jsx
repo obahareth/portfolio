@@ -195,6 +195,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
               year={node.year}
               siteLink={node.siteLink}
               skillsUsed={node.skillsUsed}
+              sourceCode={node.sourceCode}
               caseStudy={node.caseStudy}
               imageSizes={node.image.childImageSharp.sizes}
             />
