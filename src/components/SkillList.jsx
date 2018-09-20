@@ -4,15 +4,13 @@ import React from 'react';
 import './scss/SkillList.scss';
 
 const SkillList = ({ skills }) => (
-  <ul className="SkillList list-inline">
+  <div className="SkillList">
     {skills.map(skill => (
-      <li className="SkillList__item list-inline-item" key={skill}>
-        <code>
-          {skill}
-        </code>
-      </li>
+      <code className="SkillList__item" key={skill}>
+        {skill}
+      </code>
     ))}
-  </ul>
+  </div>
 );
 
 SkillList.propTypes = {

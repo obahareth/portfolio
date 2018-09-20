@@ -1,12 +1,19 @@
 @import 'helpers';
 
 .SkillList {
+  display: flex;
+  flex-wrap: wrap;
+
   &__item {
-    code {
-      background-color: $white;
-      border: 1px solid $border-color;
-      border-radius: $border-radius;
-      padding: .4rem;
-    }
+    $spacing: map-get($spacers, 2);
+
+    font-size: $font-size-sm;
+
+    margin-bottom: $spacing;
+    margin-right: $spacing;
+    padding: 0 .4rem;
+    background-color: $white;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
   }
 }

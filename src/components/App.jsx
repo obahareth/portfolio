@@ -20,9 +20,9 @@ class App extends React.Component {
     window.removeEventListener('scroll', this.handleScroll);
   }
 
-  handleScroll(event) {
+  handleScroll() {
     this.setState({
-      scrollTop: event.pageY,
+      scrollTop: document.documentElement.scrollTop || document.body.scrollTop,
     });
   }
 

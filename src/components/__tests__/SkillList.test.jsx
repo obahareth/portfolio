@@ -10,7 +10,7 @@ describe("<SkillList>", () => {
     }
     return mountedComponent;
   };
-  const getListItems = () => getComponent().find('li');
+  const getListItems = () => getComponent().find('code');
 
   beforeEach(() => {
     mountedComponent = undefined;
@@ -19,15 +19,15 @@ describe("<SkillList>", () => {
     };
   });
 
-  it("renders a <ul> as the root element", () => {
-    expect(getComponent().is('ul')).toBeTruthy();
+  it("renders a <div> as the root element", () => {
+    expect(getComponent().is('div')).toBeTruthy();
   });
 
-  it("renders a <li> for each item in `props.skills`", () => {
+  it("renders a <code> for each item in `props.skills`", () => {
     expect(getListItems()).toHaveLength(props.skills.length);
   });
 
-  describe("each rendered <li>", () => {
+  describe("each rendered <code>", () => {
     it("sets its `key` prop as the item's skill", () => {
       getListItems().forEach((node, index) => {
         const skill = props.skills[index];

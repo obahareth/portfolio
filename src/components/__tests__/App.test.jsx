@@ -64,19 +64,39 @@ describe("<App>", () => {
   });
 
   describe(`handleScroll`, () => {
-    it("calls `setState` with its `event.pageY` arg", () => {
-      const componentInstance = getComponent().instance();
-      const mock = jest.fn();
+    let componentInstance;
+    let mock;
+
+    beforeEach(() => {
+      componentInstance = getComponent().instance();
+      mock = jest.fn();
       componentInstance.setState = mock;
+    });
 
-      const pageY = 8;
-      const mockEvent = {
-        pageY,
-      };
-      componentInstance.handleScroll(mockEvent);
+    describe("when `document.documentElement.scrollTop` is defined", () => {
+      beforeEach(() => {
+        document.documentElement.scrollTop = 20;
+      });
 
-      expect(mock).toBeCalledWith({
-        scrollTop: pageY,
+      it("sets `state.scrollTop` to `document.documentElement.scrollTop`", () => {
+        componentInstance.handleScroll();
+        expect(mock).toBeCalledWith({
+          scrollTop: document.documentElement.scrollTop,
+        });
+      });
+    });
+
+    describe("when `document.documentElement.scrollTop` is not defined", () => {
+      beforeEach(() => {
+        document.documentElement.scrollTop = undefined;
+        document.body.scrollTop = 30;
+      });
+
+      it("sets `state.scrollTop` to `document.body.scrollTop`", () => {
+        componentInstance.handleScroll();
+        expect(mock).toBeCalledWith({
+          scrollTop: document.body.scrollTop,
+        });
       });
     });
   });

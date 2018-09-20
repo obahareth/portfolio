@@ -18,7 +18,7 @@ module.exports = {
         short_name: 'Daniel Spajic',
         start_url: '/',
         background_color: '#f8f9fa',
-        theme_color: '#ff7e33',
+        theme_color: '#1c013b',
         display: 'minimal-ui',
         icon: `${__dirname}/src/images/icon.png`,
       },
