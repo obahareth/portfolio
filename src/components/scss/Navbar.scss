@@ -7,8 +7,6 @@
   border-bottom: 1px solid $border-color;
   border-bottom-width: 1px;
   border-image: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.1) 50%, rgba(255,255,255,0) 100%) 5%;
-  width: 100%;
-  z-index: 1;
   transition: $transition;
 
   .navbar-toggler {
@@ -24,7 +22,7 @@
     font-weight: $font-weight-medium;
 
     &:hover {
-      color: $link-color;
+      color: $gray-500;
     }
   }
 

@@ -26,6 +26,10 @@
     color: $white;
     margin-bottom: map-get($spacers, 3);
 
+    &:hover {
+      color: $gray-500;
+    }
+
     &.active {
       color: $primary;
     }

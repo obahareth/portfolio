@@ -35,7 +35,7 @@ const PortfolioItem = ({
             { link: siteLink, name: 'View site', icon: 'view-site' },
             { link: caseStudy, name: 'Case study', icon: 'case-study' },
           ].map(item => item.link && (
-            <li className="list-inline-item mr-3" key={item.name}>
+            <li className="list-inline-item mr-4" key={item.name}>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
                 <Icon name={item.icon} />
                 {' '}

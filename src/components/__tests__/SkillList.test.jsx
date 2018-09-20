@@ -15,7 +15,7 @@ describe("<SkillList>", () => {
   beforeEach(() => {
     mountedComponent = undefined;
     props = {
-      skills: ['Django', 'React.js'],
+      skills: ['Django', 'React'],
     };
   });
 

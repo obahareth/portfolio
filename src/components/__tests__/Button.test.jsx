@@ -33,6 +33,16 @@ describe("<Button>", () => {
       }));
     });
 
+    describe("when `props.className` is defined", () => {
+      beforeEach(() => {
+        props.className = 'some-class';
+      });
+
+      it("adds `props.className` to its `className` prop", () => {
+        expect(getComponent().props().className).toContain(props.className);
+      });
+    });
+
     describe("when `props.icon` is defined", () => {
       beforeEach(() => {
         props.icon = 'some-icon';

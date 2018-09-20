@@ -2,6 +2,7 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import ContactButton from 'components/ContactButton';
 import Heading from 'components/Heading';
 import Parallax from 'components/Parallax';
 import './scss/MainHeader.scss';
@@ -23,6 +24,9 @@ const MainHeader = ({
         {subtitle}
       </Heading>
       {children}
+      <div className="d-lg-none mt-5 MainHeader__cta-container">
+        <ContactButton size="lg" />
+      </div>
     </header>
   </Parallax>
 );

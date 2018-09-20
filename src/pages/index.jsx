@@ -81,7 +81,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             <Col lg="6">
               <HeadingSection small icon="react" title="Front-end development" size={5}>
                 <SkillList
-                  skills={['ReactJS', 'Twitter Bootstrap', 'Sass', 'Redux',
+                  skills={['React.js', 'Twitter Bootstrap', 'Sass', 'Redux',
                     'Webpack', 'Gatsby', 'Babel', 'NPM/Yarn', 'Nunjucks', 'HTML',
                     'gulp', 'jQuery', 'JavaScript']}
                 />
@@ -140,9 +140,9 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
               </HeadingSection>
             </Col>
             <Col lg="3" sm="6">
-              <HeadingSection title="Easy-going" icon="easy-going" size={4}>
+              <HeadingSection title="Cooperation" icon="easy-going" size={4}>
                 Working well with others is crucial for producing great work and
-                everyones&apos; happiness. I&apos;m friendly and have fun.
+                everyone&apos;s happiness. I&apos;m friendly and have fun.
               </HeadingSection>
             </Col>
             <Col lg="3" sm="6">
@@ -154,13 +154,13 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             <Col lg="3" sm="6">
               <HeadingSection title="Focus" icon="focus" size={4}>
                 Multitasking is my Achilles&apos; heel. Synonymous to taking my
-                time, I work best when concentrating my effort on a single project.
+                time, I work best when concentrating my effort.
               </HeadingSection>
             </Col>
             <Col lg="3" sm="6">
               <HeadingSection title="Curiosity" icon="curiosity" size={4}>
                 I love learning and dedicate myself to it. You can count on me to
-                pick up anything I don&apos;t know.
+                pick up anything I don&apos;t know on my own accord.
               </HeadingSection>
             </Col>
             <Col lg="3" sm="6">
@@ -170,7 +170,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
               </HeadingSection>
             </Col>
             <Col lg="3" sm="6">
-              <HeadingSection title="Open-minded" icon="open-mindedness" size={4}>
+              <HeadingSection title="Open-mindedness" icon="open-mindedness" size={4}>
                 I&apos;m objective and question everything. I don&apos;t hesitate to
                 discard my convictions when provided with a good reason.
               </HeadingSection>
@@ -184,7 +184,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             index={3}
             title="Showcase"
             description="Here's a few of the many things I've worked on over the
-              years."
+              years. Check out the case studies for a deeper insight into how I work."
           />
           {data.portfolioItems.edges.map(({ node }, index) => (
             <PortfolioItem
@@ -243,7 +243,8 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
           <SectionHeader
             index={5}
             title="References"
-            description="Here's what people I've worked with have to say about me."
+            description="Don't take my word for it. Here's what people I've
+              worked with have said about me."
           />
           <Row>
             {data.references.edges.map(({ node }) => (

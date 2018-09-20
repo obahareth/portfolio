@@ -1,16 +1,16 @@
 - item:
   name: My portfolio
   description:
-    "An ideal home for my life's work was needed, so I designed one. Since
+    "An appealing home for my life's work was needed, so I designed one. Since
     learning and falling in love with React, I decided to use Gatsby: a static
     site generator using React and optimised for the modern web."
   image: ../images/portfolio/portfolio.png
   year: 2018
   siteLink: https://danieljs.tech
   skillsUsed:
+    - Gatsby
     - React.js
     - GraphQL
-    - Gatsby
     - Sass
     - Twitter Bootstrap
     - Netlify
@@ -19,9 +19,11 @@
   caseStudy: https://danieljs.me/my-first-taste-of-success/
   image: ../images/portfolio/trausing.png
   description:
-    Whilst solo-travelling across Canada, in Whistler I witnessed the extreme
-    demand for housing with little supply. I developed an elegant solution with
-    great success; the project was featured in the media and had exceptional feedback.
+    Whilst solo-travelling across Canada, I witnessed the extreme disparity between
+    the supply and demand of homes in Whistler. The platforms used to find homes
+    were terrible, so I developed an elegant solution with great success.
+    The project was featured in the media, with hundreds of users, and exceptional
+    feedback.
   siteLink: http://trausing.danieljs.tech
   year: 2016
   skillsUsed:
@@ -35,7 +37,8 @@
   description:
     After a failed attempt working with another developer, Antun approached me
     looking for someone capable of building his portfolio he designed. Using the
-    provided design files I successfully achieved his vision.
+    provided design files I worked closely with him to successfully achieve his
+    vision.
   image: ../images/portfolio/antun-debak-portfolio.png
   siteLink: http://debak.danieljs.tech
   year: 2017
@@ -47,9 +50,10 @@
 - item:
   name: Trizma
   description:
-    After our past experience working together, Antun approached me to build a
-    website for a client. The code needed to be modular for use with WPBakery.
-    Using the design files provided I successfully built the site.
+    After our successful past experience working together, Antun approached me
+    to build a static site for a client. Using the provided design files I
+    wrote modular code, which was required for a Wordpress developer to implement
+    the site with WPBakery.
   image: ../images/portfolio/trizma.png
   siteLink: http://trizma.danieljs.tech
   year: 2018
@@ -82,10 +86,10 @@
 - item:
   name: Devarity Game Store
   description:
-    Alongside being my first business venture, Devarity was also the project I used
-    to teach myself to code. Working alongside a front-end and back-end developer
-    I hired, I assembled the pieces together, made customisations, and deployed
-    the site.
+    In addition to being my first business venture, Devarity was also the project
+    where I taught myself to code. Working alongside a front-end and back-end developer
+    I hired, I assembled the pieces together, wrote tweaks and new features, and
+    both deployed and administrated the site.
   image: ../images/portfolio/devarity.png
   year: 2015
   skillsUsed:
