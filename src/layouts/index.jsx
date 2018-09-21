@@ -14,6 +14,10 @@ import 'scss/fonts.scss';
 import 'scss/global-styles.scss';
 import 'scss/icons.scss';
 
+const siteTitle = 'Daniel Spajic';
+const getSiteDescription = data => get(data, 'site.siteMetadata.description');
+const getSiteUrl = data => get(data, 'site.siteMetadata.siteUrl');
+
 const Layout = ({ children, data, ...otherProps }) => (
   <ErrorBoundary>
     <App render={({ isSidebarOpen, scrollTop, toggleSidebar }) => (
@@ -21,14 +25,21 @@ const Layout = ({ children, data, ...otherProps }) => (
         <Helmet
           title={get(data, 'site.siteMetadata.title')}
           meta={[
-            { name: 'description', content: get(data, 'site.siteMetadata.description') },
+            { name: 'description', content: getSiteDescription(data) },
             { name: 'pinterest', content: 'nopin' },
-            { name: 'og:title', content: 'Daniel Spajic' },
-            { name: 'og:description', content: get(data, 'site.siteMetadata.description') },
+            { name: 'og:title', content: siteTitle },
+            { name: 'og:description', content: getSiteDescription(data) },
             { name: 'og:type', content: 'website' },
-            { name: 'og:url', content: get(data, 'site.siteMetadata.siteUrl') },
+            { name: 'og:url', content: getSiteUrl(data) },
             { name: 'og:image', content: ogImage },
             { name: 'og:locale', content: 'en_AU' },
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:title', content: siteTitle },
+            { name: 'twitter:description', content: getSiteDescription(data) },
+            { name: 'twitter:url', content: getSiteUrl(data) },
+            { name: 'twitter:site', content: '@dspacejs' },
+            { name: 'twitter:creator', content: '@dspacejs' },
+            { name: 'twitter:image', content: ogImage },
           ]}
         >
           <link rel="shortcut icon" type="image/png" href={favicon} />
