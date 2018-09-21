@@ -24,7 +24,7 @@ const NotFoundPage = () => (
       <iframe
         title="404 gif"
         src="https://giphy.com/embed/l1J9EdzfOSgfyueLm"
-        width="480"
+        width="100%"
         height="480"
         frameBorder="0"
         className="giphy-embed"
