@@ -81,9 +81,9 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             <Col lg="6">
               <HeadingSection icon="react" title="Front-end development" size={5}>
                 <SkillList
-                  skills={['React.js', 'Twitter Bootstrap', 'Sass', 'Redux',
-                    'Webpack', 'Gatsby', 'Babel', 'NPM/Yarn', 'Nunjucks', 'HTML',
-                    'gulp', 'jQuery', 'JavaScript']}
+                  skills={['React.js', 'Redux', 'Twitter Bootstrap', 'Sass',
+                    'PostCSS', 'Webpack', 'Gatsby', 'Babel', 'NPM/Yarn', 'gulp',
+                    'Nunjucks', 'HTML', 'jQuery', 'JavaScript']}
                 />
               </HeadingSection>
               <HeadingSection icon="python" title="Back-end development" size={5}>

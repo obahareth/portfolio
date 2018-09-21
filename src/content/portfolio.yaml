@@ -13,6 +13,7 @@
     - React.js
     - GraphQL
     - Sass
+    - PostCSS
     - Twitter Bootstrap
     - Netlify
 - item:
@@ -33,6 +34,7 @@
     - PostgreSQL
     - Twitter Bootstrap
     - jQuery
+    - Mailgun API
 - item:
   name: Antun Debak's Portfolio
   description:
@@ -101,3 +103,5 @@
     - Twitter Bootstrap
     - jQuery
     - Stripe API
+    - Mailgun API
+    - Open Exchange Rates API
