@@ -18,7 +18,7 @@ const Footer = () => (
             🙂
           </span>
         </p>
-        <ContactButton className="mt-3" size="lg" />
+        <ContactButton className="mt-4" size="lg" />
       </Container>
     </Section>
   </footer>

@@ -30,7 +30,7 @@ const Navbar = ({ solid, toggleSidebar }) => {
         </button>
         <Collapse navbar>
           <NavScrollspy
-            className="navbar-nav ml-auto"
+            className="navbar-nav pl-0"
             mapItems={({ name, href }) => (
               <NavItem className={name === 'Intro' ? 'd-none' : ''} key={name}>
                 <AnchorLink className="nav-link" href={`#${href}`}>

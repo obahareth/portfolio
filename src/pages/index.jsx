@@ -72,14 +72,20 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
           />
           <Row>
             <Col lg="6">
-              <HeadingSection icon="developer" title="Developer" size={3}>
+              <HeadingSection icon="developer" title="Developer" size={3} noMargin>
                 <HTML>
                   {developerSkillsetMarkdown}
                 </HTML>
               </HeadingSection>
             </Col>
             <Col lg="6">
-              <HeadingSection icon="react" title="Front-end development" size={5}>
+              <HeadingSection
+                icon="react"
+                title="Front-end
+                development"
+                size={5}
+                className="mt-lg-0"
+              >
                 <SkillList
                   skills={['React.js', 'Redux', 'Twitter Bootstrap', 'Sass',
                     'PostCSS', 'Webpack', 'Gatsby', 'Babel', 'NPM/Yarn', 'gulp',
@@ -128,25 +134,40 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
           />
           <Row>
             <Col lg="3" sm="6">
-              <HeadingSection title="Passion" icon="passion" size={4}>
-                I love what I do and therefore put genuine effort into my work. I enjoy
-                working with people who share the same passion.
+              <HeadingSection title="Passion" icon="passion" size={4} noMargin>
+                I love what I do and therefore put genuine effort into my work.
+                I enjoy working with people who share the same passion.
               </HeadingSection>
             </Col>
             <Col lg="3" sm="6">
-              <HeadingSection title="Craftsmanship" icon="craftsmanship" size={4}>
+              <HeadingSection
+                title="Craftsmanship"
+                icon="craftsmanship"
+                size={4}
+                className="mt-sm-0"
+              >
                 I&apos;m creative, meticulous, take my time, and find great
                 enjoyment in doing things properly. I&apos;m not one to rush.
               </HeadingSection>
             </Col>
             <Col lg="3" sm="6">
-              <HeadingSection title="Cooperation" icon="easy-going" size={4}>
+              <HeadingSection
+                title="Cooperation"
+                icon="easy-going"
+                size={4}
+                className="mt-lg-0"
+              >
                 Working well with others is crucial for producing great work and
                 everyone&apos;s happiness. I&apos;m friendly and have fun.
               </HeadingSection>
             </Col>
             <Col lg="3" sm="6">
-              <HeadingSection title="Communication" icon="communication" size={4}>
+              <HeadingSection
+                title="Communication"
+                icon="communication"
+                size={4}
+                className="mt-lg-0"
+              >
                 I want to make life easy for both of us. I&apos;m candid, ask many
                 questions, and don&apos;t let things slip by.
               </HeadingSection>
@@ -188,6 +209,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
           />
           {data.portfolioItems.edges.map(({ node }, index) => (
             <PortfolioItem
+              noMargin={index === 0}
               key={node.name}
               alt={index % 2 > 0}
               name={node.name}
@@ -212,7 +234,12 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
           <Row>
             <Col lg="7">
               <div className="mb-4">
-                <HeadingSection size={4} icon="git-branch" title="My journey as a developer">
+                <HeadingSection
+                  size={4}
+                  icon="git-branch"
+                  title="My journey as a developer"
+                  noMargin
+                >
                   <HTML>
                     {aboutMeDeveloperJourneyMarkdown}
                   </HTML>
@@ -225,7 +252,12 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
               </HeadingSection>
             </Col>
             <Col lg="5">
-              <HeadingSection size={4} icon="about-me-extra" title="Random facts about me">
+              <HeadingSection
+                size={4}
+                icon="about-me-extra"
+                title="Random facts about me"
+                className="mt-lg-0"
+              >
                 <HTML>
                   {aboutMeExtraMarkdown}
                 </HTML>
@@ -248,9 +280,11 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
               worked with have said about me."
           />
           <Row>
-            {data.references.edges.map(({ node }) => (
+            {data.references.edges.map(({ node }, index) => (
               <Col lg="6" key={node.authorName}>
                 <Reference
+                  noMargin={index === 0}
+                  className={index % 2 === 1 ? 'mt-lg-0' : ''}
                   authorName={node.authorName}
                   authorPosition={node.authorPosition}
                   authorAvatar={node.authorAvatar.childImageSharp.resolutions}

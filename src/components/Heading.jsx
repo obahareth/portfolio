@@ -37,7 +37,7 @@ Heading.propTypes = {
 };
 
 Heading.defaultProps = {
-  className: undefined,
+  className: '',
   extraBold: false,
   icon: undefined,
   light: false,

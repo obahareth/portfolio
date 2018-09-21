@@ -221,4 +221,24 @@ describe("<PortfolioItem>", () => {
       });
     });
   });
+
+  describe("when `props.noMargin` is `false`", () => {
+    beforeEach(() => {
+      props.noMargin = false;
+    });
+
+    it("sets a margin", () => {
+      expect(getComponent().props().className).toContain('mt-');
+    });
+  });
+
+  describe("when `props.noMargin` is `true`", () => {
+    beforeEach(() => {
+      props.noMargin = true;
+    });
+
+    it("doesn't set a margin", () => {
+      expect(getComponent().props().className).not.toContain('mt-');
+    });
+  });
 });

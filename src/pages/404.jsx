@@ -27,7 +27,7 @@ const NotFoundPage = () => (
         width="100%"
         height="480"
         frameBorder="0"
-        className="giphy-embed"
+        className="giphy-embed mt-5"
         allowFullScreen
       />
     </Container>

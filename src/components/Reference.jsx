@@ -7,9 +7,9 @@ import HTML from 'components/HTML';
 import './scss/Reference.scss';
 
 const Reference = ({
-  authorName, authorPosition, authorAvatar, children,
+  authorName, authorPosition, authorAvatar, children, className, noMargin,
 }) => (
-  <div className="mb-5">
+  <div className={`${className} ${noMargin ? '' : 'mt-5'}`}>
     <div className="Reference">
       <div className="Reference__header">
         <div className="d-flex align-items-center">
@@ -42,6 +42,13 @@ Reference.propTypes = {
   authorPosition: PropTypes.string.isRequired,
   authorAvatar: PropTypes.object.isRequired,
   children: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  noMargin: PropTypes.bool,
+};
+
+Reference.defaultProps = {
+  className: '',
+  noMargin: false,
 };
 
 export const query = graphql`

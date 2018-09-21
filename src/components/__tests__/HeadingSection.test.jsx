@@ -53,8 +53,8 @@ describe("<HeadingSection>", () => {
       props.size = 5;
     });
 
-    it("sets its `className` prop to 'mb-4'", () => {
-      expect(getComponent().props().className).toBe('mb-4');
+    it("sets its `className` prop to 'mt-4'", () => {
+      expect(getComponent().props().className).toContain('mt-4');
     });
   });
 
@@ -63,8 +63,8 @@ describe("<HeadingSection>", () => {
       props.size = 4;
     });
 
-    it("sets its `className` prop to 'mb-5'", () => {
-      expect(getComponent().props().className).toBe('mb-5');
+    it("sets its `className` prop to 'mt-5'", () => {
+      expect(getComponent().props().className).toContain('mt-5');
     });
   });
 
@@ -73,8 +73,28 @@ describe("<HeadingSection>", () => {
       props.size = 3;
     });
 
-    it("sets its `className` prop to 'mb-5'", () => {
-      expect(getComponent().props().className).toBe('mb-5');
+    it("sets its `className` prop to 'mt-5'", () => {
+      expect(getComponent().props().className).toContain('mt-5');
+    });
+  });
+
+  describe("when `props.className` is defined", () => {
+    beforeEach(() => {
+      props.className = 'some-class';
+    });
+
+    it("adds `props.className` to its `className` prop", () => {
+      expect(getComponent().props().className).toContain(props.className);
+    });
+  });
+
+  describe("when `props.noMargin` is defined", () => {
+    beforeEach(() => {
+      props.noMargin = true;
+    });
+
+    it("doesn't set a margin class using `props.size`", () => {
+      expect(getComponent().props().className).not.toContain('mt-');
     });
   });
 });

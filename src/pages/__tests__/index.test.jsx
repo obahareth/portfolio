@@ -161,6 +161,21 @@ describe("<IndexPage>", () => {
       expect(secondPortfolioItem.props().alt).toBeTruthy();
     });
 
+    it("sets its `noMargin` prop to `true` if its `index` is `0`", () => {
+      const firstPortfolioItem = getPortfolioItems().at(0);
+      expect(firstPortfolioItem.props().noMargin).toBeTruthy();
+    });
+
+    it("sets its `noMargin` prop to `true` if its `index` is not `0`", () => {
+      const firstPortfolioItem = getPortfolioItems().at(1);
+      expect(firstPortfolioItem.props().noMargin).not.toBeTruthy();
+    });
+
+    it("sets its `alt` prop as `false` if its `index % 2` is `0`", () => {
+      const secondPortfolioItem = getPortfolioItems().at(1);
+      expect(secondPortfolioItem.props().alt).toBeTruthy();
+    });
+
     it("sets its `name` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('name', 'name');
     });

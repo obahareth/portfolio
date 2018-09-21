@@ -8,10 +8,10 @@ import Icon from 'components/Icon';
 import SkillList from 'components/SkillList';
 
 const PortfolioItem = ({
-  alt, caseStudy, description, imageSizes, name, siteLink, skillsUsed, sourceCode,
-  year,
+  alt, caseStudy, description, imageSizes, name, noMargin, siteLink, skillsUsed,
+  sourceCode, year,
 }) => (
-  <Row className="mb-5">
+  <Row className={noMargin ? '' : 'mt-5'}>
     <Col lg={{ size: 6, order: alt ? 2 : undefined }}>
       <Img
         className="img-fluid img-thumbnail mb-4 mb-lg-0"
@@ -26,10 +26,12 @@ const PortfolioItem = ({
           {` — ${year}`}
         </span>
       </Heading>
-      <SkillList skills={skillsUsed} />
       <p>
         {description}
       </p>
+      <div className="mt-4 mb-2">
+        <SkillList skills={skillsUsed} />
+      </div>
       {(caseStudy || siteLink || sourceCode) && (
         <ul className="list-inline">
           {[
@@ -57,6 +59,7 @@ PortfolioItem.propTypes = {
   description: PropTypes.string.isRequired,
   imageSizes: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
+  noMargin: PropTypes.bool,
   siteLink: PropTypes.string,
   skillsUsed: PropTypes.arrayOf(PropTypes.string).isRequired,
   sourceCode: PropTypes.string,
@@ -66,6 +69,7 @@ PortfolioItem.propTypes = {
 PortfolioItem.defaultProps = {
   alt: false,
   caseStudy: undefined,
+  noMargin: false,
   siteLink: undefined,
   sourceCode: undefined,
 };

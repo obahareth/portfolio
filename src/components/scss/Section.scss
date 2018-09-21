@@ -1,10 +1,10 @@
 @import 'helpers';
 
-$rounded-edge-height: 40px;
+$rounded-edge-height: 50px;
 
 @mixin rounded-top-padding($padding) {
   &.Section--rounded-top {
-    padding: calc(#{$padding} - #{$rounded-edge-height}) 0;
+    padding: calc(#{$padding} - #{$rounded-edge-height}) 0 !important;
 
     @include media-breakpoint-down(xs) {
       padding: $padding 0;
@@ -31,7 +31,7 @@ $rounded-edge-height: 40px;
   }
 
   &--padding-small {
-    $padding: 4rem;
+    $padding: 6rem;
 
     padding: $padding 0;
 
