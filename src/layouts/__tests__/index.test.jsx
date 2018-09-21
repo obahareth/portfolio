@@ -80,4 +80,5 @@ describe("<Layout>", () => {
   });
 
   // TODO: test `scrollTop` and `otherProps` is passed to `children`
+  // TODO: add tests for `getTwitterImage`
 });
