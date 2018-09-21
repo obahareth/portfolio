@@ -3,7 +3,7 @@
   "private": true,
   "description": "Daniel Spajic's portfolio",
   "scripts": {
-    "build": "gatsby build",
+    "build": "yarn run test && gatsby build",
     "develop": "gatsby develop",
     "test": "jest",
     "test:watch": "yarn run test -- --watch",
