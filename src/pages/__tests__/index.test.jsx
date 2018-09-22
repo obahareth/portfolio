@@ -12,9 +12,12 @@ describe("<IndexPage>", () => {
     }
     return mountedComponent;
   };
+  const getMainHeader = () => getComponent().find('MainHeader');
   const getNavbar = () => getComponent().find('Navbar');
   const getPortfolioItems = () => getComponent().find('PortfolioItem');
   const getReferences = () => getComponent().find('Reference');
+  const getSectionHeaders = () => getComponent().find('SectionHeader');
+  const getHeadingSections = () => getComponent().find('HeadingSection');
 
   beforeEach(() => {
     mountedComponent = undefined;
@@ -82,6 +85,20 @@ describe("<IndexPage>", () => {
                 },
               },
             },
+            {
+              node: {
+                authorName: 'Nikola Tesla',
+                authorPosition: 'Inventor',
+                message: 'Daniel is a cool kiddo',
+                authorAvatar: {
+                  childImageSharp: {
+                    resolutions: {
+                      someKey: 'somevalue',
+                    },
+                  },
+                },
+              },
+            },
           ],
         },
       },
@@ -105,7 +122,7 @@ describe("<IndexPage>", () => {
   });
 
   it("renders a <MainHeader>", () => {
-    expect(getComponent().find('MainHeader')).toHaveLength(1);
+    expect(getMainHeader()).toHaveLength(1);
   });
 
   it("renders a <PortfolioItem> for each item in `props.data.portfolioItems`", () => {
@@ -114,6 +131,125 @@ describe("<IndexPage>", () => {
 
   it("renders a <Reference> for each item in `props.data.references`", () => {
     expect(getReferences()).toHaveLength(props.data.references.edges.length);
+  });
+
+  it("renders a <SectionHeader> for Daniel's skillset", () => {
+    expect(getSectionHeaders().filter("[title='Skillset']")).toHaveLength(1);
+  });
+
+  it("renders a <SectionHeader> for Daniel's values", () => {
+    expect(getSectionHeaders().filter("[title='Values']")).toHaveLength(1);
+  });
+
+  it("renders a <SectionHeader> for Daniel's projects", () => {
+    expect(getSectionHeaders().filter("[title='Showcase']")).toHaveLength(1);
+  });
+
+  it("renders a <SectionHeader> for Daniel's story", () => {
+    expect(getSectionHeaders().filter("[title='My story']")).toHaveLength(1);
+  });
+
+  it("renders a <SectionHeader> for Daniel's references", () => {
+    expect(getSectionHeaders().filter("[title='References']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's developer skillset", () => {
+    expect(getHeadingSections().filter("[title='Developer']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's front-end skillset", () => {
+    expect(getHeadingSections().filter("[title='Front-end development']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's back-end skillset", () => {
+    expect(getHeadingSections().filter("[title='Back-end development']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's sysadmin skillset", () => {
+    expect(getHeadingSections().filter("[title='System administration']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's design skillset", () => {
+    expect(getHeadingSections().filter("[title='Design sense']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's business skillset", () => {
+    expect(getHeadingSections().filter("[title='Business insight']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's passion value", () => {
+    expect(getHeadingSections().filter("[title='Passion']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's craftsmanship value", () => {
+    expect(getHeadingSections().filter("[title='Craftsmanship']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's cooperation value", () => {
+    expect(getHeadingSections().filter("[title='Cooperation']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's communication value", () => {
+    expect(getHeadingSections().filter("[title='Communication']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's focus value", () => {
+    expect(getHeadingSections().filter("[title='Focus']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's curiosity value", () => {
+    expect(getHeadingSections().filter("[title='Curiosity']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's independence value", () => {
+    expect(getHeadingSections().filter("[title='Independence']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's open-mindedness value", () => {
+    expect(getHeadingSections().filter("[title='Open-mindedness']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's journey as a developer", () => {
+    expect(getHeadingSections().filter("[title='My journey as a developer']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's personal life", () => {
+    expect(getHeadingSections().filter("[title='More about me']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for random facts about Daniel", () => {
+    expect(getHeadingSections().filter("[title='Random facts about me']")).toHaveLength(1);
+  });
+
+  it("renders a <HeadingSection> for Daniel's favourite quotes", () => {
+    expect(getHeadingSections().filter("[title='Favourite quotes']")).toHaveLength(1);
+  });
+
+  describe("rendered <MainHeader>", () => {
+    it("sets its `avatarResolutions` prop to `props.data.avatar.childImageSharp.resolutions`", () => {
+      expect(getMainHeader().props().avatarResolutions)
+        .toBe(props.data.avatar.childImageSharp.resolutions);
+    });
+
+    it("renders a link to Daniel's blog", () => {
+      expect(getMainHeader().find("SocialLink[icon='blog']")).toHaveLength(1);
+    });
+
+    it("renders a link to Daniel's GitHub account", () => {
+      expect(getMainHeader().find("SocialLink[icon='github']")).toHaveLength(1);
+    });
+
+    it("renders a link to Daniel's Stack Overflow account", () => {
+      expect(getMainHeader().find("SocialLink[icon='stack-overflow']")).toHaveLength(1);
+    });
+
+    it("renders a link to Daniel's Twitter account", () => {
+      expect(getMainHeader().find("SocialLink[icon='twitter']")).toHaveLength(1);
+    });
+
+    it("renders a link to Daniel's LinkedIn account", () => {
+      expect(getMainHeader().find("SocialLink[icon='linkedin']")).toHaveLength(1);
+    });
   });
 
   describe("rendered <Navbar>", () => {
@@ -206,6 +342,62 @@ describe("<IndexPage>", () => {
 
     it("sets its `imageSizes` prop using its data `props.data.portfolioItems`", () => {
       comparePropToPortfolioData('imageSizes', 'image.childImageSharp.sizes');
+    });
+  });
+
+  describe("each <Reference>", () => {
+    let referenceData;
+    const comparePropToReferenceData = (propKey, dataKey) => getReferences()
+      .forEach((node, index) => {
+        const propValue = node.prop(propKey);
+        const dataValue = get(referenceData[index], dataKey);
+        expect(propValue).toBe(dataValue);
+      });
+
+    beforeEach(() => {
+      referenceData = props.data.references.edges.map(edge => edge.node);
+    });
+
+    it("sets its parent <Col>'s `key` prop as its `name` from `props.data.references`", () => {
+      getReferences().forEach((node, index) => {
+        expect(node.parents('Col').key()).toBe(referenceData[index].authorName);
+      });
+    });
+
+    it("sets its `noMargin` prop as `true` if its `index` is `0`", () => {
+      const firstPortfolioItem = getReferences().at(0);
+      expect(firstPortfolioItem.props().noMargin).toBeTruthy();
+    });
+
+    it("sets its `noMargin` prop as `false` if its `index` isn't `0`", () => {
+      const secondPortfolioItem = getReferences().at(1);
+      expect(secondPortfolioItem.props().noMargin).not.toBeTruthy();
+    });
+
+    it("sets its `className` prop to '' if its `index % 2` is `0`", () => {
+      const firstPortfolioItem = getReferences().at(0);
+      expect(firstPortfolioItem.props().className).toBe('');
+    });
+
+    it("sets its `className` prop to 'mt-lg-0' if its `index % 2` is `1`", () => {
+      const firstPortfolioItem = getReferences().at(1);
+      expect(firstPortfolioItem.props().className).toBe('mt-lg-0');
+    });
+
+    it("sets its `authorName` prop using its data `props.data.references`", () => {
+      comparePropToReferenceData('authorName', 'authorName');
+    });
+
+    it("sets its `authorPosition` prop using its data `props.data.references`", () => {
+      comparePropToReferenceData('authorPosition', 'authorPosition');
+    });
+
+    it("sets its `authorAvatar` prop using its data `props.data.references`", () => {
+      comparePropToReferenceData('authorAvatar', 'authorAvatar.childImageSharp.resolutions');
+    });
+
+    it("sets its `children` prop using its data `props.data.references`", () => {
+      comparePropToReferenceData('children', 'message');
     });
   });
 });

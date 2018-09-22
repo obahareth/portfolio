@@ -1,4 +1,4 @@
-import Layout from '../index';
+import Layout from 'layouts/index';
 
 describe("<Layout>", () => {
   let mountedComponent;
@@ -22,6 +22,7 @@ describe("<Layout>", () => {
           test
         </div>
       ),
+      extraProp: 'some-value',
       data: {
         site: {
           siteMetadata: {
@@ -79,5 +80,19 @@ describe("<Layout>", () => {
     });
   });
 
-  // TODO: test `scrollTop` and `otherProps` is passed to `children`
+  describe("`children` prop", () => {
+    beforeEach(() => {
+      props.children = jest.fn();
+      getRenderedApp();
+    });
+
+    it("receives <App>'s `scrollTop` and `toggleSidebar` render prop args, and any extra props", () => {
+      const app = getRenderedApp().instance();
+      expect(props.children).toHaveBeenCalledWith({
+        scrollTop: app.state.scrollTop,
+        toggleSidebar: app.toggleSidebar,
+        extraProp: props.extraProp,
+      });
+    });
+  });
 });
