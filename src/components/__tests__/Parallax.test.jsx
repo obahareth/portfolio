@@ -29,5 +29,37 @@ describe("<Parallax>", () => {
     expect(getComponent().contains(props.children)).toBeTruthy();
   });
 
-  // TODO: test `parallaxData` properties using `isSmallScreen`
+  describe("when the user is on a small screen", () => {
+    let parallaxData;
+
+    beforeEach(() => {
+      window.innerHeight = 700;
+      [parallaxData] = getComponent().props().parallaxData;
+    });
+
+    it("sets its `parallaxData.end` prop to `600`", () => {
+      expect(parallaxData.end).toBe(600);
+    });
+
+    it("sets its `parallaxData.easing` prop to `easeIn`", () => {
+      expect(parallaxData.easing).toBe('easeIn');
+    });
+  });
+
+  describe("when the user is not on a small screen", () => {
+    let parallaxData;
+
+    beforeEach(() => {
+      window.innerHeight = 1000;
+      [parallaxData] = getComponent().props().parallaxData;
+    });
+
+    it("sets its `parallaxData.end` prop to `500`", () => {
+      expect(parallaxData.end).toBe(500);
+    });
+
+    it("sets its `parallaxData.easing` prop to `undefined`", () => {
+      expect(parallaxData.easing).not.toBeDefined();
+    });
+  });
 });
