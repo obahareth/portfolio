@@ -8,6 +8,7 @@
   year: 2018
   siteLink: https://danieljs.tech
   sourceCode: https://github.com/dspacejs/portfolio
+  caseStudy: https://danieljs.me/building-my-portfolio/
   skillsUsed:
     - Gatsby
     - React.js

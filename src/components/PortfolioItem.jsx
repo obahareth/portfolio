@@ -29,7 +29,7 @@ const PortfolioItem = ({
       <p>
         {description}
       </p>
-      <div className="mt-4 mb-2">
+      <div className="mt-4">
         <SkillList skills={skillsUsed} />
       </div>
       {(caseStudy || siteLink || sourceCode) && (
@@ -39,7 +39,7 @@ const PortfolioItem = ({
             { link: caseStudy, name: 'Case study', icon: 'case-study' },
             { link: sourceCode, name: 'Source code', icon: 'developer' },
           ].map(item => item.link && (
-            <li className="list-inline-item mr-4" key={item.name}>
+            <li className="list-inline-item mr-4 mt-2" key={item.name}>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
                 <Icon name={item.icon} />
                 {' '}
