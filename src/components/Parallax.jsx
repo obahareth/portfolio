@@ -1,9 +1,10 @@
+import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
 import Plx from 'react-plx';
 
 const Parallax = ({ children }) => {
-  const isSmallScreen = window.innerHeight < 900;
+  const isSmallScreen = get(window, 'innerHeight', 0) < 900;
 
   const parallaxData = [
     {
