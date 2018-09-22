@@ -28,4 +28,6 @@ describe("<Parallax>", () => {
   it("renders `props.children`", () => {
     expect(getComponent().contains(props.children)).toBeTruthy();
   });
+
+  // TODO: test `parallaxData` properties using `isSmallScreen`
 });

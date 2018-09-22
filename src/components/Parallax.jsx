@@ -2,10 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Plx from 'react-plx';
 
+const isSmallScreen = window.screen.availHeight < 900;
+
 const parallaxData = [
   {
     start: 0,
-    end: 500,
+    end: isSmallScreen ? 600 : 500,
+    easing: isSmallScreen ? 'easeIn' : undefined,
     properties: [
       {
         startValue: 1,
