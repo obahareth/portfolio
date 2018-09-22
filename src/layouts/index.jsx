@@ -18,12 +18,6 @@ const siteTitle = 'Daniel Spajic';
 const getSiteDescription = data => get(data, 'site.siteMetadata.description');
 const getSiteUrl = data => get(data, 'site.siteMetadata.siteUrl');
 
-// Twitter requires `twitter:image` to be an absolute path. This adds one during production.
-// eslint-disable-next-line arrow-body-style
-const getTwitterImage = (siteUrl) => {
-  return process.env.NODE_ENV === 'production' ? `${siteUrl}${ogImage}` : ogImage;
-};
-
 const Layout = ({ children, data, ...otherProps }) => (
   <ErrorBoundary>
     <App render={({ isSidebarOpen, scrollTop, toggleSidebar }) => (
@@ -45,7 +39,7 @@ const Layout = ({ children, data, ...otherProps }) => (
             { name: 'twitter:url', content: getSiteUrl(data) },
             { name: 'twitter:site', content: '@dspacejs' },
             { name: 'twitter:creator', content: '@dspacejs' },
-            { name: 'twitter:image', content: getTwitterImage(getSiteUrl(data)) },
+            { name: 'twitter:image', content: ogImage },
           ]}
         >
           <link rel="shortcut icon" type="image/png" href={favicon} />
