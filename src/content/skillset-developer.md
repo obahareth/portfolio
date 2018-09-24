@@ -5,6 +5,6 @@ This also means **I strive to follow best practices and use industry-standard
 tools**, including `git-flow`, TDD, linting, package management (Yarn/NPM and Pipenv),
 and Babel.
 
-Although I've a wide range of experience, the tools I prefer and am most familiar
-with include `Python`, `Django`, `PostgreSQL`, `React.js`, `Sass`, and
-`Twitter Bootstrap`.
+Although I've a wide range of experience, the technology I prefer and am most
+familiar with includes `Python`, `Django`, `PostgreSQL`, `React.js`, `Sass`,
+`Linux`, and `Twitter Bootstrap`.
