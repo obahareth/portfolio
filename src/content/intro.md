@@ -1,6 +1,6 @@
 Hey there—I'm Daniel.
 
-As a full-stack developer I have a passion for all facets of building great
+I'm a full-stack developer full of passion for all aspects of building great
 software.
 
 Although my skillset is diverse, **I specialise in front-end development**. I've
