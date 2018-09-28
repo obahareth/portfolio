@@ -4,7 +4,7 @@ I'm a full-stack developer full of passion for all aspects of building great
 software.
 
 Although my skillset is diverse, **I specialise in front-end development**. I've
-worked on projects of various scales from start-to-finish, both solo and as
+worked on projects of various scales, both solo and as
 part of a team.
 
 **I'm keen to collaborate with passionate people** working on interesting projects.
