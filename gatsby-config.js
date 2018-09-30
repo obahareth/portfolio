@@ -5,8 +5,8 @@ module.exports = {
     title: 'Daniel Spajic | Front-end engineer with a full-stack skillset',
     siteUrl: 'https://danieljs.tech',
     description:
-      `Front-end developer with a diverse skillset, specialising in building
-      robust web apps with React.js`,
+      `Passionate front-end developer with a deep, yet diverse skillset. I
+      specialise in building elegant, robust web apps with fluid user experiences.`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
