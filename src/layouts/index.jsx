@@ -40,6 +40,10 @@ const Layout = ({ children, data, ...otherProps }) => (
             { name: 'twitter:site', content: '@dspacejs' },
             { name: 'twitter:creator', content: '@dspacejs' },
             { name: 'twitter:image', content: ogImage },
+            {
+              name: 'google-site-verification',
+              content: '69KygYRb9OkC94LsdhXNdRofjRgdkF_ZfsYB-Qzp0_M',
+            },
           ]}
         >
           <link rel="shortcut icon" type="image/png" href={favicon} />
