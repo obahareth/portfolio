@@ -73,13 +73,16 @@ describe("<IndexPage>", () => {
           edges: [
             {
               node: {
-                authorName: 'Elon Musk',
-                authorPosition: 'CEO @ SpaceX & Tesla',
-                message: 'Hire Daniel',
-                authorAvatar: {
-                  childImageSharp: {
-                    resolutions: {
-                      someKey: 'somevalue',
+                html: 'Hire Daniel',
+                frontmatter: {
+                  id: 'reference-elon-musk',
+                  authorName: 'Elon Musk',
+                  authorPosition: 'CEO @ SpaceX & Tesla',
+                  authorAvatar: {
+                    childImageSharp: {
+                      resolutions: {
+                        someKey: 'somevalue',
+                      },
                     },
                   },
                 },
@@ -87,13 +90,16 @@ describe("<IndexPage>", () => {
             },
             {
               node: {
-                authorName: 'Nikola Tesla',
-                authorPosition: 'Inventor',
-                message: 'Daniel is a cool kiddo',
-                authorAvatar: {
-                  childImageSharp: {
-                    resolutions: {
-                      someKey: 'somevalue',
+                html: 'Daniel is a cool kiddo',
+                frontmatter: {
+                  id: 'reference-nikola-tesla',
+                  authorName: 'Nikola Tesla',
+                  authorPosition: 'Inventor',
+                  authorAvatar: {
+                    childImageSharp: {
+                      resolutions: {
+                        someKey: 'somevalue',
+                      },
                     },
                   },
                 },
@@ -358,9 +364,10 @@ describe("<IndexPage>", () => {
       referenceData = props.data.references.edges.map(edge => edge.node);
     });
 
-    it("sets its parent <Col>'s `key` prop as its `name` from `props.data.references`", () => {
+    it("sets its parent <Col>'s `key` prop as its `id` from `props.data.references`", () => {
       getReferences().forEach((node, index) => {
-        expect(node.parents('Col').key()).toBe(referenceData[index].authorName);
+        const { id } = referenceData[index].frontmatter;
+        expect(node.parents('Col').key()).toBe(id);
       });
     });
 
@@ -384,20 +391,23 @@ describe("<IndexPage>", () => {
       expect(firstPortfolioItem.props().className).toBe('mt-lg-0');
     });
 
-    it("sets its `authorName` prop using its data `props.data.references`", () => {
-      comparePropToReferenceData('authorName', 'authorName');
+    it("sets its `authorName` prop using its data from `props.data.references`", () => {
+      comparePropToReferenceData('authorName', 'frontmatter.authorName');
     });
 
-    it("sets its `authorPosition` prop using its data `props.data.references`", () => {
-      comparePropToReferenceData('authorPosition', 'authorPosition');
+    it("sets its `authorPosition` prop using its data from `props.data.references`", () => {
+      comparePropToReferenceData('authorPosition', 'frontmatter.authorPosition');
     });
 
-    it("sets its `authorAvatar` prop using its data `props.data.references`", () => {
-      comparePropToReferenceData('authorAvatar', 'authorAvatar.childImageSharp.resolutions');
+    it("sets its `authorAvatar` prop using its data from `props.data.references`", () => {
+      comparePropToReferenceData(
+        'authorAvatar',
+        'frontmatter.authorAvatar.childImageSharp.resolutions',
+      );
     });
 
-    it("sets its `children` prop using its data `props.data.references`", () => {
-      comparePropToReferenceData('children', 'message');
+    it("sets its `children` prop using its data from `props.data.references`", () => {
+      comparePropToReferenceData('children', 'html');
     });
   });
 });

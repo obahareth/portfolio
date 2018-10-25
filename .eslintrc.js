@@ -14,6 +14,7 @@ module.exports = {
           ['layouts', './src/layouts'],
           ['pages', './src/pages'],
           ['scss', './src/scss'],
+          ['utils', './src/utils'],
         ],
         extensions: ['.js', '.jsx', '.scss', '.jpg', '.png', '.jpeg'],
       },
@@ -29,6 +30,7 @@ module.exports = {
   },
   rules: {
     'import/no-named-default': 0,
+    'import/prefer-default-export': 0,
     'no-constant-condition': 0,
     'react/forbid-prop-types': [1, {
       forbid: ['any', 'array'],

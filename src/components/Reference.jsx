@@ -4,6 +4,7 @@ import React from 'react';
 
 import Heading from 'components/Heading';
 import HTML from 'components/HTML';
+import { addQuotesToHtml } from 'utils';
 import './scss/Reference.scss';
 
 const Reference = ({
@@ -30,7 +31,7 @@ const Reference = ({
       </div>
       <div className="Reference__body">
         <HTML>
-          {children}
+          {addQuotesToHtml(children)}
         </HTML>
       </div>
     </div>
@@ -53,16 +54,22 @@ Reference.defaultProps = {
 
 export const query = graphql`
   fragment References on RootQueryType {
-    references: allReferencesYaml {
+    references: allMarkdownRemark(
+      filter: { frontmatter: { id: { glob: "reference-*" } } }
+      sort: { order: ASC, fields: [frontmatter___index] }
+    ) {
       edges {
         node {
-          authorName
-          authorPosition
-          message
-          authorAvatar {
-            childImageSharp {
-              resolutions(width: 64, height: 64) {
-                ...GatsbyImageSharpResolutions
+          html
+          frontmatter {
+            id
+            authorName
+            authorPosition
+            authorAvatar {
+              childImageSharp {
+                resolutions(width: 64, height: 64) {
+                  ...GatsbyImageSharpResolutions
+                }
               }
             }
           }

@@ -1,4 +1,5 @@
 import Reference from 'components/Reference';
+import { addQuotesToHtml } from 'utils';
 
 describe("<Reference>", () => {
   let mountedComponent;
@@ -11,9 +12,10 @@ describe("<Reference>", () => {
     return mountedComponent;
   };
   const getAuthorAvatar = () => getComponent().find('Image');
-  const getAuthorName = () => getComponent().find(`Heading[children='${props.authorName}']`);
-  const getAuthorPosition = () => getComponent().find(`Heading[children='${props.authorPosition}']`);
-  const getChildren = () => getComponent().find(`HTML[children='${props.children}']`);
+  const getAuthorName = () => getComponent()
+    .find(`Heading[children='${props.authorName}']`);
+  const getAuthorPosition = () => getComponent()
+    .find(`Heading[children='${props.authorPosition}']`);
 
   beforeEach(() => {
     mountedComponent = undefined;
@@ -41,8 +43,10 @@ describe("<Reference>", () => {
     expect(getAuthorPosition()).toHaveLength(1);
   });
 
-  it("renders `props.children`", () => {
-    expect(getChildren()).toHaveLength(1);
+  it("renders `props.children` wrapped in quotes", () => {
+    const children = getComponent()
+      .find(`HTML[children='${addQuotesToHtml(props.children)}']`);
+    expect(children).toHaveLength(1);
   });
 
   describe("rendered avatar", () => {
