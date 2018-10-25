@@ -3,10 +3,10 @@
   "private": true,
   "description": "Daniel Spajic's portfolio",
   "scripts": {
-    "build": "yarn run test && gatsby build && cp _redirects public/",
+    "build": "yarn test && gatsby build && cp _redirects public/",
     "develop": "gatsby develop",
     "test": "jest",
-    "test:watch": "yarn run test -- --watch",
+    "test:watch": "yarn test -- --watch",
     "lint": "eslint src"
   },
   "jest": {
