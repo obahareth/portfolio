@@ -280,16 +280,16 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
               worked with have said about me."
           />
           <Row>
-            {data.references.edges.map(({ node }, index) => (
-              <Col lg="6" key={node.authorName}>
+            {data.references.edges.map(({ node: { html, frontmatter } }, index) => (
+              <Col lg="6" key={frontmatter.id}>
                 <Reference
                   noMargin={index === 0}
                   className={index % 2 === 1 ? 'mt-lg-0' : ''}
-                  authorName={node.authorName}
-                  authorPosition={node.authorPosition}
-                  authorAvatar={node.authorAvatar.childImageSharp.resolutions}
+                  authorName={frontmatter.authorName}
+                  authorPosition={frontmatter.authorPosition}
+                  authorAvatar={frontmatter.authorAvatar.childImageSharp.resolutions}
                 >
-                  {node.message}
+                  {html}
                 </Reference>
               </Col>
             ))}

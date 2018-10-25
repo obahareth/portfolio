@@ -61,5 +61,11 @@ module.exports = {
         respectDNT: true,
       },
     },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [],
+      },
+    },
   ],
 };
