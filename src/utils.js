@@ -1,3 +1,5 @@
+/* This can only be run in `componentDidMount`.
+   See: https://www.gatsbyjs.org/docs/debugging-html-builds/ */
 export const addQuotesToHtml = (html) => {
   const parser = new DOMParser(html);
   const document = parser.parseFromString(html, 'text/html');

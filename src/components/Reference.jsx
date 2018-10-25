@@ -7,36 +7,57 @@ import HTML from 'components/HTML';
 import { addQuotesToHtml } from 'utils';
 import './scss/Reference.scss';
 
-const Reference = ({
-  authorName, authorPosition, authorAvatar, children, className, noMargin,
-}) => (
-  <div className={`${className} ${noMargin ? '' : 'mt-5'}`}>
-    <div className="Reference">
-      <div className="Reference__header">
-        <div className="d-flex align-items-center">
-          <Img
-            alt={authorName}
-            className="Reference__author-avatar rounded-circle mr-3"
-            resolutions={authorAvatar}
-          />
-          <div>
-            <Heading size={4}>
-              {authorName}
-            </Heading>
-            <Heading size={6} light className="text-secondary">
-              {authorPosition}
-            </Heading>
+class Reference extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      children: props.children,
+    };
+  }
+
+  componentDidMount() {
+    const { children } = this.props;
+    this.setState({
+      children: addQuotesToHtml(children),
+    });
+  }
+
+  render() {
+    const {
+      authorName, authorPosition, authorAvatar, className, noMargin,
+    } = this.props;
+    const { children } = this.state;
+
+    return (
+      <div className={`${className} ${noMargin ? '' : 'mt-5'}`}>
+        <div className="Reference">
+          <div className="Reference__header">
+            <div className="d-flex align-items-center">
+              <Img
+                alt={authorName}
+                className="Reference__author-avatar rounded-circle mr-3"
+                resolutions={authorAvatar}
+              />
+              <div>
+                <Heading size={4}>
+                  {authorName}
+                </Heading>
+                <Heading size={6} light className="text-secondary">
+                  {authorPosition}
+                </Heading>
+              </div>
+            </div>
+          </div>
+          <div className="Reference__body">
+            <HTML>
+              {children}
+            </HTML>
           </div>
         </div>
       </div>
-      <div className="Reference__body">
-        <HTML>
-          {addQuotesToHtml(children)}
-        </HTML>
-      </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 Reference.propTypes = {
   authorName: PropTypes.string.isRequired,
