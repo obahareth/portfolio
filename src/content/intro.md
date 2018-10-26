@@ -1,3 +1,7 @@
+---
+id: content-intro
+---
+
 Hey there—I'm Daniel.
 
 I'm a full-stack developer full of passion for all aspects of building great

@@ -1,4 +1,4 @@
-import Layout from 'layouts/index';
+import { Layout } from 'components/Layout';
 
 describe("<Layout>", () => {
   let mountedComponent;
@@ -17,7 +17,7 @@ describe("<Layout>", () => {
 
   beforeEach(() => {
     props = {
-      children: () => (
+      render: () => (
         <div>
           test
         </div>
@@ -41,7 +41,7 @@ describe("<Layout>", () => {
   });
 
   it("renders an <App>", () => {
-    expect(getComponent().find('App')).toHaveLength(1);
+    expect(getApp()).toHaveLength(1);
   });
 
   it("renders a <Helmet>", () => {
@@ -52,8 +52,8 @@ describe("<Layout>", () => {
     expect(getSidebar()).toHaveLength(1);
   });
 
-  it("renders `props.children`", () => {
-    expect(getRenderedApp().contains(props.children())).toBeTruthy();
+  it("renders `props.render`", () => {
+    expect(getRenderedApp().contains(props.render())).toBeTruthy();
   });
 
   describe("rendered <Helmet>", () => {
@@ -80,15 +80,15 @@ describe("<Layout>", () => {
     });
   });
 
-  describe("`children` prop", () => {
+  describe("`render` prop", () => {
     beforeEach(() => {
-      props.children = jest.fn();
+      props.render = jest.fn();
       getRenderedApp();
     });
 
     it("receives <App>'s `scrollTop` and `toggleSidebar` render prop args, and any extra props", () => {
       const app = getRenderedApp().instance();
-      expect(props.children).toHaveBeenCalledWith({
+      expect(props.render).toHaveBeenCalledWith({
         scrollTop: app.state.scrollTop,
         toggleSidebar: app.toggleSidebar,
         extraProp: props.extraProp,

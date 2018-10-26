@@ -1,8 +1,5 @@
 module.exports = {
   extends: 'airbnb',
-  globals: {
-    graphql: true,
-  },
   settings: {
     'import/core-modules': ['react', 'prop-types', 'config'],
     'import/resolver': {
@@ -32,6 +29,7 @@ module.exports = {
     'import/no-named-default': 0,
     'import/prefer-default-export': 0,
     'no-constant-condition': 0,
+    'no-underscore-dangle': 0,
     'react/forbid-prop-types': [1, {
       forbid: ['any', 'array'],
     }],

@@ -33,7 +33,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-postcss-sass',
+      resolve: 'gatsby-plugin-sass',
       options: {
         postCssPlugins: [cssnext()],
         precision: 8,

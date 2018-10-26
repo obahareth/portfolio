@@ -1,4 +1,4 @@
-import MainHeader from '../MainHeader';
+import { MainHeader } from '../MainHeader';
 
 describe("<MainHeader>", () => {
   let mountedComponent;
@@ -17,7 +17,12 @@ describe("<MainHeader>", () => {
   beforeEach(() => {
     mountedComponent = undefined;
     props = {
-      avatarResolutions: {},
+      avatarResolutions: {
+        width: 160,
+        height: 160,
+        src: 'test.png',
+        srcSet: 'test',
+      },
       children: (
         <div>
           some HTML

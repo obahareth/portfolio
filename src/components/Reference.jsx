@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -74,7 +75,7 @@ Reference.defaultProps = {
 };
 
 export const query = graphql`
-  fragment References on RootQueryType {
+  fragment References on Query {
     references: allMarkdownRemark(
       filter: { frontmatter: { id: { glob: "reference-*" } } }
       sort: { order: ASC, fields: [frontmatter___index] }
@@ -88,8 +89,8 @@ export const query = graphql`
             authorPosition
             authorAvatar {
               childImageSharp {
-                resolutions(width: 64, height: 64) {
-                  ...GatsbyImageSharpResolutions
+                fixed(width: 64, height: 64) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }

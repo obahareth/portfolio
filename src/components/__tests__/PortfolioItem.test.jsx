@@ -22,7 +22,12 @@ describe("<PortfolioItem>", () => {
     mountedComponent = undefined;
     props = {
       description: 'some app I made',
-      imageSizes: {},
+      imageSizes: {
+        aspectRatio: 3,
+        src: 'test.png',
+        srcSet: 'test',
+        sizes: 'test',
+      },
       name: 'Awesome App',
       skillsUsed: ['React', 'Redux', 'Django', 'SCSS', 'Twitter Bootstrap'],
       year: 2017,
@@ -72,8 +77,8 @@ describe("<PortfolioItem>", () => {
   });
 
   describe("rendered <Img>", () => {
-    it("sets its `sizes` prop as `props.imageSizes`", () => {
-      expect(getImg().props().sizes).toBe(props.imageSizes);
+    it("sets its `fluid` prop as `props.imageSizes`", () => {
+      expect(getImg().props().fluid).toBe(props.imageSizes);
     });
 
     it("sets its `alt` prop as `$[props.name] screenshot`", () => {
