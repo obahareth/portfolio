@@ -1,3 +1,7 @@
+---
+id: content-about-me-developer
+---
+
 Ever since I was a child I've been obsessed with building things. I'd spend
 hours enamored by whatever mechanical contraption grasped my interest. Today
 **coding satiates my desire to work with elegant, dynamic systems with real-world

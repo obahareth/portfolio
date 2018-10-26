@@ -22,7 +22,12 @@ describe("<Reference>", () => {
     props = {
       authorName: 'Elon Musk',
       authorPosition: 'CEO @ SpaceX & Tesla',
-      authorAvatar: { someKey: 'somevalue' },
+      authorAvatar: {
+        width: 160,
+        height: 160,
+        src: 'test.png',
+        srcSet: 'test',
+      },
       children: 'You should hire Daniel',
     };
   });

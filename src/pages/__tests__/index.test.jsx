@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 
-import IndexPage from '../index';
+import { IndexPage } from '../index';
 
 describe("<IndexPage>", () => {
   let mountedComponent;
@@ -12,7 +12,7 @@ describe("<IndexPage>", () => {
     }
     return mountedComponent;
   };
-  const getMainHeader = () => getComponent().find('MainHeader');
+  const getMainHeader = () => getComponent().find('MainHeaderContainer');
   const getNavbar = () => getComponent().find('Navbar');
   const getPortfolioItems = () => getComponent().find('PortfolioItem');
   const getReferences = () => getComponent().find('Reference');
@@ -25,6 +25,30 @@ describe("<IndexPage>", () => {
       scrollTop: 0,
       toggleSidebar: jest.fn(),
       data: {
+        aboutMeDeveloperJourneyMarkdown: {
+          html: '<p>test</>',
+        },
+        aboutMeExtraMarkdown: {
+          html: '<p>test</>',
+        },
+        aboutMeMainMarkdown: {
+          html: '<p>test</>',
+        },
+        aboutMeQuotesMarkdown: {
+          html: '<p>test</>',
+        },
+        introMarkdown: {
+          html: '<p>test</>',
+        },
+        businessSkillsetMarkdown: {
+          html: '<p>test</>',
+        },
+        designSkillsetMarkdown: {
+          html: '<p>test</>',
+        },
+        developerSkillsetMarkdown: {
+          html: '<p>test</>',
+        },
         avatar: {
           childImageSharp: {
             resolutions: {},
@@ -43,7 +67,7 @@ describe("<IndexPage>", () => {
                 caseStudy: 'https://danieljs.me/my-first-taste-of-success/',
                 image: {
                   childImageSharp: {
-                    sizes: {
+                    fluid: {
                       someProperty: 'someValue',
                     },
                   },
@@ -60,7 +84,7 @@ describe("<IndexPage>", () => {
                 skillsUsed: ['Nunjucks', 'Sass', 'Gulp', 'jQuery'],
                 image: {
                   childImageSharp: {
-                    sizes: {
+                    fluid: {
                       someProperty: 'someValue',
                     },
                   },
@@ -80,7 +104,7 @@ describe("<IndexPage>", () => {
                   authorPosition: 'CEO @ SpaceX & Tesla',
                   authorAvatar: {
                     childImageSharp: {
-                      resolutions: {
+                      fixed: {
                         someKey: 'somevalue',
                       },
                     },
@@ -97,7 +121,7 @@ describe("<IndexPage>", () => {
                   authorPosition: 'Inventor',
                   authorAvatar: {
                     childImageSharp: {
-                      resolutions: {
+                      fixed: {
                         someKey: 'somevalue',
                       },
                     },
@@ -232,9 +256,9 @@ describe("<IndexPage>", () => {
   });
 
   describe("rendered <MainHeader>", () => {
-    it("sets its `avatarResolutions` prop to `props.data.avatar.childImageSharp.resolutions`", () => {
+    it("sets its `avatarResolutions` prop to `props.data.avatar.childImageSharp.fluid`", () => {
       expect(getMainHeader().props().avatarResolutions)
-        .toBe(props.data.avatar.childImageSharp.resolutions);
+        .toBe(props.data.avatar.childImageSharp.fluid);
     });
 
     it("renders a link to Daniel's blog", () => {
@@ -347,7 +371,7 @@ describe("<IndexPage>", () => {
     });
 
     it("sets its `imageSizes` prop using its data `props.data.portfolioItems`", () => {
-      comparePropToPortfolioData('imageSizes', 'image.childImageSharp.sizes');
+      comparePropToPortfolioData('imageSizes', 'image.childImageSharp.fluid');
     });
   });
 
@@ -402,7 +426,7 @@ describe("<IndexPage>", () => {
     it("sets its `authorAvatar` prop using its data from `props.data.references`", () => {
       comparePropToReferenceData(
         'authorAvatar',
-        'frontmatter.authorAvatar.childImageSharp.resolutions',
+        'frontmatter.authorAvatar.childImageSharp.fixed',
       );
     });
 

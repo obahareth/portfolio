@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -16,7 +17,7 @@ const PortfolioItem = ({
       <Img
         className="img-fluid img-thumbnail mb-4 mb-lg-0"
         alt={`${name} screenshot`}
-        sizes={imageSizes}
+        fluid={imageSizes}
       />
     </Col>
     <Col lg="6">
@@ -75,7 +76,7 @@ PortfolioItem.defaultProps = {
 };
 
 export const query = graphql`
-  fragment PortfolioItems on RootQueryType {
+  fragment PortfolioItems on Query {
     portfolioItems: allPortfolioYaml {
       edges {
         node {
@@ -88,8 +89,8 @@ export const query = graphql`
           skillsUsed
           image {
             childImageSharp {
-              sizes(maxWidth: 700) {
-                ...GatsbyImageSharpSizes
+              fluid(maxWidth: 700) {
+                ...GatsbyImageSharpFluid
               }
             }
           }

@@ -1,3 +1,4 @@
+import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -7,7 +8,7 @@ import Heading from 'components/Heading';
 import Parallax from 'components/Parallax';
 import './scss/MainHeader.scss';
 
-const MainHeader = ({
+export const MainHeader = ({
   avatarResolutions, children, subtitle, title,
 }) => (
   <Parallax>
@@ -38,16 +39,26 @@ MainHeader.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export const query = graphql`
-  fragment AvatarFragment on RootQueryType {
-    avatar: file(relativePath: { eq: "daniel-spajic-avatar.png" }) {
-      childImageSharp {
-        resolutions(width: 160, height: 160) {
-          ...GatsbyImageSharpResolutions
+const MainHeaderContainer = props => (
+  <StaticQuery
+    query={graphql`
+     query {
+        avatar: file(relativePath: { eq: "daniel-spajic-avatar.png" }) {
+          childImageSharp {
+            fixed(width: 160, height: 160) {
+              ...GatsbyImageSharpFixed
+            }
+          }
         }
       }
-    }
-  }
-`;
+    `}
+    render={data => (
+      <MainHeader
+        avatarResolutions={data.avatar.childImageSharp.fixed}
+        {...props}
+      />
+    )}
+  />
+);
 
-export default MainHeader;
+export default MainHeaderContainer;

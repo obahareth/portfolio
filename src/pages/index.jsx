@@ -1,9 +1,12 @@
+import { graphql, StaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 
 import Footer from 'components/Footer';
 import HeadingSection from 'components/HeadingSection';
+import { default as Layout } from 'components/Layout';
+// eslint-disable-next-line
 import MainHeader from 'components/MainHeader';
 import Navbar from 'components/Navbar';
 import PortfolioItem from 'components/PortfolioItem';
@@ -13,16 +16,8 @@ import Section from 'components/Section';
 import SectionHeader from 'components/SectionHeader';
 import SkillList from 'components/SkillList';
 import SocialLink from 'components/SocialLink';
-import introMarkdown from 'content/intro.md';
-import aboutMeDeveloperJourneyMarkdown from 'content/about-me-developer.md';
-import aboutMeExtraMarkdown from 'content/about-me-extra.md';
-import aboutMeFavouriteQuotesMarkdown from 'content/about-me-quotes.md';
-import aboutMeMarkdown from 'content/about-me.md';
-import businessSkillsetMarkdown from 'content/skillset-business.md';
-import developerSkillsetMarkdown from 'content/skillset-developer.md';
-import designSkillsetMarkdown from 'content/skillset-design.md';
 
-const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
+export const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
   <div>
     <Navbar solid={scrollTop > 0} toggleSidebar={toggleSidebar} />
     <main>
@@ -31,7 +26,6 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
           <Section roundedBottom padding={Section.PADDING_LARGE}>
             <Container>
               <MainHeader
-                avatarResolutions={data.avatar.childImageSharp.resolutions}
                 title="Daniel Spajic"
                 subtitle="Front-end engineer with a full-stack skillset"
               >
@@ -55,7 +49,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             <Row>
               <Col className="text-center" lg={{ size: 8, offset: 2 }}>
                 <HTML>
-                  {introMarkdown}
+                  {data.introMarkdown.html}
                 </HTML>
               </Col>
             </Row>
@@ -74,7 +68,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             <Col lg="6">
               <HeadingSection icon="developer" title="Developer" size={3} noMargin>
                 <HTML>
-                  {developerSkillsetMarkdown}
+                  {data.developerSkillsetMarkdown.html}
                 </HTML>
               </HeadingSection>
             </Col>
@@ -110,14 +104,14 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             <Col md="6">
               <HeadingSection icon="design" title="Design sense" size={3}>
                 <HTML>
-                  {designSkillsetMarkdown}
+                  {data.designSkillsetMarkdown.html}
                 </HTML>
               </HeadingSection>
             </Col>
             <Col md="6">
               <HeadingSection icon="business" title="Business insight" size={3}>
                 <HTML>
-                  {businessSkillsetMarkdown}
+                  {data.businessSkillsetMarkdown.html}
                 </HTML>
               </HeadingSection>
             </Col>
@@ -130,7 +124,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
             index={2}
             title="Values"
             description="Collaborating well is more important than someone's skillset.
-             Here's an insight into how I work to ensure we'll get along well."
+            Here's an insight into how I work to ensure we'll get along well."
           />
           <Row>
             <Col lg="3" sm="6">
@@ -219,7 +213,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
               skillsUsed={node.skillsUsed}
               sourceCode={node.sourceCode}
               caseStudy={node.caseStudy}
-              imageSizes={node.image.childImageSharp.sizes}
+              imageSizes={node.image.childImageSharp.fluid}
             />
           ))}
         </Container>
@@ -241,13 +235,13 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
                   noMargin
                 >
                   <HTML>
-                    {aboutMeDeveloperJourneyMarkdown}
+                    {data.aboutMeDeveloperJourneyMarkdown.html}
                   </HTML>
                 </HeadingSection>
               </div>
               <HeadingSection size={4} icon="about-me" title="More about me">
                 <HTML>
-                  {aboutMeMarkdown}
+                  {data.aboutMeMainMarkdown.html}
                 </HTML>
               </HeadingSection>
             </Col>
@@ -259,12 +253,12 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
                 className="mt-lg-0"
               >
                 <HTML>
-                  {aboutMeExtraMarkdown}
+                  {data.aboutMeExtraMarkdown.html}
                 </HTML>
               </HeadingSection>
               <HeadingSection size={4} icon="quote" title="Favourite quotes">
                 <HTML>
-                  {aboutMeFavouriteQuotesMarkdown}
+                  {data.aboutMeQuotesMarkdown.html}
                 </HTML>
               </HeadingSection>
             </Col>
@@ -287,7 +281,7 @@ const IndexPage = ({ data, scrollTop, toggleSidebar }) => (
                   className={index % 2 === 1 ? 'mt-lg-0' : ''}
                   authorName={frontmatter.authorName}
                   authorPosition={frontmatter.authorPosition}
-                  authorAvatar={frontmatter.authorAvatar.childImageSharp.resolutions}
+                  authorAvatar={frontmatter.authorAvatar.childImageSharp.fixed}
                 >
                   {html}
                 </Reference>
@@ -307,12 +301,50 @@ IndexPage.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
 };
 
-export const query = graphql`
-  query IndexQuery {
-    ...AvatarFragment
-    ...PortfolioItems
-    ...References
-  }
-`;
+const IndexPageContainer = props => (
+  <Layout render={({ scrollTop, toggleSidebar }) => (
+    <StaticQuery
+      query={graphql`
+        query IndexQuery {
+          ...PortfolioItems
+          ...References
+          aboutMeDeveloperJourneyMarkdown: markdownRemark(frontmatter: { id: { eq: "content-about-me-developer" } }) {
+            html
+          }
+          aboutMeExtraMarkdown: markdownRemark(frontmatter: { id: { eq: "content-about-me-extra" } }) {
+            html
+          }
+          aboutMeMainMarkdown: markdownRemark(frontmatter: { id: { eq: "content-about-me-main" } }) {
+            html
+          }
+          aboutMeQuotesMarkdown: markdownRemark(frontmatter: { id: { eq: "content-about-me-quotes" } }) {
+            html
+          }
+          introMarkdown: markdownRemark(frontmatter: { id: { eq: "content-intro" } }) {
+            html
+          }
+          businessSkillsetMarkdown: markdownRemark(frontmatter: { id: { eq: "content-skillset-business" } }) {
+            html
+          }
+          designSkillsetMarkdown: markdownRemark(frontmatter: { id: { eq: "content-skillset-design" } }) {
+            html
+          }
+          developerSkillsetMarkdown: markdownRemark(frontmatter: { id: { eq: "content-skillset-developer" } }) {
+            html
+          }
+        }
+      `}
+      render={data => (
+        <IndexPage
+          data={data}
+          scrollTop={scrollTop}
+          toggleSidebar={toggleSidebar}
+          {...props}
+        />
+      )}
+    />
+  )}
+  />
+);
 
-export default IndexPage;
+export default IndexPageContainer;
