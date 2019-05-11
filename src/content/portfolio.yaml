@@ -18,41 +18,6 @@
     - Twitter Bootstrap
     - Netlify
 - item:
-  name: Trausing
-  caseStudy: https://danieljs.me/my-first-taste-of-success/
-  image: ../images/portfolio/trausing.png
-  description:
-    Whilst solo-travelling across Canada, I witnessed the extreme disparity between
-    the supply and demand of homes in Whistler. The platforms used to find homes
-    were terrible, so I developed an elegant solution with great success.
-    The project was featured in the media, with hundreds of users, and exceptional
-    feedback.
-  siteLink: http://trausing.danieljs.tech
-  year: 2016
-  skillsUsed:
-    - Django
-    - Python
-    - PostgreSQL
-    - Twitter Bootstrap
-    - jQuery
-    - Mailgun API
-    - DigitalOcean
-- item:
-  name: Antun Debak's Portfolio
-  description:
-    After a failed attempt working with another developer, Antun approached me
-    looking for someone capable of building his portfolio he designed. Using the
-    provided design files I worked closely with him to successfully achieve his
-    vision.
-  image: ../images/portfolio/antun-debak-portfolio.png
-  siteLink: http://debak.danieljs.tech
-  year: 2017
-  skillsUsed:
-    - Sass
-    - HTML
-    - Twitter Bootstrap
-    - jQuery
-- item:
   name: Trizma
   description:
     After our successful past experience working together, Antun approached me
@@ -85,6 +50,41 @@
     - Python
     - HTML
     - CSS
+    - Twitter Bootstrap
+    - jQuery
+    - Mailgun API
+    - DigitalOcean
+- item:
+  name: Antun Debak's Portfolio
+  description:
+    After a failed attempt working with another developer, Antun approached me
+    looking for someone capable of building his portfolio he designed. Using the
+    provided design files I worked closely with him to successfully achieve his
+    vision.
+  image: ../images/portfolio/antun-debak-portfolio.png
+  siteLink: http://debak.danieljs.tech
+  year: 2017
+  skillsUsed:
+    - Sass
+    - HTML
+    - Twitter Bootstrap
+    - jQuery
+- item:
+  name: Trausing
+  caseStudy: https://danieljs.me/my-first-taste-of-success/
+  image: ../images/portfolio/trausing.png
+  description:
+    Whilst solo-travelling across Canada, I witnessed the extreme disparity between
+    the supply and demand of homes in Whistler. The platforms used to find homes
+    were terrible, so I developed an elegant solution with great success.
+    The project was featured in the media, with hundreds of users, and exceptional
+    feedback.
+  siteLink: http://trausing.danieljs.tech
+  year: 2016
+  skillsUsed:
+    - Django
+    - Python
+    - PostgreSQL
     - Twitter Bootstrap
     - jQuery
     - Mailgun API

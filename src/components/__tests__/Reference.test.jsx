@@ -1,4 +1,5 @@
 import Reference from 'components/Reference';
+import { addQuotesToHtml } from 'utils';
 
 describe("<Reference>", () => {
   let mountedComponent;
@@ -11,16 +12,22 @@ describe("<Reference>", () => {
     return mountedComponent;
   };
   const getAuthorAvatar = () => getComponent().find('Image');
-  const getAuthorName = () => getComponent().find(`Heading[children='${props.authorName}']`);
-  const getAuthorPosition = () => getComponent().find(`Heading[children='${props.authorPosition}']`);
-  const getChildren = () => getComponent().find(`HTML[children='${props.children}']`);
+  const getAuthorName = () => getComponent()
+    .find(`Heading[children='${props.authorName}']`);
+  const getAuthorPosition = () => getComponent()
+    .find(`Heading[children='${props.authorPosition}']`);
 
   beforeEach(() => {
     mountedComponent = undefined;
     props = {
       authorName: 'Elon Musk',
       authorPosition: 'CEO @ SpaceX & Tesla',
-      authorAvatar: { someKey: 'somevalue' },
+      authorAvatar: {
+        width: 160,
+        height: 160,
+        src: 'test.png',
+        srcSet: 'test',
+      },
       children: 'You should hire Daniel',
     };
   });
@@ -41,8 +48,10 @@ describe("<Reference>", () => {
     expect(getAuthorPosition()).toHaveLength(1);
   });
 
-  it("renders `props.children`", () => {
-    expect(getChildren()).toHaveLength(1);
+  it("renders `props.children` wrapped in quotes", () => {
+    const children = getComponent()
+      .find(`HTML[children='${addQuotesToHtml(props.children)}']`);
+    expect(children).toHaveLength(1);
   });
 
   describe("rendered avatar", () => {

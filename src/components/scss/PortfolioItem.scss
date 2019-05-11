@@ -1,0 +1,33 @@
+@import 'helpers';
+
+.PortfolioItem {
+
+  &__image {
+    border-radius: 0 0 $border-radius-lg $border-radius-lg;
+  }
+
+  &__image-container {
+    border-top: 2rem solid $gray-200;
+    box-shadow: 0 0.1rem 1rem 0 rgba(0, 0, 0, 0.3);
+    position: relative;
+    border-radius: $border-radius-lg;
+
+    &::before {
+      $btn-colour: $gray-400;
+
+      display: block;
+      position: absolute;
+      content: '';
+      top: -1.25rem;
+      left: 1em;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: $btn-colour;
+      box-shadow:
+        0 0 0 2px $btn-colour,
+        1.5rem 0 0 2px $btn-colour,
+        3rem 0 0 2px $btn-colour;
+    }
+  }
+}

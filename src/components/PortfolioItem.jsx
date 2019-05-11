@@ -1,8 +1,10 @@
+import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Col, Row } from 'reactstrap';
 
+import './scss/PortfolioItem.scss';
 import Heading from 'components/Heading';
 import Icon from 'components/Icon';
 import SkillList from 'components/SkillList';
@@ -11,13 +13,15 @@ const PortfolioItem = ({
   alt, caseStudy, description, imageSizes, name, noMargin, siteLink, skillsUsed,
   sourceCode, year,
 }) => (
-  <Row className={noMargin ? '' : 'mt-5'}>
+  <Row className={`PortfolioItem ${noMargin ? '' : 'mt-5'}`}>
     <Col lg={{ size: 6, order: alt ? 2 : undefined }}>
-      <Img
-        className="img-fluid img-thumbnail mb-4 mb-lg-0"
-        alt={`${name} screenshot`}
-        sizes={imageSizes}
-      />
+      <div className="PortfolioItem__image-container">
+        <Img
+          className="img-fluid mb-4 mb-lg-0 PortfolioItem__image"
+          alt={`${name} screenshot`}
+          fluid={imageSizes}
+        />
+      </div>
     </Col>
     <Col lg="6">
       <Heading size={3}>
@@ -75,7 +79,7 @@ PortfolioItem.defaultProps = {
 };
 
 export const query = graphql`
-  fragment PortfolioItems on RootQueryType {
+  fragment PortfolioItems on Query {
     portfolioItems: allPortfolioYaml {
       edges {
         node {
@@ -88,8 +92,8 @@ export const query = graphql`
           skillsUsed
           image {
             childImageSharp {
-              sizes(maxWidth: 700) {
-                ...GatsbyImageSharpSizes
+              fluid(maxWidth: 700) {
+                ...GatsbyImageSharpFluid
               }
             }
           }

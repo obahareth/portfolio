@@ -1,3 +1,4 @@
+import { graphql, StaticQuery } from 'gatsby';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -18,7 +19,7 @@ const siteTitle = 'Daniel Spajic';
 const getSiteDescription = data => get(data, 'site.siteMetadata.description');
 const getSiteUrl = data => get(data, 'site.siteMetadata.siteUrl');
 
-const Layout = ({ children, data, ...otherProps }) => (
+export const Layout = ({ data, render, ...otherProps }) => (
   <ErrorBoundary>
     <App render={({ isSidebarOpen, scrollTop, toggleSidebar }) => (
       <React.Fragment>
@@ -51,7 +52,7 @@ const Layout = ({ children, data, ...otherProps }) => (
         <div id={PAGE_CONTENT_CONTAINER_ID}>
           <Sidebar isOpen={isSidebarOpen} toggle={toggleSidebar} />
           <div id={PAGE_CONTENT_ID}>
-            {children({ scrollTop, toggleSidebar, ...otherProps })}
+            {render({ scrollTop, toggleSidebar, ...otherProps })}
           </div>
         </div>
       </React.Fragment>
@@ -61,7 +62,6 @@ const Layout = ({ children, data, ...otherProps }) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.func.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
@@ -71,18 +71,24 @@ Layout.propTypes = {
       }),
     }),
   }).isRequired,
+  render: PropTypes.func.isRequired,
 };
 
-export default Layout;
-
-export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        description
-        siteUrl
-        title
+const LayoutContainer = props => (
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            description
+            siteUrl
+            title
+          }
+        }
       }
-    }
-  }
-`;
+    `}
+    render={data => <Layout data={data} {...props} />}
+  />
+);
+
+export default LayoutContainer;

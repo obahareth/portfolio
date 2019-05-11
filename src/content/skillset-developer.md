@@ -1,3 +1,7 @@
+---
+id: content-skillset-developer
+---
+
 As someone who loves the art of software development, **I have a passion for
 writing robust, clean, and maintainable code**.
 

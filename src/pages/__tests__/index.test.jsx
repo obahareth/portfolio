@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 
-import IndexPage from '../index';
+import { IndexPage } from '../index';
 
 describe("<IndexPage>", () => {
   let mountedComponent;
@@ -12,7 +12,7 @@ describe("<IndexPage>", () => {
     }
     return mountedComponent;
   };
-  const getMainHeader = () => getComponent().find('MainHeader');
+  const getMainHeader = () => getComponent().find('MainHeaderContainer');
   const getNavbar = () => getComponent().find('Navbar');
   const getPortfolioItems = () => getComponent().find('PortfolioItem');
   const getReferences = () => getComponent().find('Reference');
@@ -25,6 +25,30 @@ describe("<IndexPage>", () => {
       scrollTop: 0,
       toggleSidebar: jest.fn(),
       data: {
+        aboutMeDeveloperJourneyMarkdown: {
+          html: '<p>test</>',
+        },
+        aboutMeExtraMarkdown: {
+          html: '<p>test</>',
+        },
+        aboutMeMainMarkdown: {
+          html: '<p>test</>',
+        },
+        aboutMeQuotesMarkdown: {
+          html: '<p>test</>',
+        },
+        introMarkdown: {
+          html: '<p>test</>',
+        },
+        businessSkillsetMarkdown: {
+          html: '<p>test</>',
+        },
+        designSkillsetMarkdown: {
+          html: '<p>test</>',
+        },
+        developerSkillsetMarkdown: {
+          html: '<p>test</>',
+        },
         avatar: {
           childImageSharp: {
             resolutions: {},
@@ -43,7 +67,7 @@ describe("<IndexPage>", () => {
                 caseStudy: 'https://danieljs.me/my-first-taste-of-success/',
                 image: {
                   childImageSharp: {
-                    sizes: {
+                    fluid: {
                       someProperty: 'someValue',
                     },
                   },
@@ -60,7 +84,7 @@ describe("<IndexPage>", () => {
                 skillsUsed: ['Nunjucks', 'Sass', 'Gulp', 'jQuery'],
                 image: {
                   childImageSharp: {
-                    sizes: {
+                    fluid: {
                       someProperty: 'someValue',
                     },
                   },
@@ -73,13 +97,16 @@ describe("<IndexPage>", () => {
           edges: [
             {
               node: {
-                authorName: 'Elon Musk',
-                authorPosition: 'CEO @ SpaceX & Tesla',
-                message: 'Hire Daniel',
-                authorAvatar: {
-                  childImageSharp: {
-                    resolutions: {
-                      someKey: 'somevalue',
+                html: 'Hire Daniel',
+                frontmatter: {
+                  id: 'reference-elon-musk',
+                  authorName: 'Elon Musk',
+                  authorPosition: 'CEO @ SpaceX & Tesla',
+                  authorAvatar: {
+                    childImageSharp: {
+                      fixed: {
+                        someKey: 'somevalue',
+                      },
                     },
                   },
                 },
@@ -87,13 +114,16 @@ describe("<IndexPage>", () => {
             },
             {
               node: {
-                authorName: 'Nikola Tesla',
-                authorPosition: 'Inventor',
-                message: 'Daniel is a cool kiddo',
-                authorAvatar: {
-                  childImageSharp: {
-                    resolutions: {
-                      someKey: 'somevalue',
+                html: 'Daniel is a cool kiddo',
+                frontmatter: {
+                  id: 'reference-nikola-tesla',
+                  authorName: 'Nikola Tesla',
+                  authorPosition: 'Inventor',
+                  authorAvatar: {
+                    childImageSharp: {
+                      fixed: {
+                        someKey: 'somevalue',
+                      },
                     },
                   },
                 },
@@ -226,9 +256,9 @@ describe("<IndexPage>", () => {
   });
 
   describe("rendered <MainHeader>", () => {
-    it("sets its `avatarResolutions` prop to `props.data.avatar.childImageSharp.resolutions`", () => {
+    it("sets its `avatarResolutions` prop to `props.data.avatar.childImageSharp.fluid`", () => {
       expect(getMainHeader().props().avatarResolutions)
-        .toBe(props.data.avatar.childImageSharp.resolutions);
+        .toBe(props.data.avatar.childImageSharp.fluid);
     });
 
     it("renders a link to Daniel's blog", () => {
@@ -341,7 +371,7 @@ describe("<IndexPage>", () => {
     });
 
     it("sets its `imageSizes` prop using its data `props.data.portfolioItems`", () => {
-      comparePropToPortfolioData('imageSizes', 'image.childImageSharp.sizes');
+      comparePropToPortfolioData('imageSizes', 'image.childImageSharp.fluid');
     });
   });
 
@@ -358,9 +388,10 @@ describe("<IndexPage>", () => {
       referenceData = props.data.references.edges.map(edge => edge.node);
     });
 
-    it("sets its parent <Col>'s `key` prop as its `name` from `props.data.references`", () => {
+    it("sets its parent <Col>'s `key` prop as its `id` from `props.data.references`", () => {
       getReferences().forEach((node, index) => {
-        expect(node.parents('Col').key()).toBe(referenceData[index].authorName);
+        const { id } = referenceData[index].frontmatter;
+        expect(node.parents('Col').key()).toBe(id);
       });
     });
 
@@ -384,20 +415,23 @@ describe("<IndexPage>", () => {
       expect(firstPortfolioItem.props().className).toBe('mt-lg-0');
     });
 
-    it("sets its `authorName` prop using its data `props.data.references`", () => {
-      comparePropToReferenceData('authorName', 'authorName');
+    it("sets its `authorName` prop using its data from `props.data.references`", () => {
+      comparePropToReferenceData('authorName', 'frontmatter.authorName');
     });
 
-    it("sets its `authorPosition` prop using its data `props.data.references`", () => {
-      comparePropToReferenceData('authorPosition', 'authorPosition');
+    it("sets its `authorPosition` prop using its data from `props.data.references`", () => {
+      comparePropToReferenceData('authorPosition', 'frontmatter.authorPosition');
     });
 
-    it("sets its `authorAvatar` prop using its data `props.data.references`", () => {
-      comparePropToReferenceData('authorAvatar', 'authorAvatar.childImageSharp.resolutions');
+    it("sets its `authorAvatar` prop using its data from `props.data.references`", () => {
+      comparePropToReferenceData(
+        'authorAvatar',
+        'frontmatter.authorAvatar.childImageSharp.fixed',
+      );
     });
 
-    it("sets its `children` prop using its data `props.data.references`", () => {
-      comparePropToReferenceData('children', 'message');
+    it("sets its `children` prop using its data from `props.data.references`", () => {
+      comparePropToReferenceData('children', 'html');
     });
   });
 });

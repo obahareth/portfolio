@@ -1,10 +1,11 @@
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import React from 'react';
 import { Container } from 'reactstrap';
 
+import { default as Layout } from 'components/Layout';
 import Heading from 'components/Heading';
 
-const NotFoundPage = () => (
+export const NotFoundPage = () => (
   <section className="pt-5 text-center">
     <Container>
       <Heading size={1}>
@@ -34,4 +35,11 @@ const NotFoundPage = () => (
   </section>
 );
 
-export default NotFoundPage;
+const NotFoundPageContainer = () => (
+  <Layout render={() => (
+    <NotFoundPage />
+  )}
+  />
+);
+
+export default NotFoundPageContainer;
