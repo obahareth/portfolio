@@ -21,6 +21,14 @@ module.exports = {
         icon: `${__dirname}/src/images/icon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-sentry',
+      options: {
+        dsn: 'https://2c20d84c61ad4424811648f288dd24d5@sentry.io/1457234',
+        environment: process.env.NODE_ENV,
+        enabled: (() => ['production', 'stage'].indexOf(process.env.NODE_ENV) !== -1)(),
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',

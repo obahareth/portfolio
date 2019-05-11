@@ -25,6 +25,9 @@ module.exports = {
     jest: true,
     serviceworker: true,
   },
+  globals: {
+    Sentry: true,
+  },
   rules: {
     'import/no-named-default': 0,
     'import/prefer-default-export': 0,
