@@ -5,6 +5,7 @@
   "scripts": {
     "build": "yarn test && gatsby build && cp _redirects public/",
     "develop": "gatsby develop",
+    "serve": "gatsby serve",
     "test": "jest",
     "test:watch": "yarn test -- --watch",
     "lint": "eslint src"
