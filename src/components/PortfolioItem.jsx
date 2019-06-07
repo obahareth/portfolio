@@ -17,19 +17,24 @@ const PortfolioItem = ({
     <Col lg={{ size: 6, order: alt ? 2 : undefined }}>
       <div className="PortfolioItem__image-container">
         <Img
-          className="img-fluid mb-4 mb-lg-0 PortfolioItem__image"
+          className="PortfolioItem__image img-fluid mb-4 mb-lg-0"
           alt={`${name} screenshot`}
           fluid={imageSizes}
         />
       </div>
     </Col>
     <Col lg="6">
-      <Heading size={3}>
-        {name}
-        <span className="text-primary font-weight-medium d-none d-sm-inline">
-          {` — ${year}`}
-        </span>
-      </Heading>
+      <div className="PortfolioItem__header">
+        <Heading className="PortfolioItem__title" size={3}>
+          {name}
+        </Heading>
+        <Heading size={3} className="PortfolioItem__date text-primary font-weight-medium">
+          <span className="PortfolioItem__date-mdash">
+            {'—'}
+          </span>
+          {year}
+        </Heading>
+      </div>
       <p>
         {description}
       </p>

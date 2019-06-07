@@ -11,8 +11,8 @@ describe("<PortfolioItem>", () => {
     return mountedComponent;
   };
   const getImg = () => getComponent().find('Image');
-  const getTitle = () => getComponent().find('Heading[size=3]');
-  const getYear = () => getTitle().find('span');
+  const getTitle = () => getComponent().find('Heading[className^="PortfolioItem__title"]');
+  const getYear = () => getComponent().find('Heading[className^="PortfolioItem__date"]');
   const getSkillList = () => getComponent().find('SkillList');
   const getDescription = () => getComponent().find('p');
   const getCols = () => getComponent().find('Col');
